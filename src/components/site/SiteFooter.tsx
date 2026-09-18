@@ -14,7 +14,7 @@ export function SiteFooter() {
       <div className="jc-container" style={{ position: "relative" }}>
         <div className="jc-footer__top">
           <div data-reveal="rise">
-            <LogoLockup layout="institutional" tone="negative" size={52} />
+            <LogoLockup layout="institutional" tone="negative" size={52} align="start" />
           </div>
 
           <div className="jc-footer__cols" data-reveal-stagger="">

@@ -10,11 +10,14 @@ export function LogoLockup({
   tone = "positive",
   size = 64,
   crmv = site.crmv,
+  align = "center",
 }: {
   layout?: "vertical" | "horizontal" | "institutional" | "symbol";
   tone?: "positive" | "negative";
   size?: number;
   crmv?: string;
+  /** Cross-axis alignment of the vertical/institutional stack. */
+  align?: "center" | "start";
 }) {
   const isNeg = tone === "negative";
   const ink = isNeg ? "var(--off-white)" : "var(--musgo)";
@@ -77,9 +80,9 @@ export function LogoLockup({
       style={{
         display: "inline-flex",
         flexDirection: "column",
-        alignItems: "center",
+        alignItems: align === "start" ? "flex-start" : "center",
         gap: size * 0.22,
-        textAlign: "center",
+        textAlign: align === "start" ? "left" : "center",
       }}
     >
       <JcSymbol size={size} color={ink} />
