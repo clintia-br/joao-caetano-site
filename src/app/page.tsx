@@ -148,10 +148,8 @@ export default function HomePage() {
             <div className="jc-row" style={{ marginTop: "0.5rem" }} data-reveal="rise">
               <a
                 className="jc-whatsapp"
-                href={site.whatsapp.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Fale comigo pelo WhatsApp"
+                href="#contato"
+                aria-label="Ir para o agendamento pelo WhatsApp"
               >
                 {/* the one exception to the icon-light rule, kept from the UI
                     kit: the WhatsApp glyph on the WhatsApp action */}

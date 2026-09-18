@@ -100,7 +100,7 @@ export const FOOTER_COLUMNS = [
   {
     title: "Contato",
     links: [
-      { label: "WhatsApp", href: site.whatsapp.href },
+      { label: "WhatsApp", href: "#contato" },
       { label: "Instagram", href: site.instagram },
       { label: "Agendar", href: "#contato" },
     ],

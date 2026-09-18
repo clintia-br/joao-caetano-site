@@ -72,7 +72,7 @@ export function HomeHero() {
         </p>
 
         <div className="jc-row" data-hero>
-          <ButtonLink href={site.whatsapp.href} size="lg">
+          <ButtonLink href="#contato" size="lg">
             Agendar pelo WhatsApp
           </ButtonLink>
           <ButtonLink href="#como-funciona" variant="secondary" size="lg">
