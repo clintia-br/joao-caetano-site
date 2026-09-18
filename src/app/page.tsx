@@ -5,6 +5,7 @@ import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { DiffItem, Step, Timeline, ArticleCard, InfoRow } from "@/components/site/Pieces";
 import { Marquee } from "@/components/motion/Marquee";
 import { FaqList } from "@/components/site/FaqList";
+import { PhotoCarousel, type CarouselPhoto } from "@/components/site/PhotoCarousel";
 import { ButtonLink } from "@/components/ds/Button";
 import { ServiceCard } from "@/components/ds/ServiceCard";
 import { Disclaimer } from "@/components/ds/Disclaimer";
@@ -15,7 +16,7 @@ import { SplitHeading } from "@/components/motion/SplitHeading";
 import { ARTICLES, FAQS, SERVICES, site } from "@/lib/site";
 
 const PILLARS = [
-  ["01", "Calma", "Duas horas reservadas pra você entender tudo, no seu ritmo. Sem pressa."],
+  ["01", "Calma", "Até duas horas reservadas pra você entender tudo, no seu ritmo. Sem pressa."],
   ["02", "Verdade", "Se dá pra resolver sem remédio, é isso que você vai ouvir."],
   [
     "03",
@@ -25,7 +26,7 @@ const PILLARS = [
 ] as const;
 
 const DIFERENCIAIS = [
-  ["01", "Duas horas reservadas", "A agenda é sua. A consulta dura o que precisar dentro dessa janela."],
+  ["01", "Até duas horas reservadas", "A agenda é sua. A consulta dura o que precisar dentro dessa janela."],
   [
     "02",
     "Preço aberto antes de agendar",
@@ -58,6 +59,17 @@ const DEPOIMENTOS = [
   },
 ] as const;
 
+/* Day-to-day photo strip. Slots are placeholders until João's photos land —
+   add `src`, `alt`, `width` and `height` to each one to fill it. */
+const GALERIA: CarouselPhoto[] = [
+  { brief: "João com um paciente em casa · 4:5" },
+  { brief: "Consulta na sala do tutor · 4:5" },
+  { brief: "Vacina aplicada em casa · 4:5" },
+  { brief: "João conversando com o tutor · 4:5" },
+  { brief: "Gato sendo examinado no sofá · 4:5" },
+  { brief: "Detalhe do cuidado · 4:5" },
+];
+
 const FAQ_LD = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -88,7 +100,7 @@ export default function HomePage() {
           items={[
             "Cuidado que você entende.",
             "O consultório é a sua casa.",
-            "Cães e gatos, na Zona Sul.",
+            "Cães e gatos, em casa, na Zona Sul.",
             "Nenhuma decisão sem porquê.",
           ]}
         />
@@ -100,9 +112,10 @@ export default function HomePage() {
           <div className="jc-stack jc-stack--md">
             <SectionHead number="01" eyebrow="Quem cuida" title="Cuidar bem tem um caminho" />
             <p className="jc-body jc-body--lg" data-reveal="rise">
-              Sou o João, médico-veterinário. Atendo cães e gatos em suas casas, com calma e no
-              tempo que cada caso pede. Muita coisa se resolve com ajuste na rotina, e quando dá pra
-              começar por aí, é por aí que a gente começa.
+              Sou o João, médico-veterinário. Vou até a sua casa e cuido do seu cão ou gato onde ele
+              se sente seguro — perto de você. Gosto de entender como ele vive, o que ele sente e o
+              que ele precisa antes de pensar em remédio. É esse cuidado, com calma e atenção, que
+              ajuda ele a viver bem por mais tempo ao seu lado.
             </p>
 
             <ul className="jc-numbered" data-reveal-stagger="">
@@ -152,6 +165,14 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </Section>
+
+      {/* ---------------------------------------------- galeria / dia a dia */}
+      <Section bg="page">
+        <SectionHead eyebrow="No dia a dia" title="Em casa, com eles" />
+        <div className="jc-mt-lg" data-reveal="rise">
+          <PhotoCarousel items={GALERIA} />
         </div>
       </Section>
 
@@ -253,7 +274,7 @@ export default function HomePage() {
             <Step
               n="2"
               title="Eu vou até você"
-              body="Chego no horário, com duas horas reservadas. Examino o pet no lugar onde ele vive, sem precisar botar ninguém na caixa de transporte."
+              body="Chego no horário, com até duas horas reservadas. Examino o pet no lugar onde ele vive, sem precisar botar ninguém na caixa de transporte."
             />
             <Step
               n="3"

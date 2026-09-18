@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     template: `%s | ${site.name} — ${site.role}`,
   },
   description:
-    "Atendimento veterinário em casa para cães e gatos na Zona Sul do Rio. Duas horas reservadas por consulta, plano por escrito e preço aberto.",
+    "Atendimento veterinário em casa para cães e gatos na Zona Sul do Rio. Até duas horas reservadas por consulta, plano por escrito e preço aberto.",
   openGraph: {
     type: "website",
     locale: "pt_BR",
     siteName: `${site.name} · ${site.descritor}`,
     title: `${site.name} — ${site.tagline}`,
     description:
-      "Medicina veterinária na sua casa: duas horas reservadas, um plano individualizado por escrito e o porquê de cada decisão explicado até o fim.",
+      "Cuidado veterinário para cães e gatos na casa deles: até duas horas reservadas, um plano individualizado por escrito e prevenção antes de medicar — pra ele viver bem, ao seu lado, por mais tempo.",
   },
   icons: { icon: "/logo-symbol-musgo.svg" },
   alternates: { canonical: "/" },

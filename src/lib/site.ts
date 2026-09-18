@@ -44,7 +44,7 @@ export const NAV = [
 export const SERVICES = [
   {
     slug: "#contato",
-    eyebrow: "Porta de entrada",
+    eyebrow: "Pra começar",
     title: "Vacina em Casa",
     description:
       "Aplicação domiciliar de qualquer vacina. Explico a escolha técnica (V8 ou V10, por exemplo, muda conforme a área onde seu animal vive), atualizo a caderneta e lembro do reforço anual.",
@@ -56,11 +56,11 @@ export const SERVICES = [
   },
   {
     slug: "#contato",
-    eyebrow: "Carro-chefe",
+    eyebrow: "O atendimento completo",
     title: "Consulta Inteira",
     description:
-      "Duas horas reservadas, anamnese no ambiente real e um plano por escrito, decidido junto com você.",
-    short: "2h reservadas e um plano por escrito.",
+      "Até duas horas reservadas, anamnese no ambiente real e um plano por escrito, decidido junto com você.",
+    short: "Até 2h reservadas e um plano por escrito.",
     price: "R$ 250",
     priceNote: "por consulta",
     cta: "Agendar",
@@ -68,7 +68,7 @@ export const SERVICES = [
   },
   {
     slug: "#contato",
-    eyebrow: "Recorrência",
+    eyebrow: "Pro ano inteiro",
     title: "Veterinário da Casa",
     description:
       "Acompanhamento anual: reforços, consultas periódicas e um canal com régua clara pro ano inteiro.",
@@ -124,7 +124,7 @@ export const FAQS = [
   },
   {
     q: "Quanto tempo dura a consulta?",
-    a: "Duas horas reservadas na agenda. Esse tempo existe pra permitir uma avaliação completa e uma conversa sem pressa, mesmo nos dias em que dura menos.",
+    a: "Reservo até duas horas na agenda. Esse tempo existe pra permitir uma avaliação completa e uma conversa sem pressa — e a consulta dura o que precisar dentro dele.",
   },
   {
     q: "É um serviço de emergência?",

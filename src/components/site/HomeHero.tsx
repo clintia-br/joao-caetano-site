@@ -53,8 +53,10 @@ export function HomeHero() {
   return (
     <section className="jc-hero jc-on-dark" ref={root} id="top">
       <div className="jc-hero__copy">
+        {/* The brand tagline stays as the kicker; the headline carries the
+            emotional promise (care as family, prevention, more time together). */}
         <div data-hero>
-          <Eyebrow>Atendimento veterinário domiciliar · {site.area}</Eyebrow>
+          <Eyebrow>{site.tagline.replace(/\.$/, "")}</Eyebrow>
         </div>
 
         <SplitHeading
@@ -63,12 +65,13 @@ export function HomeHero() {
           trigger="load"
           delay={0.2}
         >
-          {"O veterinário que explica."}
+          {"Cuidar hoje pra ele viver bem, ao seu lado, por mais tempo."}
         </SplitHeading>
 
         <p className="jc-lead" data-hero>
-          Medicina veterinária na sua casa: duas horas reservadas por consulta, um plano montado pro
-          seu animal — e o porquê de cada decisão explicado até o fim.
+          Atendimento veterinário para <strong>cães e gatos, na casa deles</strong>, na {site.area}.
+          Com tempo, calma e o cuidado de quem entende que ele é parte da família — e que prevenir
+          vem antes de medicar.
         </p>
 
         <div className="jc-row" data-hero>

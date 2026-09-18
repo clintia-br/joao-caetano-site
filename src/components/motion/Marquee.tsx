@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { gsap, prefersReducedMotion, useGSAP } from "@/lib/gsap";
-import { JcSymbol } from "@/components/ds/JcSymbol";
 
 /**
  * Marquee — the faixa of apoios contextuais, drifting at walking pace.
@@ -41,7 +40,8 @@ export function Marquee({ items }: { items: readonly string[] }) {
     <div className="jc-marquee__group" aria-hidden="true">
       {[...items, ...items].map((item, i) => (
         <span className="jc-marquee__item" key={`${item}-${i}`}>
-          <JcSymbol size={15} color="var(--terra)" decorative />
+          {/* fio terra as the separator — the manual's own motif, not an icon */}
+          <span className="jc-marquee__sep" aria-hidden="true" />
           {item}
         </span>
       ))}

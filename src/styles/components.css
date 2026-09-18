@@ -539,7 +539,7 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.75rem;
   padding: clamp(6.5rem, 12vw, 8rem) clamp(1.5rem, 5vw, 4.5rem) clamp(3rem, 6vw, 4.5rem);
   padding-left: clamp(1.5rem, 7vw, 6.5rem);
 }
@@ -731,3 +731,41 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 /* First section of pages without a hero: clear the fixed header.
    Doubled class beats sibling modifiers like --tight in the cascade. */
 .jc-section--hero-pad.jc-section--hero-pad { padding-top: clamp(7.5rem, 12vw, 9.5rem); }
+
+/* ------------------------------------------------------------ Carousel */
+/* Horizontal photo strip: native scroll-snap (light, touch-native), arrows
+   for mouse users. Mobile-first: cards are ~72vw and grow at ≥761px. */
+.jc-carousel { position: relative; }
+.jc-carousel__track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.25rem;
+}
+.jc-carousel__track::-webkit-scrollbar { display: none; }
+.jc-carousel__item { flex: 0 0 min(72vw, 300px); scroll-snap-align: start; }
+.jc-carousel__nav { display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 1rem; }
+.jc-carousel__btn {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: background var(--dur-base) var(--ease-standard),
+              border-color var(--dur-base) var(--ease-standard);
+}
+.jc-carousel__btn:hover { background: var(--terra-12); border-color: var(--terra); }
+@media (min-width: 761px) {
+  .jc-carousel__item { flex-basis: 260px; }
+}
+
+/* Marquee separator: a short fio terra between phrases (no icon). */
+.jc-marquee__sep { display: inline-block; width: 18px; height: 1px; background: var(--terra); flex: none; }
