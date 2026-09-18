@@ -228,9 +228,10 @@ export default function HomePage() {
           <div
             className="jc-grid"
             style={{
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(240px, 100%), 1fr))",
               gap: "1.6rem 3rem",
               textAlign: "left",
+              width: "100%",
               maxWidth: 720,
             }}
           >
