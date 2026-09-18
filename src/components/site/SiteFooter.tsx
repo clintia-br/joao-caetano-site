@@ -49,10 +49,6 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {site.name} · {site.descritor} · {site.area}.
           </p>
         </div>
-
-        <span className="jc-footer__wordmark" aria-hidden="true" data-parallax={8}>
-          {site.name}
-        </span>
       </div>
     </footer>
   );

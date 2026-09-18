@@ -83,6 +83,8 @@ export function HomeHero() {
 
       <div className="jc-hero__media" data-hero-media>
         <PhotoSlot
+          src="/fotos/hero.jpg"
+          alt="João Caetano sentado num banco com dois cães no colo"
           brief="Foto do João com o animal, na casa do tutor · recorte vertical"
           ratio="auto"
           reveal={false}

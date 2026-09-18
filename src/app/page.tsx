@@ -138,10 +138,22 @@ export default function HomePage() {
           <div>
             <div className="jc-photo-pair">
               <div className="jc-photo-pair__back">
-                <PhotoSlot brief="João atendendo em casa · 4:3" ratio="4 / 3" parallax={6} />
+                <PhotoSlot
+                  src="/fotos/cuidar-2.jpg"
+                  alt="João Caetano segurando um gato durante o atendimento em casa"
+                  brief="João atendendo em casa"
+                  ratio="3 / 4"
+                  parallax={6}
+                />
               </div>
               <div className="jc-photo-pair__front">
-                <PhotoSlot brief="Detalhe do cuidado · 4:5" ratio="4 / 5" parallax={10} />
+                <PhotoSlot
+                  src="/fotos/cuidar-1.jpg"
+                  alt="Filhote recebendo vacina em casa"
+                  brief="Detalhe do cuidado · 4:5"
+                  ratio="4 / 5"
+                  parallax={10}
+                />
               </div>
             </div>
 
