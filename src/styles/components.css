@@ -435,16 +435,18 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 .jc-step__title { font-family: var(--font-display); font-weight: var(--weight-regular); font-size: var(--display-sm); line-height: 1.15; color: var(--text-primary); }
 .jc-step__body { font-size: var(--text-base); line-height: 1.6; color: var(--text-secondary); max-width: 46ch; }
 
-.jc-timeline { position: relative; display: flex; flex-direction: column; gap: 2.6rem; padding-left: 2.6rem; }
+/* Three columns: [número] [fio terra] [texto]. The line gets its own channel
+   so the italic numerals never sit on top of it. */
+.jc-timeline { position: relative; display: flex; flex-direction: column; gap: 2.6rem; padding-left: 3.6rem; }
 .jc-timeline__track {
   position: absolute;
-  left: 0.55rem; top: 0.35rem; bottom: 0.35rem;
+  left: 2.6rem; top: 0.35rem; bottom: 0.35rem;
   width: 1px;
   background: var(--line-soft);
 }
 .jc-timeline__fill {
   position: absolute;
-  left: 0.55rem; top: 0.35rem;
+  left: 2.6rem; top: 0.35rem;
   width: 1px;
   height: calc(100% - 0.7rem);
   background: var(--terra);
@@ -452,7 +454,15 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   transform-origin: top center;
 }
 .jc-timeline .jc-step { position: relative; }
-.jc-timeline .jc-step__num { position: absolute; left: -2.6rem; width: 2.2rem; font-size: var(--text-lg); font-style: italic; padding-top: 0.15rem; }
+.jc-timeline .jc-step__num {
+  position: absolute;
+  left: -3.6rem;
+  width: 2rem;
+  text-align: right;
+  font-size: var(--text-lg);
+  font-style: italic;
+  padding-top: 0.15rem;
+}
 
 /* ------------------------------------------------------- Diff / pillar */
 .jc-diff { display: flex; flex-direction: column; gap: 0.6rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
