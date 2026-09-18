@@ -564,7 +564,17 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 .jc-hero__scroll-dot { display: block; width: 12px; height: 1px; background: var(--off-white); }
 
 @media (min-width: 901px) {
-  .jc-hero { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.92fr); min-height: clamp(560px, 82vh, 760px); }
+  .jc-hero { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.92fr); min-height: clamp(600px, 88vh, 820px); }
+  /* Air, not just smaller type: on a 1366×768 notebook the copy block used
+     to fill 100% of its column. Generous top/bottom padding and a wider gap
+     between the layers (eyebrow → H1 → lead → CTAs) keep it from reading as
+     a stacked "hamburger", whatever the viewport height. */
+  .jc-hero__copy {
+    gap: 2.25rem;
+    padding-top: clamp(8rem, 14vw, 9.5rem);
+    padding-bottom: clamp(5rem, 8vw, 6.5rem);
+  }
+  .jc-hero .jc-lead { font-size: 1.25rem; max-width: 42ch; }
   .jc-hero__media { aspect-ratio: auto; min-height: 320px; order: 0; }
   .jc-hero__media .jc-photo { inset: -8% -4%; height: 116%; }
   .jc-hero__scroll { display: inline-flex; }
