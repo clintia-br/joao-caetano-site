@@ -547,37 +547,31 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
    still fills the full width — no short band cutting the image. */
 .jc-hero__media { position: relative; background: var(--musgo); overflow: hidden; aspect-ratio: 3 / 4; order: 2; }
 .jc-hero__media .jc-photo { position: absolute; inset: 0; height: 100%; border-radius: 0; box-shadow: none; }
-.jc-hero__scroll {
-  position: absolute;
-  left: clamp(1.5rem, 7vw, 6.5rem);
-  bottom: 1.8rem;
-  z-index: 3;
-  display: none;
-  align-items: center;
-  gap: 0.7rem;
-  font-size: var(--text-2xs);
-  letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
-  color: var(--offwhite-64);
-}
-.jc-hero__scroll-line { display: block; width: 46px; height: 1px; background: var(--line-on-dark); overflow: hidden; }
-.jc-hero__scroll-dot { display: block; width: 12px; height: 1px; background: var(--off-white); }
 
 @media (min-width: 901px) {
-  .jc-hero { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.92fr); min-height: clamp(600px, 88vh, 820px); }
-  /* Air, not just smaller type: on a 1366×768 notebook the copy block used
-     to fill 100% of its column. Generous top/bottom padding and a wider gap
-     between the layers (eyebrow → H1 → lead → CTAs) keep it from reading as
-     a stacked "hamburger", whatever the viewport height. */
-  .jc-hero__copy {
-    gap: 2.25rem;
-    padding-top: clamp(8rem, 14vw, 9.5rem);
-    padding-bottom: clamp(5rem, 8vw, 6.5rem);
+  /* Composition, not just spacing: the hero aligns to the page container
+     instead of bleeding edge to edge, the photo becomes an inset card with
+     air around it, and the copy is a short stack floating in empty space. */
+  .jc-hero {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    column-gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+    min-height: clamp(600px, 88vh, 820px);
+    padding: clamp(7.5rem, 12vw, 9rem) max(var(--gutter), calc((100% - var(--container-max)) / 2)) clamp(3.5rem, 6vw, 5rem);
   }
-  .jc-hero .jc-lead { font-size: 1.25rem; max-width: 42ch; }
-  .jc-hero__media { aspect-ratio: auto; min-height: 320px; order: 0; }
-  .jc-hero__media .jc-photo { inset: -8% -4%; height: 116%; }
-  .jc-hero__scroll { display: inline-flex; }
+  .jc-hero__copy { padding: 0; gap: 2rem; max-width: 540px; }
+  .jc-hero .jc-lead { font-size: 1.125rem; max-width: 40ch; }
+  .jc-hero__media {
+    aspect-ratio: 4 / 5;
+    width: min(100%, 440px);
+    min-height: 0;
+    justify-self: center;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    order: 0;
+  }
+  /* a little oversize so the subtle parallax never shows the card's edge */
+  .jc-hero__media .jc-photo { inset: -4% 0; height: 108%; }
 }
 
 /* --------------------------------------------------------- Service hero */

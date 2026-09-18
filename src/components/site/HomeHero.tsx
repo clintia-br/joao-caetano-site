@@ -9,9 +9,9 @@ import { DUR, gsap, prefersReducedMotion, useGSAP } from "@/lib/gsap";
 import { site } from "@/lib/site";
 
 /**
- * HomeHero — the opening. One timeline: the photo uncovers from the right
- * while the copy rises, then the scroll cue starts its slow travel. Nothing
- * zooms, nothing bounces; the whole thing is over in under two seconds.
+ * HomeHero — the opening. One timeline: the photo card uncovers from the
+ * right while the copy rises. Nothing zooms, nothing bounces; the whole thing
+ * is over in under two seconds.
  */
 export function HomeHero() {
   const root = useRef<HTMLElement>(null);
@@ -35,12 +35,6 @@ export function HomeHero() {
           "[data-hero]",
           { opacity: 1, y: 0, duration: DUR.enter, stagger: 0.09 },
           0.25,
-        )
-        .fromTo(
-          "[data-hero-cue]",
-          { xPercent: -100 },
-          { xPercent: 260, duration: 2.2, ease: "jcStandard", repeat: -1, repeatDelay: 0.4 },
-          1.4,
         );
 
       return () => {
@@ -69,16 +63,15 @@ export function HomeHero() {
         </SplitHeading>
 
         <p className="jc-lead" data-hero>
-          Atendimento veterinário para <strong>cães e gatos, na casa deles</strong>, na {site.area}.
-          Com tempo, calma e o cuidado de quem entende que ele é parte da família — e que prevenir
-          vem antes de medicar.
+          Atendimento veterinário para <strong>cães e gatos, na casa deles</strong>, na {site.area} —
+          com tempo, calma e o cuidado de quem sabe que ele é da família.
         </p>
 
         <div className="jc-row" data-hero>
           <ButtonLink href="#contato" size="lg">
             Agendar pelo WhatsApp
           </ButtonLink>
-          <ButtonLink href="#como-funciona" variant="secondary" size="lg">
+          <ButtonLink href="#como-funciona" variant="ghost" size="lg">
             Como funciona a consulta
           </ButtonLink>
         </div>
@@ -98,12 +91,6 @@ export function HomeHero() {
         />
       </div>
 
-      <span className="jc-hero__scroll" aria-hidden="true">
-        <span className="jc-hero__scroll-line">
-          <span className="jc-hero__scroll-dot" data-hero-cue />
-        </span>
-        Role para ver
-      </span>
     </section>
   );
 }
