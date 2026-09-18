@@ -14,6 +14,8 @@ export function PhotoSlot({
   src,
   alt,
   brief,
+  width = 1200,
+  height = 1500,
   ratio = "4 / 5",
   framed = false,
   parallax,
@@ -25,6 +27,9 @@ export function PhotoSlot({
   alt?: string;
   /** What is meant to be photographed here — shown while the slot is empty. */
   brief: string;
+  /** Intrinsic pixel size of the real photo (used only when `src` is set). */
+  width?: number;
+  height?: number;
   ratio?: string;
   framed?: boolean;
   parallax?: number;
@@ -39,11 +44,17 @@ export function PhotoSlot({
       data-reveal-clip={reveal ? "" : undefined}
     >
       {src ? (
+        // Intrinsic width/height (not `fill`): a fill image is positioned
+        // absolutely by Next's own inline style, so if the stylesheet ever
+        // fails to apply it escapes its box and covers the whole viewport.
+        // With real dimensions the image stays in flow and just fills its
+        // container via .jc-photo__img (object-fit: cover).
         <Image
           className="jc-photo__img"
           src={src}
           alt={alt || brief}
-          fill
+          width={width}
+          height={height}
           sizes="(max-width: 900px) 100vw, 50vw"
           priority={priority}
           data-parallax={parallax}
