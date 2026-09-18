@@ -245,16 +245,21 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   border-bottom: 1px solid transparent;
   transition: background var(--dur-slow) var(--ease-standard),
               border-color var(--dur-slow) var(--ease-standard),
-              box-shadow var(--dur-slow) var(--ease-standard);
+              box-shadow var(--dur-slow) var(--ease-standard),
+              padding var(--dur-slow) var(--ease-standard);
 }
+.jc-header > a:first-child { display: inline-block; transform-origin: left center; transition: transform var(--dur-slow) var(--ease-standard); }
 @supports (backdrop-filter: blur(6px)) {
   .jc-header { backdrop-filter: saturate(120%) blur(10px); }
 }
+/* Compact once you scroll: gives the viewport back ~20% of the bar's height. */
 .jc-header--scrolled {
   background: color-mix(in srgb, var(--off-white) 94%, transparent);
   border-bottom-color: var(--line-hairline);
   box-shadow: var(--shadow-xs);
+  padding-block: 0.55rem;
 }
+.jc-header--scrolled > a:first-child { transform: scale(0.85); }
 /* Mobile-first: nav is the burger + drawer by default; the inline links
    appear from 881px up (see the min-width block below). */
 .jc-header__nav { display: none; align-items: center; gap: 1.9rem; }
@@ -705,7 +710,9 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 }
 
 /* -------------------------------------------------- Offset photo pair */
-.jc-photo-pair { position: relative; padding-bottom: clamp(2.5rem, 7vw, 4.5rem); padding-right: clamp(2rem, 6vw, 3.5rem); }
+/* Capped and centered in its column so the photos never fill the whole
+   column and dominate — there is air on both sides at any viewport. */
+.jc-photo-pair { position: relative; max-width: 440px; margin-inline: auto; padding-bottom: clamp(2.5rem, 7vw, 4.5rem); padding-right: clamp(2rem, 6vw, 3.5rem); }
 .jc-photo-pair__back { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3 / 4; background: var(--musgo-12); box-shadow: var(--shadow-md); }
 .jc-photo-pair__back .jc-photo { height: 100%; border-radius: 0; box-shadow: none; }
 .jc-photo-pair__front {

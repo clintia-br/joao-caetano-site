@@ -142,7 +142,7 @@ a:hover { color: var(--musgo); }
   .jc-grid--split,
   .jc-grid--split-start,
   .jc-grid--wide-left,
-  .jc-grid--wide-right { gap: clamp(2rem, 5vw, 4.5rem); }
+  .jc-grid--wide-right { gap: clamp(3rem, 6vw, 5.5rem); }
   .jc-grid--split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .jc-grid--split-start { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .jc-grid--wide-left { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
@@ -211,6 +211,10 @@ a:hover { color: var(--musgo); }
   --font-display: var(--font-caslon), Georgia, "Times New Roman", serif;
   --font-text: var(--font-franklin), Arial, Helvetica, sans-serif;
 }
+
+/* Site-level rhythm: a little more air between sections than the token's
+   default, so the page still breathes on short / zoomed-in viewports. */
+:root { --section-y: clamp(5rem, 10vw, 9rem); }
 
 /* SplitText writes these wrappers around each masked line. */
 .jc-split-line { display: block; }
