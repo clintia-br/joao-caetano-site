@@ -560,7 +560,10 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 
 @media (max-width: 900px) {
   .jc-hero { grid-template-columns: minmax(0, 1fr); min-height: 0; }
-  .jc-hero__media { min-height: 62vw; order: 2; }
+  /* Match the photo's own 3:4 shape so the whole João + dogs shows and it
+     still fills the full width — no short band cutting the image. */
+  .jc-hero__media { min-height: 0; aspect-ratio: 3 / 4; order: 2; }
+  .jc-hero__media .jc-photo { inset: 0; height: 100%; }
   .jc-hero__scroll { display: none; }
 }
 
