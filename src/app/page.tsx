@@ -58,15 +58,6 @@ const DEPOIMENTOS = [
   },
 ] as const;
 
-const CONFORMIDADE = [
-  `Identificação sempre visível: ${site.name} · ${site.role} · ${site.crmv}.`,
-  "Conteúdo educativo, nunca diagnóstico pela internet.",
-  "Sem promessa de cura, resultado ou “prevenção garantida”.",
-  "Sem “o melhor”, sem comparação com colegas, sem exploração de medo.",
-  "Fotos de pacientes só com autorização escrita do tutor.",
-  "Não é serviço de emergência 24h — em emergência, procure atendimento emergencial.",
-];
-
 const FAQ_LD = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -348,32 +339,6 @@ export default function HomePage() {
             </div>
           </div>
           <FaqList items={FAQS} />
-        </div>
-      </Section>
-
-      {/* --------------------------------------------- conformidade / ética */}
-      <Section bg="warm">
-        <div className="jc-grid jc-grid--wide-right">
-          <div className="jc-stack jc-stack--sm" data-reveal-stagger="">
-            <span data-reveal="rise">
-              <JcSymbol size={44} color="var(--musgo)" decorative />
-            </span>
-            <SplitHeading as="h2" className="jc-display jc-h2">
-              Conformidade e ética
-            </SplitHeading>
-            <p className="jc-body" data-reveal="rise" style={{ maxWidth: "40ch" }}>
-              Toda comunicação segue o Código de Ética do Médico-Veterinário e a Resolução CFMV
-              1.649/2025.
-            </p>
-          </div>
-          <ul className="jc-numbered" data-reveal-stagger="">
-            {CONFORMIDADE.map((t, i) => (
-              <li className="jc-numbered__item" key={t} data-reveal="rise">
-                <span className="jc-numbered__num">{String(i + 1).padStart(2, "0")}</span>
-                <span className="jc-numbered__text">{t}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </Section>
 
