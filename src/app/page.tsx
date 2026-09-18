@@ -4,7 +4,6 @@ import { SectionHead } from "@/components/site/SectionHead";
 import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { DiffItem, Step, Timeline, ArticleCard, InfoRow } from "@/components/site/Pieces";
 import { Marquee } from "@/components/motion/Marquee";
-import { ContactForm } from "@/components/site/ContactForm";
 import { FaqList } from "@/components/site/FaqList";
 import { ButtonLink } from "@/components/ds/Button";
 import { ServiceCard } from "@/components/ds/ServiceCard";
@@ -390,37 +389,48 @@ export default function HomePage() {
       </Section>
 
       {/* -------------------------------------------------------- contato */}
+      {/* One channel only: the practice runs on WhatsApp, so the close is a
+          single strong WhatsApp call — no competing form. */}
       <Section bg="musgo-deep" id="contato">
-        <div className="jc-grid jc-grid--split-start">
-          <div className="jc-stack jc-stack--md">
-            <SectionHead
-              number="08"
-              eyebrow="O consultório é a sua casa"
-              title="Vamos agendar"
-              lead="Me conta um pouco sobre o seu animal. Eu respondo com o preço aberto e a primeira janela livre."
-            />
-            <div className="jc-stack jc-stack--sm" data-reveal-stagger="">
-              <InfoRow
-                label="WhatsApp"
-                value={
-                  <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer">
-                    {site.whatsapp.display}
-                  </a>
-                }
-              />
-              <InfoRow label="Atendimento" value={`${site.area} · a domicílio`} />
-              <InfoRow label="Espécies" value="Cães e gatos" />
-            </div>
-            <div className="jc-row" data-reveal="rise">
-              <Badge variant="preco">Preço aberto</Badge>
-              <Badge variant="terra">Sem compromisso</Badge>
-            </div>
-            <div data-reveal="rise">
-              <Disclaimer />
-            </div>
+        <div
+          className="jc-stack jc-center"
+          style={{ alignItems: "center", gap: "1.8rem" }}
+        >
+          <SectionHead
+            align="center"
+            number="08"
+            eyebrow="O consultório é a sua casa"
+            title="Vamos agendar"
+            lead="Me conta um pouco sobre o seu animal pelo WhatsApp. Eu respondo com o preço aberto e a primeira janela livre."
+          />
+
+          <div className="jc-row" style={{ justifyContent: "center" }} data-reveal="rise">
+            <ButtonLink href={site.whatsapp.href} size="lg">
+              Agendar pelo WhatsApp
+            </ButtonLink>
           </div>
 
-          <ContactForm />
+          <div className="jc-row" style={{ justifyContent: "center", gap: "0.6rem" }} data-reveal="rise">
+            <Badge variant="preco">Preço aberto</Badge>
+            <Badge variant="terra">Sem compromisso</Badge>
+          </div>
+
+          <div className="jc-stack jc-stack--sm" style={{ width: "100%", maxWidth: 460 }} data-reveal="rise">
+            <InfoRow
+              label="WhatsApp"
+              value={
+                <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer">
+                  {site.whatsapp.display}
+                </a>
+              }
+            />
+            <InfoRow label="Atendimento" value={`${site.area} · a domicílio`} />
+            <InfoRow label="Espécies" value="Cães e gatos" />
+          </div>
+
+          <div style={{ maxWidth: 560, width: "100%" }} data-reveal="rise">
+            <Disclaimer />
+          </div>
         </div>
       </Section>
     </>
