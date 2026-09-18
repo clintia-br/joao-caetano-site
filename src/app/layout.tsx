@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Libre_Caslon_Display, Libre_Franklin } from "next/font/google";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 import { MotionRoot } from "@/components/motion/MotionRoot";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { site } from "@/lib/site";
@@ -86,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+        <WhatsAppFab />
         <MotionRoot />
       </body>
     </html>

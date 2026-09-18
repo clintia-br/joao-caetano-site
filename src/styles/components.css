@@ -669,22 +669,36 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 .jc-numbered__num { font-family: var(--font-display); font-style: italic; color: var(--terra); flex: none; }
 .jc-numbered__text { font-size: var(--text-base); line-height: 1.6; color: var(--text-secondary); }
 
-/* ---------------------------------------------------- Contact / float */
-.jc-whatsapp {
+/* ------------------------------------------- Floating WhatsApp button */
+/* WhatsApp's own green — a deliberate exception to the brand palette for a
+   universally recognised contact affordance. */
+.jc-wa-fab {
+  position: fixed;
+  right: clamp(1rem, 4vw, 2rem);
+  bottom: max(clamp(1rem, 4vw, 2rem), env(safe-area-inset-bottom));
+  z-index: 90;
   display: inline-grid;
   place-items: center;
   width: 60px; height: 60px;
   border-radius: 50%;
-  /* literal values: inside .jc-on-dark the terra token flips to off-white */
-  background: #8C6A4F;
-  color: #F4F1EA;
-  border: none;
-  cursor: pointer;
-  box-shadow: var(--shadow-md);
-  flex: none;
-  transition: transform var(--dur-base) var(--ease-standard), background var(--dur-base) var(--ease-standard);
+  background: #25d366;
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--dur-base) var(--ease-standard),
+              background var(--dur-base) var(--ease-standard),
+              box-shadow var(--dur-base) var(--ease-standard);
 }
-.jc-whatsapp:hover { background: #7A5A41; transform: translateY(-2px); }
+.jc-wa-fab:hover { background: #1ebe5b; color: #fff; transform: translateY(-3px); }
+.jc-wa-fab:active { transform: translateY(-1px); }
+.jc-wa-fab svg { width: 32px; height: 32px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .jc-wa-fab { animation: jc-fab-in var(--dur-slow) var(--ease-out) 0.5s both; }
+  @keyframes jc-fab-in {
+    from { opacity: 0; transform: translateY(14px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+}
 
 /* -------------------------------------------------- Offset photo pair */
 .jc-photo-pair { position: relative; padding-bottom: clamp(2.5rem, 7vw, 4.5rem); padding-right: clamp(2rem, 6vw, 3.5rem); }
