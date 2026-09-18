@@ -1,0 +1,39 @@
+/* EFFECTS — radii, borders, shadows, motion, motifs.
+   The mark is architectural (telhado a 90°): corners stay tight,
+   shadows stay soft and warm. No glow, no neon, no heavy drop. */
+:root {
+  /* Radii — small; the brand "carimba bem" */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-panel: 30px; /* @kind radius */
+  --radius-pill: 999px;
+
+  /* Borders */
+  --border-hair: 1px solid var(--line-hairline);
+  --border-terra: 1px solid var(--line);         /* fio terra */
+  --border-terra-soft: 1px solid var(--line-soft);
+  --border-card: 1px solid rgba(34, 38, 31, 0.10); /* @kind other */
+
+  /* Shadows — warm, low, layered (tinted with brown, not black) */
+  --shadow-xs: 0 1px 2px rgba(52, 40, 28, 0.06);
+  --shadow-sm: 0 2px 8px rgba(52, 40, 28, 0.07);
+  --shadow-md: 0 8px 24px rgba(52, 40, 28, 0.09), 0 2px 6px rgba(52, 40, 28, 0.05);
+  --shadow-lg: 0 20px 48px rgba(37, 30, 22, 0.14), 0 6px 14px rgba(37, 30, 22, 0.07);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  /* Motion — calm. "A marca não grita." No bounce. */
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --dur-fast: 140ms; /* @kind other */
+  --dur-base: 220ms; /* @kind other */
+  --dur-slow: 380ms; /* @kind other */
+  --transition-base: all var(--dur-base) var(--ease-standard);
+
+  /* Motif: padrão de símbolos — símbolo repetido a 6% sobre musgo */
+  --pattern-opacity: 0.06; /* @kind other */
+}
+
+/* Focus — visible, warm, never removed */
+:root { --focus-shadow: 0 0 0 3px var(--focus-ring); }

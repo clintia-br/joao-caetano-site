@@ -1,0 +1,49 @@
+# João Caetano · Veterinário a domicílio — site
+
+Site institucional construído em **Next.js (App Router)** a partir do design
+system "João Caetano — Design System" (manual da marca v2 + brief estratégico),
+com animações **GSAP** (ScrollTrigger + SplitText).
+
+## Rodando
+
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # build de produção
+npm start
+```
+
+## Estrutura
+
+- `src/styles/tokens/` — tokens copiados do design system, sem alteração de valores.
+- `src/styles/` — `globals.css` (base, layout, estados de motion) e `components.css` (componentes).
+- `src/components/ds/` — primitivas do design system (Button, Badge, Eyebrow, JcSymbol, LogoLockup, ServiceCard, PriceItem, Quote, Disclaimer, Field).
+- `src/components/site/` — seções e peças de página (Section, SectionHead, PhotoSlot, heros, header, footer…).
+- `src/components/motion/` — camada GSAP (MotionRoot, SplitHeading, Marquee, ScrollProgress).
+- `src/lib/site.ts` — **única fonte** de conteúdo/configuração (WhatsApp, CRMV, serviços, FAQ…).
+- `src/lib/gsap.ts` — registro de plugins e curvas da marca (`jcStandard`, `jcOut`).
+
+## Movimento ("a marca não grita")
+
+Todo o vocabulário de animação vem do manual §13: fades e deslocamentos curtos,
+sem bounce, sem spring, sem zoom. `prefers-reduced-motion` é respeitado em tudo
+(inclusive sem JavaScript a página renderiza completa). Elementos entram por
+`data-reveal`; o fio terra se desenha; fotos se descobrem por clip-path; o
+parallax é de poucos por cento.
+
+## Pendências declaradas (não inventar — confirmar com o João)
+
+Centralizadas em `src/lib/site.ts`:
+
+- **CRMV-RJ**: placeholder `CRMV-RJ 0000` — *nada publica sem o número real*.
+- **WhatsApp comercial**: usando o número que constava no UI kit; confirmar.
+- **Fotografia**: a marca só usa fotografia real (manual §11). Enquanto não
+  existe, cada `PhotoSlot` renderiza um campo musgo com o padrão de símbolos e
+  o brief da foto. Para trocar: `<PhotoSlot src="/fotos/arquivo.jpg" … />`.
+- **Domínio** (`site.url`), Instagram e preço final do plano anual.
+
+## Conformidade (CFMV)
+
+Toda página carrega a linha de identificação (componente `Disclaimer`) e a nota
+"não é emergência 24h". Depoimentos são formato de exemplo — publicar somente
+com depoimento real e aceite escrito do tutor.
