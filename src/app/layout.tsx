@@ -79,12 +79,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <a className="jc-skip-link" href="#conteudo">
+        <a className="jc-skip-link" href="#main">
           Pular para o conteúdo
         </a>
         <ScrollProgress />
         <SiteHeader />
-        <main id="conteudo">{children}</main>
+        <main id="main">{children}</main>
         <SiteFooter />
         <MotionRoot />
       </body>

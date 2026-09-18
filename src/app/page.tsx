@@ -1,17 +1,19 @@
-import Link from "next/link";
 import { HomeHero } from "@/components/site/HomeHero";
 import { Section } from "@/components/site/Section";
 import { SectionHead } from "@/components/site/SectionHead";
 import { PhotoSlot } from "@/components/site/PhotoSlot";
-import { DiffItem, Step, Timeline, ArticleCard } from "@/components/site/Pieces";
+import { DiffItem, Step, Timeline, ArticleCard, InfoRow } from "@/components/site/Pieces";
 import { Marquee } from "@/components/motion/Marquee";
+import { ContactForm } from "@/components/site/ContactForm";
+import { FaqList } from "@/components/site/FaqList";
 import { ButtonLink } from "@/components/ds/Button";
 import { ServiceCard } from "@/components/ds/ServiceCard";
 import { Disclaimer } from "@/components/ds/Disclaimer";
+import { Badge } from "@/components/ds/Badge";
 import { Eyebrow } from "@/components/ds/Eyebrow";
 import { JcSymbol } from "@/components/ds/JcSymbol";
 import { SplitHeading } from "@/components/motion/SplitHeading";
-import { ARTICLES, SERVICES, site } from "@/lib/site";
+import { ARTICLES, FAQS, SERVICES, site } from "@/lib/site";
 
 const PILLARS = [
   ["01", "Calma", "Duas horas reservadas pra você entender tudo, no seu ritmo. Sem pressa."],
@@ -57,9 +59,38 @@ const DEPOIMENTOS = [
   },
 ] as const;
 
+const CONFORMIDADE = [
+  `Identificação sempre visível: ${site.name} · ${site.role} · ${site.crmv}.`,
+  "Conteúdo educativo, nunca diagnóstico pela internet.",
+  "Sem promessa de cura, resultado ou “prevenção garantida”.",
+  "Sem “o melhor”, sem comparação com colegas, sem exploração de medo.",
+  "Fotos de pacientes só com autorização escrita do tutor.",
+  "Não é serviço de emergência 24h — em emergência, procure atendimento emergencial.",
+];
+
+const FAQ_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+/**
+ * Single-page site. Every section carries the id its nav anchor points to
+ * (see NAV / FOOTER_COLUMNS in lib/site.ts and the scroll spy in SiteHeader).
+ * Order is the sales narrative: quem é → o que muda → manifesto → serviços →
+ * como funciona → prova social → conteúdo → dúvidas → agendar.
+ */
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }}
+      />
       <HomeHero />
 
       <div className="jc-bg-sage">
@@ -74,7 +105,7 @@ export default function HomePage() {
       </div>
 
       {/* ---------------------------------------------------- quem cuida */}
-      <Section bg="musgo-deep">
+      <Section bg="musgo-deep" id="sobre">
         <div className="jc-grid jc-grid--split">
           <div className="jc-stack jc-stack--md">
             <SectionHead number="01" eyebrow="Quem cuida" title="Cuidar bem tem um caminho" />
@@ -99,8 +130,8 @@ export default function HomePage() {
             </ul>
 
             <div data-reveal="rise">
-              <ButtonLink href="/sobre" variant="secondary" size="lg">
-                Conhecer o João
+              <ButtonLink href="#contato" variant="secondary" size="lg">
+                Falar comigo
               </ButtonLink>
             </div>
           </div>
@@ -174,11 +205,7 @@ export default function HomePage() {
           <div data-reveal="fade">
             <Eyebrow align="center">Manifesto</Eyebrow>
           </div>
-          <SplitHeading
-            as="h2"
-            className="jc-display jc-h2"
-            // the manifesto is the one place the measure narrows to 18ch
-          >
+          <SplitHeading as="h2" className="jc-display jc-h2">
             {"Cuidar antes costuma ser mais simples, mais barato e mais tranquilo."}
           </SplitHeading>
           <span className="jc-quote__cite" data-reveal="fade">
@@ -218,7 +245,7 @@ export default function HomePage() {
         <div className="jc-grid jc-grid--cards jc-mt-lg" data-reveal-stagger="" data-reveal-stagger-step="0.12">
           {SERVICES.map((s) => (
             <ServiceCard
-              key={s.slug}
+              key={s.title}
               eyebrow={s.eyebrow}
               title={s.title}
               description={s.description}
@@ -233,7 +260,7 @@ export default function HomePage() {
       </Section>
 
       {/* -------------------------------------------------- como funciona */}
-      <Section bg="musgo-deep">
+      <Section bg="musgo-deep" id="como-funciona">
         <div className="jc-grid jc-grid--wide-right">
           <div className="jc-sticky">
             <SectionHead number="04" eyebrow="Como funciona" title="Da mensagem à casa" />
@@ -287,7 +314,7 @@ export default function HomePage() {
       </Section>
 
       {/* ------------------------------------------------------- conteúdo */}
-      <Section bg="musgo">
+      <Section bg="musgo" id="conteudo">
         <div
           className="jc-row"
           style={{ justifyContent: "space-between", alignItems: "flex-end", gap: "2rem" }}
@@ -298,8 +325,8 @@ export default function HomePage() {
             title="O que eu costumo explicar"
           />
           <div data-reveal="fade">
-            <ButtonLink href="/conteudo" variant="ghost">
-              Ver todo o conteúdo
+            <ButtonLink href="#contato" variant="ghost">
+              Tirar uma dúvida
             </ButtonLink>
           </div>
         </div>
@@ -310,40 +337,90 @@ export default function HomePage() {
               tag={a.tag}
               title={a.title}
               read={a.read}
-              href="/conteudo"
+              href="#contato"
               brief={`Imagem do artigo · ${a.tag} · 3:2`}
             />
           ))}
         </div>
       </Section>
 
-      {/* ------------------------------------------------------------ cta */}
-      <Section bg="page">
-        <div
-          className="jc-stack jc-center"
-          style={{ alignItems: "center", gap: "1.8rem" }}
-          data-reveal-stagger=""
-        >
-          <SectionHead
-            align="center"
-            title="Será que o seu animal está bem?"
-            lead="Se essa pergunta apareceu, já é motivo pra conversar. É só uma mensagem, você decide o resto."
-          />
-          <div className="jc-row" style={{ justifyContent: "center" }} data-reveal="rise">
-            <ButtonLink href={site.whatsapp.href} size="lg">
-              Agendar pelo WhatsApp
-            </ButtonLink>
-            <ButtonLink href="/vacina-em-casa" variant="secondary" size="lg">
-              Ver a tabela de preços
-            </ButtonLink>
+      {/* ------------------------------------------------------------ faq */}
+      <Section bg="musgo-deep" id="faq">
+        <div className="jc-grid jc-grid--wide-right">
+          <div className="jc-sticky jc-stack jc-stack--md">
+            <SectionHead
+              number="07"
+              eyebrow="Perguntas frequentes"
+              title="O que costumam me perguntar"
+            />
+            <div data-reveal="rise">
+              <ButtonLink href="#contato" size="lg">
+                Ainda com dúvida? Me chame
+              </ButtonLink>
+            </div>
           </div>
-          <div style={{ maxWidth: 560, width: "100%" }} data-reveal="rise">
-            <Disclaimer />
+          <FaqList items={FAQS} />
+        </div>
+      </Section>
+
+      {/* --------------------------------------------- conformidade / ética */}
+      <Section bg="warm">
+        <div className="jc-grid jc-grid--wide-right">
+          <div className="jc-stack jc-stack--sm" data-reveal-stagger="">
+            <span data-reveal="rise">
+              <JcSymbol size={44} color="var(--musgo)" decorative />
+            </span>
+            <SplitHeading as="h2" className="jc-display jc-h2">
+              Conformidade e ética
+            </SplitHeading>
+            <p className="jc-body" data-reveal="rise" style={{ maxWidth: "40ch" }}>
+              Toda comunicação segue o Código de Ética do Médico-Veterinário e a Resolução CFMV
+              1.649/2025.
+            </p>
           </div>
-          <p className="jc-note" data-reveal="fade">
-            WhatsApp:{" "}
-            <Link href={site.whatsapp.href}>{site.whatsapp.display}</Link>
-          </p>
+          <ul className="jc-numbered" data-reveal-stagger="">
+            {CONFORMIDADE.map((t, i) => (
+              <li className="jc-numbered__item" key={t} data-reveal="rise">
+                <span className="jc-numbered__num">{String(i + 1).padStart(2, "0")}</span>
+                <span className="jc-numbered__text">{t}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Section>
+
+      {/* -------------------------------------------------------- contato */}
+      <Section bg="musgo-deep" id="contato">
+        <div className="jc-grid jc-grid--split-start">
+          <div className="jc-stack jc-stack--md">
+            <SectionHead
+              number="08"
+              eyebrow="O consultório é a sua casa"
+              title="Vamos agendar"
+              lead="Me conta um pouco sobre o seu animal. Eu respondo com o preço aberto e a primeira janela livre."
+            />
+            <div className="jc-stack jc-stack--sm" data-reveal-stagger="">
+              <InfoRow
+                label="WhatsApp"
+                value={
+                  <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer">
+                    {site.whatsapp.display}
+                  </a>
+                }
+              />
+              <InfoRow label="Atendimento" value={`${site.area} · a domicílio`} />
+              <InfoRow label="Espécies" value="Cães e gatos" />
+            </div>
+            <div className="jc-row" data-reveal="rise">
+              <Badge variant="preco">Preço aberto</Badge>
+              <Badge variant="terra">Sem compromisso</Badge>
+            </div>
+            <div data-reveal="rise">
+              <Disclaimer />
+            </div>
+          </div>
+
+          <ContactForm />
         </div>
       </Section>
     </>

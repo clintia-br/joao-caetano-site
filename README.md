@@ -1,8 +1,14 @@
 # João Caetano · Veterinário a domicílio — site
 
-Site institucional construído em **Next.js (App Router)** a partir do design
-system "João Caetano — Design System" (manual da marca v2 + brief estratégico),
-com animações **GSAP** (ScrollTrigger + SplitText).
+**Landing page** (one-page) construída em **Next.js (App Router)** a partir do
+design system "João Caetano — Design System" (manual da marca v2 + brief
+estratégico), com animações **GSAP** (ScrollTrigger + SplitText).
+
+Tudo vive em uma única rota `/`, dividida em seções ancoradas
+(`#sobre`, `#servicos`, `#como-funciona`, `#conteudo`, `#faq`, `#contato`).
+A navegação e o rodapé usam links de âncora; o header tem scroll-spy que
+acompanha a seção em leitura. Para voltar a um site multipágina, cada seção
+de `app/page.tsx` pode virar sua própria rota.
 
 ## Rodando
 
@@ -18,7 +24,7 @@ npm start
 - `src/styles/tokens/` — tokens copiados do design system, sem alteração de valores.
 - `src/styles/` — `globals.css` (base, layout, estados de motion) e `components.css` (componentes).
 - `src/components/ds/` — primitivas do design system (Button, Badge, Eyebrow, JcSymbol, LogoLockup, ServiceCard, PriceItem, Quote, Disclaimer, Field).
-- `src/components/site/` — seções e peças de página (Section, SectionHead, PhotoSlot, heros, header, footer…).
+- `src/components/site/` — seções e peças de página (Section, SectionHead, PhotoSlot, HomeHero, SiteHeader com scroll-spy, SiteFooter, ContactForm, FaqList…).
 - `src/components/motion/` — camada GSAP (MotionRoot, SplitHeading, Marquee, ScrollProgress).
 - `src/lib/site.ts` — **única fonte** de conteúdo/configuração (WhatsApp, CRMV, serviços, FAQ…).
 - `src/lib/gsap.ts` — registro de plugins e curvas da marca (`jcStandard`, `jcOut`).

@@ -51,7 +51,7 @@ export function HomeHero() {
   );
 
   return (
-    <section className="jc-hero jc-on-dark" ref={root}>
+    <section className="jc-hero jc-on-dark" ref={root} id="top">
       <div className="jc-hero__copy">
         <div data-hero>
           <Eyebrow>Atendimento veterinário domiciliar · {site.area}</Eyebrow>
@@ -75,7 +75,7 @@ export function HomeHero() {
           <ButtonLink href={site.whatsapp.href} size="lg">
             Agendar pelo WhatsApp
           </ButtonLink>
-          <ButtonLink href="/consulta-inteira" variant="secondary" size="lg">
+          <ButtonLink href="#como-funciona" variant="secondary" size="lg">
             Como funciona a consulta
           </ButtonLink>
         </div>

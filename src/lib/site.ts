@@ -32,16 +32,18 @@ export const site = {
   instagram: "https://instagram.com/",
 } as const;
 
+/* One-page site: every destination is a section on "/". Ids must match the
+   `id` given to each <Section> in app/page.tsx. */
 export const NAV = [
-  { label: "Serviços", href: "/#servicos" },
-  { label: "Sobre", href: "/sobre" },
-  { label: "Conteúdo", href: "/conteudo" },
-  { label: "FAQ", href: "/faq" },
+  { label: "Sobre", href: "#sobre" },
+  { label: "Serviços", href: "#servicos" },
+  { label: "Conteúdo", href: "#conteudo" },
+  { label: "FAQ", href: "#faq" },
 ] as const;
 
 export const SERVICES = [
   {
-    slug: "/vacina-em-casa",
+    slug: "#contato",
     eyebrow: "Porta de entrada",
     title: "Vacina em Casa",
     description:
@@ -49,11 +51,11 @@ export const SERVICES = [
     short: "Vacinação domiciliar, escolha técnica explicada.",
     price: "R$ 80–120",
     priceNote: "por aplicação",
-    cta: "Ver a tabela",
+    cta: "Agendar a vacina",
     featured: false,
   },
   {
-    slug: "/consulta-inteira",
+    slug: "#contato",
     eyebrow: "Carro-chefe",
     title: "Consulta Inteira",
     description:
@@ -65,7 +67,7 @@ export const SERVICES = [
     featured: true,
   },
   {
-    slug: "/veterinario-da-casa",
+    slug: "#contato",
     eyebrow: "Recorrência",
     title: "Veterinário da Casa",
     description:
@@ -73,7 +75,7 @@ export const SERVICES = [
     short: "Acompanhamento pro ano inteiro.",
     price: "Sob medida",
     priceNote: "plano anual",
-    cta: "Conhecer o plano",
+    cta: "Conversar sobre o plano",
     featured: false,
   },
 ] as const;
@@ -82,17 +84,17 @@ export const FOOTER_COLUMNS = [
   {
     title: "Atendimento",
     links: [
-      { label: "Vacina em Casa", href: "/vacina-em-casa" },
-      { label: "Consulta Inteira", href: "/consulta-inteira" },
-      { label: "Veterinário da Casa", href: "/veterinario-da-casa" },
+      { label: "Vacina em Casa", href: "#servicos" },
+      { label: "Consulta Inteira", href: "#servicos" },
+      { label: "Veterinário da Casa", href: "#servicos" },
     ],
   },
   {
     title: "A marca",
     links: [
-      { label: "Sobre o João", href: "/sobre" },
-      { label: "Como funciona", href: "/consulta-inteira" },
-      { label: "Conteúdo", href: "/conteudo" },
+      { label: "Sobre o João", href: "#sobre" },
+      { label: "Como funciona", href: "#como-funciona" },
+      { label: "Conteúdo", href: "#conteudo" },
     ],
   },
   {
@@ -100,7 +102,7 @@ export const FOOTER_COLUMNS = [
     links: [
       { label: "WhatsApp", href: site.whatsapp.href },
       { label: "Instagram", href: site.instagram },
-      { label: "Agendar", href: "/contato" },
+      { label: "Agendar", href: "#contato" },
     ],
   },
 ] as const;
