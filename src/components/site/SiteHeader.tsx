@@ -58,25 +58,18 @@ export function SiteHeader() {
 
       gsap.from(el, { y: -70, opacity: 0, duration: DUR.enter, ease: "jcOut", delay: 0.1 });
 
-      const show = gsap.quickTo(el, "yPercent", { duration: DUR.slow, ease: "jcStandard" });
-
+      /* The nav stays fixed and always visible; only its background firms up
+         once you've scrolled off the top. */
       const trigger = ScrollTrigger.create({
-        start: "top -80",
+        start: "top -40",
         end: 99999,
-        onUpdate: (self) => {
-          el.classList.toggle("jc-header--scrolled", self.scroll() > 40);
-          if (open) return;
-          show(self.direction === 1 && self.scroll() > 260 ? -110 : 0);
-        },
-        onLeaveBack: () => {
-          el.classList.remove("jc-header--scrolled");
-          show(0);
-        },
+        onUpdate: (self) => el.classList.toggle("jc-header--scrolled", self.scroll() > 40),
+        onLeaveBack: () => el.classList.remove("jc-header--scrolled"),
       });
 
       return () => trigger.kill();
     },
-    { scope: header, dependencies: [open] },
+    { scope: header },
   );
 
   /* Drawer links step in one by one — same curve, nothing showy. */
