@@ -24,10 +24,20 @@ npm start
 - `src/styles/tokens/` — tokens copiados do design system, sem alteração de valores.
 - `src/styles/` — `globals.css` (base, layout, estados de motion) e `components.css` (componentes).
 - `src/components/ds/` — primitivas do design system (Button, Badge, Eyebrow, JcSymbol, LogoLockup, ServiceCard, PriceItem, Quote, Disclaimer, Field).
-- `src/components/site/` — seções e peças de página (Section, SectionHead, PhotoSlot, HomeHero, SiteHeader com scroll-spy, SiteFooter, ContactForm, FaqList…).
+- `src/components/site/` — seções e peças de página (Section, SectionHead, PhotoSlot, HomeHero, SiteHeader com scroll-spy, SiteFooter, FaqList…).
 - `src/components/motion/` — camada GSAP (MotionRoot, SplitHeading, Marquee, ScrollProgress).
 - `src/lib/site.ts` — **única fonte** de conteúdo/configuração (WhatsApp, CRMV, serviços, FAQ…).
 - `src/lib/gsap.ts` — registro de plugins e curvas da marca (`jcStandard`, `jcOut`).
+
+## Responsividade (mobile-first)
+
+O CSS é **mobile-first**: o estilo base é o layout de celular e as telas maiores
+são aprimoradas com `@media (min-width: …)`. Breakpoints:
+
+- **621px** — formulário passa a 2 colunas.
+- **761px** — galeria passa a 3 colunas (cards já são fluidos com `auto-fit`).
+- **881px** — o menu vira a navegação horizontal (abaixo disso, hambúrguer + drawer).
+- **901px** — grids de duas colunas, hero em duas colunas e elementos `sticky` são ativados.
 
 ## Movimento ("a marca não grita")
 

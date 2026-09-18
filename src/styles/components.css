@@ -255,7 +255,9 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   border-bottom-color: var(--line-hairline);
   box-shadow: var(--shadow-xs);
 }
-.jc-header__nav { display: flex; align-items: center; gap: 1.9rem; }
+/* Mobile-first: nav is the burger + drawer by default; the inline links
+   appear from 881px up (see the min-width block below). */
+.jc-header__nav { display: none; align-items: center; gap: 1.9rem; }
 .jc-header__link {
   position: relative;
   font-size: var(--text-sm);
@@ -279,7 +281,7 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 .jc-header__link[aria-current="page"]::after { transform: scaleX(1); }
 
 .jc-header__burger {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -334,9 +336,9 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   transform-origin: left center;
 }
 
-@media (max-width: 880px) {
-  .jc-header__nav { display: none; }
-  .jc-header__burger { display: flex; }
+@media (min-width: 881px) {
+  .jc-header__nav { display: flex; }
+  .jc-header__burger { display: none; }
 }
 
 /* ------------------------------------------------------------- Footer */
@@ -522,11 +524,12 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 }
 
 /* ---------------------------------------------------------------- Hero */
+/* Mobile-first: copy stacked over a full 3:4 photo. The two-column layout,
+   the tall min-height and the scroll cue come in at ≥901px. */
 .jc-hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.92fr);
-  min-height: clamp(560px, 82vh, 760px);
+  grid-template-columns: minmax(0, 1fr);
   background: var(--musgo-escuro);
   overflow: hidden;
 }
@@ -540,14 +543,16 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   padding: clamp(6.5rem, 12vw, 8rem) clamp(1.5rem, 5vw, 4.5rem) clamp(3rem, 6vw, 4.5rem);
   padding-left: clamp(1.5rem, 7vw, 6.5rem);
 }
-.jc-hero__media { position: relative; background: var(--musgo); overflow: hidden; min-height: 320px; }
-.jc-hero__media .jc-photo { position: absolute; inset: -8% -4%; height: 116%; border-radius: 0; box-shadow: none; }
+/* Match the photo's own 3:4 shape so the whole João + dogs shows and it
+   still fills the full width — no short band cutting the image. */
+.jc-hero__media { position: relative; background: var(--musgo); overflow: hidden; aspect-ratio: 3 / 4; order: 2; }
+.jc-hero__media .jc-photo { position: absolute; inset: 0; height: 100%; border-radius: 0; box-shadow: none; }
 .jc-hero__scroll {
   position: absolute;
   left: clamp(1.5rem, 7vw, 6.5rem);
   bottom: 1.8rem;
   z-index: 3;
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 0.7rem;
   font-size: var(--text-2xs);
@@ -558,13 +563,11 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 .jc-hero__scroll-line { display: block; width: 46px; height: 1px; background: var(--line-on-dark); overflow: hidden; }
 .jc-hero__scroll-dot { display: block; width: 12px; height: 1px; background: var(--off-white); }
 
-@media (max-width: 900px) {
-  .jc-hero { grid-template-columns: minmax(0, 1fr); min-height: 0; }
-  /* Match the photo's own 3:4 shape so the whole João + dogs shows and it
-     still fills the full width — no short band cutting the image. */
-  .jc-hero__media { min-height: 0; aspect-ratio: 3 / 4; order: 2; }
-  .jc-hero__media .jc-photo { inset: 0; height: 100%; }
-  .jc-hero__scroll { display: none; }
+@media (min-width: 901px) {
+  .jc-hero { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.92fr); min-height: clamp(560px, 82vh, 760px); }
+  .jc-hero__media { aspect-ratio: auto; min-height: 320px; order: 0; }
+  .jc-hero__media .jc-photo { inset: -8% -4%; height: 116%; }
+  .jc-hero__scroll { display: inline-flex; }
 }
 
 /* --------------------------------------------------------- Service hero */
@@ -575,15 +578,15 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 }
 .jc-service-hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 4.5rem);
   align-items: center;
 }
 .jc-service-hero__price { display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap; margin-top: 0.3rem; }
 .jc-service-hero__price-value { font-family: var(--font-display); font-size: clamp(2rem, 4vw, var(--display-lg)); line-height: 1; color: var(--text-primary); }
 .jc-service-hero__price-note { font-size: var(--text-sm); color: var(--text-muted); }
-@media (max-width: 900px) {
-  .jc-service-hero__grid { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 901px) {
+  .jc-service-hero__grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); }
 }
 
 /* -------------------------------------------------------------- Cards */
@@ -639,9 +642,9 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 .jc-faq__a { font-size: var(--text-base); line-height: 1.7; color: var(--text-secondary); max-width: 64ch; padding-bottom: 1.4rem; }
 
 /* -------------------------------------------------------------- Forms */
-.jc-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.jc-form { display: grid; grid-template-columns: 1fr; gap: 1.2rem; }
 .jc-form__full { grid-column: 1 / -1; }
-@media (max-width: 620px) { .jc-form { grid-template-columns: 1fr; } }
+@media (min-width: 621px) { .jc-form { grid-template-columns: 1fr 1fr; } }
 
 /* ------------------------------------------------------ Info / lists */
 .jc-info-row {
@@ -701,15 +704,15 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 .jc-photo-pair__front .jc-photo { height: 100%; border-radius: 0; box-shadow: none; }
 
 /* -------------------------------------------------------------- Misc */
-.jc-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
-@media (max-width: 760px) { .jc-gallery { grid-template-columns: 1fr; } }
+.jc-gallery { display: grid; grid-template-columns: 1fr; gap: 1.2rem; }
+@media (min-width: 761px) { .jc-gallery { grid-template-columns: repeat(3, 1fr); } }
 
 .jc-center { text-align: center; }
 .jc-mt-sm { margin-top: 1rem; }
 .jc-mt-md { margin-top: 1.8rem; }
 .jc-mt-lg { margin-top: 3rem; }
-.jc-sticky { position: sticky; top: 7rem; }
-@media (max-width: 900px) { .jc-sticky { position: static; } }
+.jc-sticky { position: static; }
+@media (min-width: 901px) { .jc-sticky { position: sticky; top: 7rem; } }
 
 /* First section of pages without a hero: clear the fixed header.
    Doubled class beats sibling modifiers like --tight in the cascade. */
