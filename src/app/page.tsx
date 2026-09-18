@@ -14,9 +14,13 @@ import { SplitHeading } from "@/components/motion/SplitHeading";
 import { ARTICLES, SERVICES, site } from "@/lib/site";
 
 const PILLARS = [
-  ["01", "Calma", "Nada de urgência falsa. O tempo é reservado pra você entender tudo, sem pressa."],
-  ["02", "Verdade", "Se não precisa de remédio, é isso que você ouve. A prática é honesta."],
-  ["03", "Presença", "A visita termina, o acompanhamento não. Sou o veterinário que volta."],
+  ["01", "Calma", "Duas horas reservadas pra você entender tudo, no seu ritmo. Sem pressa."],
+  ["02", "Verdade", "Se dá pra resolver sem remédio, é isso que você vai ouvir."],
+  [
+    "03",
+    "Presença",
+    "A visita termina e o acompanhamento continua. Eu volto pra ver como o seu animal respondeu.",
+  ],
 ] as const;
 
 const DIFERENCIAIS = [
@@ -75,9 +79,9 @@ export default function HomePage() {
           <div className="jc-stack jc-stack--md">
             <SectionHead number="01" eyebrow="Quem cuida" title="Cuidar bem tem um caminho" />
             <p className="jc-body jc-body--lg" data-reveal="rise">
-              Sou o João, médico-veterinário. Atendo cães e gatos na casa deles, com calma e sem
-              receita de bolo. Eu sempre acredito que dá pra resolver com ajuste na rotina, antes de
-              partir pro remédio.
+              Sou o João, médico-veterinário. Atendo cães e gatos em suas casas, com calma e no
+              tempo que cada caso pede. Muita coisa se resolve com ajuste na rotina, e quando dá pra
+              começar por aí, é por aí que a gente começa.
             </p>
 
             <ul className="jc-numbered" data-reveal-stagger="">
@@ -191,8 +195,9 @@ export default function HomePage() {
             }}
           >
             <p className="jc-body" data-reveal="rise">
-              Não trabalho com medo nem com promessa. Se o seu animal não precisa de remédio, é isso
-              que eu vou te dizer. E se precisa, você vai entender exatamente por quê.
+              Trabalho com o que dá pra explicar e sustentar. Não com o medo nem com promessa fácil.
+              Se o seu animal precisa de remédio, você vai entender exatamente por quê. Se não
+              precisa, também.
             </p>
             <p className="jc-body" data-reveal="rise">
               A ideia é simples: arrumar a base primeiro, olhar o animal inteiro, e ficar por perto
@@ -322,7 +327,7 @@ export default function HomePage() {
           <SectionHead
             align="center"
             title="Será que o seu animal está bem?"
-            lead="Se essa pergunta apareceu, já é motivo pra conversar. Sem urgência falsa, sem compromisso."
+            lead="Se essa pergunta apareceu, já é motivo pra conversar. É só uma mensagem, você decide o resto."
           />
           <div className="jc-row" style={{ justifyContent: "center" }} data-reveal="rise">
             <ButtonLink href={site.whatsapp.href} size="lg">
