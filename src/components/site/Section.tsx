@@ -15,6 +15,8 @@ export function Section({
   bg = "page",
   id,
   tight = false,
+  light = false,
+  divider = false,
   pattern = false,
   className = "",
   narrow = false,
@@ -23,6 +25,10 @@ export function Section({
   bg?: Bg;
   id?: string;
   tight?: boolean;
+  /** A step less vertical padding — for the lighter beats of the page. */
+  light?: boolean;
+  /** Hairline on top: use when the previous section has the same colour. */
+  divider?: boolean;
   pattern?: boolean;
   className?: string;
   narrow?: boolean;
@@ -36,6 +42,8 @@ export function Section({
         `jc-bg-${bg}`,
         dark ? "jc-on-dark" : "",
         tight ? "jc-section--tight" : "",
+        light ? "jc-section--light" : "",
+        divider ? "jc-section--divider" : "",
         className,
       ]
         .filter(Boolean)

@@ -16,10 +16,9 @@ import { SplitHeading } from "@/components/motion/SplitHeading";
 import { ARTICLES, FAQS, SERVICES, site } from "@/lib/site";
 
 const PILLARS = [
-  ["01", "Calma", "Até duas horas reservadas pra você entender tudo, no seu ritmo. Sem pressa."],
-  ["02", "Verdade", "Se dá pra resolver sem remédio, é isso que você vai ouvir."],
+  ["Calma", "Até duas horas reservadas pra você entender tudo, no seu ritmo. Sem pressa."],
+  ["Verdade", "Se dá pra resolver sem remédio, é isso que você vai ouvir."],
   [
-    "03",
     "Presença",
     "A visita termina e o acompanhamento continua. Eu volto pra ver como o seu animal respondeu.",
   ],
@@ -118,16 +117,11 @@ export default function HomePage() {
               ajuda ele a viver bem por mais tempo ao seu lado.
             </p>
 
-            <ul className="jc-numbered" data-reveal-stagger="">
-              {PILLARS.map(([n, t, b]) => (
-                <li className="jc-numbered__item" key={n} data-reveal="rise">
-                  <span className="jc-numbered__num" style={{ fontSize: "var(--display-sm)" }}>
-                    {n}
-                  </span>
-                  <span className="jc-stack jc-stack--xs" style={{ gap: "0.3rem" }}>
-                    <strong className="jc-diff__title">{t}</strong>
-                    <span className="jc-numbered__text">{b}</span>
-                  </span>
+            <ul className="jc-pillars" data-reveal-stagger="">
+              {PILLARS.map(([t, b]) => (
+                <li className="jc-pillar" key={t} data-reveal="rise">
+                  <strong className="jc-pillar__title">{t}</strong>
+                  <span className="jc-pillar__text">{b}</span>
                 </li>
               ))}
             </ul>
@@ -169,7 +163,7 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------- galeria / dia a dia */}
-      <Section bg="page">
+      <Section bg="page" light>
         <SectionHead eyebrow="No dia a dia" title="Em casa, com eles" />
         <div className="jc-mt-lg" data-reveal="rise">
           <PhotoCarousel items={GALERIA} />
@@ -260,7 +254,7 @@ export default function HomePage() {
       </Section>
 
       {/* -------------------------------------------------- como funciona */}
-      <Section bg="musgo-deep" id="como-funciona">
+      <Section bg="musgo-deep" id="como-funciona" divider>
         <div className="jc-grid jc-grid--wide-right">
           <div className="jc-sticky">
             <SectionHead number="04" eyebrow="Como funciona" title="Da mensagem à casa" />
@@ -286,7 +280,7 @@ export default function HomePage() {
       </Section>
 
       {/* -------------------------------------------------------- tutores */}
-      <Section bg="warm">
+      <Section bg="warm" light>
         <SectionHead
           number="05"
           eyebrow="O que os tutores dizem"
@@ -345,7 +339,7 @@ export default function HomePage() {
       </Section>
 
       {/* ------------------------------------------------------------ faq */}
-      <Section bg="musgo-deep" id="faq">
+      <Section bg="musgo-deep" id="faq" light>
         <div className="jc-grid jc-grid--wide-right">
           <div className="jc-sticky jc-stack jc-stack--md">
             <SectionHead
@@ -366,7 +360,7 @@ export default function HomePage() {
       {/* -------------------------------------------------------- contato */}
       {/* One channel only: the practice runs on WhatsApp, so the close is a
           single strong WhatsApp call — no competing form. */}
-      <Section bg="musgo-deep" id="contato">
+      <Section bg="musgo-deep" id="contato" divider>
         <div
           className="jc-stack jc-center"
           style={{ alignItems: "center", gap: "1.8rem" }}
