@@ -194,7 +194,11 @@ a:hover { color: var(--musgo); }
 /* Reveal elements only start hidden once we know motion is allowed — no
    JS, no reduced motion, no hidden content. */
 .has-motion [data-reveal] { opacity: 0; will-change: opacity, transform; }
-.has-motion [data-reveal="rise"] { transform: translate3d(0, 22px, 0); }
+/* Shorter travel on phones: 12px is felt, 22px is watched. */
+.has-motion [data-reveal="rise"] { transform: translate3d(0, 12px, 0); }
+@media (min-width: 901px) {
+  .has-motion [data-reveal="rise"] { transform: translate3d(0, 22px, 0); }
+}
 .has-motion [data-reveal="fade"] { transform: none; }
 .has-motion [data-reveal="line"] { opacity: 1; transform: scaleX(0); transform-origin: left center; }
 .has-motion [data-reveal="frame"] { opacity: 0; transform: translate3d(0, 26px, 0) scale(0.985); }
@@ -229,9 +233,15 @@ a:hover { color: var(--musgo); }
 /* SplitText writes these wrappers around each masked line. */
 .jc-split-line { display: block; }
 
-/* The hero runs its own opening timeline rather than the scroll engine. */
-.has-motion [data-hero] { opacity: 0; transform: translate3d(0, 24px, 0); }
-.has-motion [data-hero-media] { clip-path: inset(0 0 0 100%); }
+/* The hero runs its own opening timeline rather than the scroll engine.
+   Mobile-first: the stacked photo fades in; the side-by-side card (≥901px)
+   uncovers from the right. */
+.has-motion [data-hero] { opacity: 0; transform: translate3d(0, 16px, 0); }
+.has-motion [data-hero-media] { opacity: 0; }
+@media (min-width: 901px) {
+  .has-motion [data-hero] { transform: translate3d(0, 24px, 0); }
+  .has-motion [data-hero-media] { opacity: 1; clip-path: inset(0 0 0 100%); }
+}
 @media (prefers-reduced-motion: reduce) {
   .has-motion [data-hero] { opacity: 1 !important; transform: none !important; }
   .has-motion [data-hero-media] { clip-path: none !important; }

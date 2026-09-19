@@ -25,8 +25,17 @@ export function SiteHeader() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    /* the floating WhatsApp button steps aside while the menu is up */
+    document.body.classList.toggle("jc-drawer-open", open);
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      document.body.classList.remove("jc-drawer-open");
+      window.removeEventListener("keydown", onKey);
     };
   }, [open]);
 
@@ -93,7 +102,7 @@ export function SiteHeader() {
     <>
       <header className="jc-header" ref={header}>
         <Link href="#top" aria-label={`${site.name} — início`}>
-          <LogoLockup layout="horizontal" size={44} />
+          <LogoLockup layout="horizontal" size={36} />
         </Link>
 
         <nav className="jc-header__nav" aria-label="Navegação principal">
@@ -138,10 +147,13 @@ export function SiteHeader() {
               {link.label}
             </Link>
           ))}
-          <Link href="#contato" className="jc-drawer__link" onClick={() => setOpen(false)}>
-            Agendar
-          </Link>
         </nav>
+        <div className="jc-drawer__foot">
+          <ButtonLink href="#contato" size="lg" fullWidth onClick={() => setOpen(false)}>
+            Agendar pelo WhatsApp
+          </ButtonLink>
+          <span className="jc-drawer__note">{site.area} · a domicílio</span>
+        </div>
       </div>
     </>
   );

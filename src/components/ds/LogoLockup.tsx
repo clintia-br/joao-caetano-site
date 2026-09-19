@@ -59,11 +59,12 @@ export function LogoLockup({
 
   if (layout === "horizontal") {
     return (
-      <span style={{ display: "inline-flex", alignItems: "center", gap: size * 0.28 }}>
+      <span className="jc-lockup-h" style={{ display: "inline-flex", alignItems: "center", gap: size * 0.28 }}>
         <JcSymbol size={size} color={ink} />
         <span style={{ display: "flex", flexDirection: "column", gap: size * 0.09, paddingTop: 2 }}>
           {name}
-          <span style={{ display: "flex", alignItems: "center", gap: size * 0.18 }}>
+          {/* the descritor hides on narrow phones (see .jc-lockup-h__desc) */}
+          <span className="jc-lockup-h__desc" style={{ display: "flex", alignItems: "center", gap: size * 0.18 }}>
             <span
               aria-hidden="true"
               style={{ width: size * 0.45, height: 1, background: "var(--line)", flex: "none" }}

@@ -27,6 +27,12 @@ export function MotionRoot() {
     () => {
       if (prefersReducedMotion()) return;
 
+      /* On a phone everything is closer together and scrolls faster: shorter
+         stagger, and no parallax at all (it fights native scrolling and costs
+         battery for a shift nobody asked for). */
+      const phone = window.matchMedia("(max-width: 900px)").matches;
+      const staggerScale = phone ? 0.65 : 1;
+
       const enter = (
         targets: gsap.TweenTarget,
         kind: string,
@@ -77,7 +83,7 @@ export function MotionRoot() {
           byKind.set(kind, [...(byKind.get(kind) || []), el]);
         });
 
-        const step = Number(group.dataset.revealStaggerStep) || 0.09;
+        const step = (Number(group.dataset.revealStaggerStep) || 0.09) * staggerScale;
         byKind.forEach((els, kind) => enter(els, kind, step, group));
       });
 
@@ -104,6 +110,7 @@ export function MotionRoot() {
       /* 4 — parallax: the depth is deliberately small (a few percent), the
              difference you feel rather than notice. */
       gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
+        if (phone) return;
         const amount = Number(el.dataset.parallax) || 6;
         gsap.fromTo(
           el,

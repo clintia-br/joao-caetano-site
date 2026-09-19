@@ -240,7 +240,7 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  padding: 1.1rem var(--gutter);
+  padding: 0.6rem var(--gutter);
   background: color-mix(in srgb, var(--off-white) 88%, transparent);
   border-bottom: 1px solid transparent;
   transition: background var(--dur-slow) var(--ease-standard),
@@ -248,7 +248,10 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
               box-shadow var(--dur-slow) var(--ease-standard),
               padding var(--dur-slow) var(--ease-standard);
 }
-.jc-header > a:first-child { display: inline-block; transform-origin: left center; transition: transform var(--dur-slow) var(--ease-standard); }
+.jc-header > a:first-child { display: inline-flex; line-height: 1; transform-origin: left center; transition: transform var(--dur-slow) var(--ease-standard); }
+/* The descritor under the name only fits comfortably from ~420px up. */
+.jc-lockup-h__desc { display: none !important; }
+@media (min-width: 421px) { .jc-lockup-h__desc { display: flex !important; } }
 @supports (backdrop-filter: blur(6px)) {
   .jc-header { backdrop-filter: saturate(120%) blur(10px); }
 }
@@ -257,9 +260,9 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   background: color-mix(in srgb, var(--off-white) 94%, transparent);
   border-bottom-color: var(--line-hairline);
   box-shadow: var(--shadow-xs);
-  padding-block: 0.55rem;
+  padding-block: 0.5rem;
 }
-.jc-header--scrolled > a:first-child { transform: scale(0.85); }
+.jc-header--scrolled > a:first-child { transform: scale(0.88); }
 /* Mobile-first: nav is the burger + drawer by default; the inline links
    appear from 881px up (see the min-width block below). */
 .jc-header__nav { display: none; align-items: center; gap: 1.9rem; }
@@ -312,23 +315,27 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   z-index: 99;
   display: none;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.4rem;
-  padding: 6rem var(--gutter) 3rem;
+  padding: 6.5rem var(--gutter) max(2rem, env(safe-area-inset-bottom));
   background: var(--musgo-escuro);
   overflow-y: auto;
 }
 .jc-drawer[data-open="true"] { display: flex; }
 .jc-drawer nav { display: flex; flex-direction: column; }
+/* Links sit in the upper third at a size that still feels like a menu, not
+   a poster; the one action lives at the bottom as a real button. */
 .jc-drawer__link {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 7vw, 2.6rem);
-  line-height: 1.25;
+  font-size: clamp(1.6rem, 6vw, 2.1rem);
+  line-height: 1.2;
   color: var(--off-white);
-  padding: 0.35rem 0;
+  padding: 0.7rem 0;
   border-bottom: 1px solid var(--line-on-dark);
 }
 .jc-drawer__link:hover { color: var(--off-white-quente); }
+.jc-drawer__foot { margin-top: auto; padding-top: 2.5rem; display: flex; flex-direction: column; gap: 0.9rem; }
+.jc-drawer__note { font-size: var(--text-xs); color: var(--offwhite-64); letter-spacing: var(--tracking-label); }
 
 .jc-progress {
   position: fixed;
@@ -342,6 +349,7 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 }
 
 @media (min-width: 881px) {
+  .jc-header { padding-block: 1rem; }
   .jc-header__nav { display: flex; }
   .jc-header__burger { display: none; }
 }
@@ -557,8 +565,9 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 }
 
 /* ---------------------------------------------------------------- Hero */
-/* Mobile-first: copy stacked over a full 3:4 photo. The two-column layout,
-   the tall min-height and the scroll cue come in at ≥901px. */
+/* Mobile-first: the photo comes first and fills most of the first screen
+   (a face before a pitch), the copy follows underneath. The two-column
+   layout and the tall min-height come in at ≥901px. */
 .jc-hero {
   position: relative;
   display: grid;
@@ -572,14 +581,25 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.75rem;
-  padding: clamp(6.5rem, 12vw, 8rem) clamp(1.5rem, 5vw, 4.5rem) clamp(3rem, 6vw, 4.5rem);
-  padding-left: clamp(1.5rem, 7vw, 6.5rem);
+  gap: 1.4rem;
+  padding: clamp(2.25rem, 7vw, 3.5rem) var(--gutter) clamp(2.75rem, 8vw, 4.5rem);
+  order: 1;
 }
-/* Match the photo's own 3:4 shape so the whole João + dogs shows and it
-   still fills the full width — no short band cutting the image. */
-.jc-hero__media { position: relative; background: var(--musgo); overflow: hidden; aspect-ratio: 3 / 4; order: 2; }
+.jc-hero__media {
+  position: relative;
+  order: 0;
+  background: var(--musgo);
+  overflow: hidden;
+  /* tall enough to show João and the dogs under the fixed header, short
+     enough that the eyebrow and the first line of the headline still sit
+     inside the first screen */
+  height: clamp(340px, 52svh, 520px);
+}
 .jc-hero__media .jc-photo { position: absolute; inset: 0; height: 100%; border-radius: 0; box-shadow: none; }
+/* The main action is the full width of the thumb zone; the secondary link
+   stands alone underneath with a real 44px hit area. */
+.jc-hero__actions { gap: 0.4rem 1rem; }
+.jc-hero__cta { flex: 1 1 100%; }
 
 @media (min-width: 901px) {
   /* Composition, not just spacing: the hero aligns to the page container
@@ -592,16 +612,19 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
     min-height: clamp(600px, 88vh, 820px);
     padding: clamp(7.5rem, 12vw, 9rem) max(var(--gutter), calc((100% - var(--container-max)) / 2)) clamp(3.5rem, 6vw, 5rem);
   }
-  .jc-hero__copy { padding: 0; gap: 2rem; max-width: 540px; }
+  .jc-hero__copy { padding: 0; gap: 2rem; max-width: 540px; order: 0; }
   .jc-hero .jc-lead { font-size: 1.125rem; max-width: 40ch; }
+  .jc-hero__actions { gap: 0.9rem; }
+  .jc-hero__cta { flex: 0 0 auto; }
   .jc-hero__media {
     aspect-ratio: 4 / 5;
+    height: auto;
     width: min(100%, 440px);
     min-height: 0;
     justify-self: center;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
-    order: 0;
+    order: 1;
   }
   /* a little oversize so the subtle parallax never shows the card's edge */
   .jc-hero__media .jc-photo { inset: -4% 0; height: 108%; }

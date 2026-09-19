@@ -21,21 +21,39 @@ export function HomeHero() {
       if (prefersReducedMotion()) return;
 
       const tl = gsap.timeline({ defaults: { ease: "jcOut" } });
+      const phone = window.matchMedia("(max-width: 900px)").matches;
 
-      tl.to("[data-hero-media]", {
-        clipPath: "inset(0 0 0 0%)",
-        duration: 1.35,
-      })
-        .from(
-          "[data-hero-media] .jc-photo",
-          { scale: 1.12, duration: 2, ease: "jcStandard" },
-          0,
-        )
-        .to(
-          "[data-hero]",
-          { opacity: 1, y: 0, duration: DUR.enter, stagger: 0.09 },
-          0.25,
-        );
+      if (phone) {
+        /* Stacked layout: the photo simply settles into place (a fade and a
+           very small scale), then the copy rises. No lateral wipe on a
+           full-width image — it reads as a slide, not as calm. */
+        tl.to("[data-hero-media]", { opacity: 1, duration: 1.1 })
+          .from(
+            "[data-hero-media] .jc-photo",
+            { scale: 1.06, duration: 1.8, ease: "jcStandard" },
+            0,
+          )
+          .to(
+            "[data-hero]",
+            { opacity: 1, y: 0, duration: DUR.enter, stagger: 0.07 },
+            0.35,
+          );
+      } else {
+        tl.to("[data-hero-media]", {
+          clipPath: "inset(0 0 0 0%)",
+          duration: 1.35,
+        })
+          .from(
+            "[data-hero-media] .jc-photo",
+            { scale: 1.12, duration: 2, ease: "jcStandard" },
+            0,
+          )
+          .to(
+            "[data-hero]",
+            { opacity: 1, y: 0, duration: DUR.enter, stagger: 0.09 },
+            0.25,
+          );
+      }
 
       return () => {
         tl.kill();
@@ -62,13 +80,15 @@ export function HomeHero() {
           {"Cuidar hoje pra ele viver bem, ao seu lado, por mais tempo."}
         </SplitHeading>
 
+        {/* Regular weight throughout: a bold run in the middle of a lead
+            breaks the calm the sentence is promising. */}
         <p className="jc-lead" data-hero>
-          Atendimento veterinário para <strong>cães e gatos, na casa deles</strong>, na {site.area} —
-          com tempo, calma e o cuidado de quem sabe que ele é da família.
+          Atendimento veterinário para cães e gatos, na casa deles, na {site.area} — com tempo,
+          calma e o cuidado de quem sabe que ele é da família.
         </p>
 
-        <div className="jc-row" data-hero>
-          <ButtonLink href="#contato" size="lg">
+        <div className="jc-row jc-hero__actions" data-hero>
+          <ButtonLink href="#contato" size="lg" className="jc-hero__cta">
             Agendar pelo WhatsApp
           </ButtonLink>
           <ButtonLink href="#como-funciona" variant="ghost" size="lg">
