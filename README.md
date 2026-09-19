@@ -34,10 +34,20 @@ npm start
 O CSS é **mobile-first**: o estilo base é o layout de celular e as telas maiores
 são aprimoradas com `@media (min-width: …)`. Breakpoints:
 
+- **421px** — o descritor volta a aparecer ao lado do nome no header.
+- **561px** — as colunas do footer passam de 2 para 3.
 - **621px** — formulário passa a 2 colunas.
-- **761px** — galeria passa a 3 colunas (cards já são fluidos com `auto-fit`).
+- **761px** — galeria passa a 3 colunas; cards ganham sombra e raio maior; o
+  aviso CFMV vira um card; diferenciais voltam ao layout empilhado.
 - **881px** — o menu vira a navegação horizontal (abaixo disso, hambúrguer + drawer).
-- **901px** — grids de duas colunas, hero em duas colunas e elementos `sticky` são ativados.
+- **901px** — grids de duas colunas, hero em duas colunas (foto como card ao
+  lado do texto) e elementos `sticky` são ativados.
+
+No celular a escala tipográfica é um degrau menor (lead 18px, body 16–16,5px,
+H1 30px), o hero mostra a foto primeiro (52svh) e o texto embaixo, o CTA
+principal ocupa a largura toda, os cards são só hairline + superfície, e todo
+link ou botão tem área de toque de pelo menos 44px. A galeria "No dia a dia"
+só renderiza quando pelo menos uma foto real estiver em `GALERIA`.
 
 ## Movimento ("a marca não grita")
 
@@ -45,7 +55,9 @@ Todo o vocabulário de animação vem do manual §13: fades e deslocamentos curt
 sem bounce, sem spring, sem zoom. `prefers-reduced-motion` é respeitado em tudo
 (inclusive sem JavaScript a página renderiza completa). Elementos entram por
 `data-reveal`; o fio terra se desenha; fotos se descobrem por clip-path; o
-parallax é de poucos por cento.
+parallax é de poucos por cento. Abaixo de 901px o deslocamento cai para 12px,
+o stagger encurta e o parallax é desligado (briga com o scroll nativo e gasta
+bateria); o hero em coluna única entra por fade em vez de wipe lateral.
 
 ## Pendências declaradas (não inventar — confirmar com o João)
 

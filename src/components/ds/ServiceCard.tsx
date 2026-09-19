@@ -1,4 +1,3 @@
-import { Badge } from "./Badge";
 import { ButtonLink } from "./Button";
 
 /**
@@ -29,7 +28,9 @@ export function ServiceCard({
       className={`jc-service-card${featured ? " jc-service-card--featured jc-on-dark" : ""}`}
       data-reveal="rise"
     >
-      {eyebrow && <Badge variant={featured ? "outline" : "terra"}>{eyebrow}</Badge>}
+      {/* a quiet text eyebrow — a filled pill at the top of every card was
+          the loudest element in the section */}
+      {eyebrow && <span className="jc-service-card__eyebrow">{eyebrow}</span>}
       <h3 className="jc-service-card__title">{title}</h3>
       <p className="jc-service-card__desc">{description}</p>
       {price && (

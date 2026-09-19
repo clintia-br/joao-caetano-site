@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { site } from "@/lib/site";
 
 /**
@@ -5,10 +8,30 @@ import { site } from "@/lib/site";
  * It uses WhatsApp's own green (a deliberate exception to the brand palette,
  * because a green WhatsApp bubble is a recognised affordance) and opens a chat
  * directly — the one always-available shortcut to talk to João.
+ *
+ * It steps aside twice: while the mobile menu is open (body.jc-drawer-open,
+ * set by the header) and while the contact section — which already carries
+ * the same call — is on screen. Both are CSS classes; no motion library.
  */
 export function WhatsAppFab() {
+  const ref = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    const contato = document.getElementById("contato");
+    if (!el || !contato || !("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => el.classList.toggle("jc-wa-fab--away", entry.isIntersecting),
+      { rootMargin: "0px 0px -35% 0px", threshold: 0 },
+    );
+    observer.observe(contato);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <a
+      ref={ref}
       className="jc-wa-fab"
       href={site.whatsapp.href}
       target="_blank"

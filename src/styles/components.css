@@ -24,8 +24,10 @@
               transform var(--dur-fast) var(--ease-standard);
 }
 .jc-btn--sm { padding: 0.5rem 0.95rem; font-size: var(--text-xs); gap: 0.4rem; }
-.jc-btn--md { padding: 0.72rem 1.35rem; font-size: var(--text-sm); }
-.jc-btn--lg { padding: 0.95rem 1.9rem; font-size: var(--text-base); gap: 0.6rem; }
+/* md and lg are always a full thumb target (44px) — the type stays the same,
+   the box grows. */
+.jc-btn--md { padding: 0.72rem 1.35rem; font-size: var(--text-sm); min-height: 44px; }
+.jc-btn--lg { padding: 0.95rem 1.9rem; font-size: var(--text-base); gap: 0.6rem; min-height: 48px; }
 .jc-btn--full { display: flex; width: 100%; }
 
 .jc-btn--primary {
@@ -47,6 +49,7 @@
   border-color: transparent;
   border-radius: 0;
   padding: 0.3rem 0;
+  min-height: 44px;
 }
 .jc-btn--ghost .jc-btn__label { box-shadow: inset 0 -1px 0 currentColor; padding-bottom: 2px; }
 .jc-btn--ghost:hover { opacity: 0.62; color: var(--text-accent); }
@@ -108,20 +111,35 @@
 .jc-section-head--center .jc-lead { margin-inline: auto; max-width: 42ch; }
 
 /* -------------------------------------------------------- Service card */
+/* Mobile-first: on a phone the card is a hairline and a surface, nothing
+   else — no shadow, a smaller radius, tighter padding. Shadow, the large
+   radius and the hover lift come back where there is a pointer and room. */
 .jc-service-card {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
-  padding: 2rem 1.9rem 1.9rem;
+  gap: 1rem;
+  padding: 1.5rem 1.35rem 1.4rem;
   background: var(--surface-raised);
   color: var(--text-primary);
   border: var(--border-card);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-md);
   transition: transform var(--dur-slow) var(--ease-standard),
               box-shadow var(--dur-slow) var(--ease-standard);
 }
-.jc-service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.jc-service-card__eyebrow {
+  font-family: var(--font-text);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+@media (min-width: 761px) {
+  .jc-service-card { gap: 1.15rem; padding: 2rem 1.9rem 1.9rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+}
+@media (hover: hover) and (min-width: 901px) {
+  .jc-service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+}
 .jc-service-card--featured {
   background: var(--musgo);
   border-color: var(--musgo);
@@ -141,7 +159,7 @@
 }
 .jc-service-card__desc { font-size: var(--text-base); line-height: var(--leading-relaxed); color: var(--text-secondary); }
 .jc-service-card__pricing { margin-top: auto; padding-top: 0.5rem; display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
-.jc-service-card__price { font-family: var(--font-display); font-size: var(--display-md); line-height: 1; color: var(--text-primary); }
+.jc-service-card__price { font-family: var(--font-display); font-size: clamp(1.7rem, 1.2rem + 1.6vw, var(--display-md)); line-height: 1; color: var(--text-primary); }
 .jc-service-card__note { font-size: var(--text-xs); color: var(--text-muted); }
 .jc-service-card__action { padding-top: 0.4rem; }
 
@@ -187,14 +205,26 @@
 }
 
 /* --------------------------------------------------------- Disclaimer */
+/* Mobile-first: a hairline and two lines of text; the boxed version only
+   from 761px, where a small card no longer crowds the column. */
 .jc-disclaimer {
   display: flex;
   gap: 0.9rem;
   align-items: flex-start;
-  padding: 1.1rem 1.25rem;
-  background: var(--musgo-08);
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius-md);
+  padding: 1.1rem 0 0;
+  border-top: 1px solid var(--line-hairline);
+}
+/* Under the info rows (which already end on a hairline) the plain version
+   drops its own line, so the two never stack. */
+.jc-contact-disclaimer .jc-disclaimer { border-top: 0; padding-top: 0; }
+@media (min-width: 761px) {
+  .jc-contact-disclaimer .jc-disclaimer { padding-top: 1.1rem; border-top: 1px solid var(--line-soft); }
+  .jc-disclaimer {
+    padding: 1.1rem 1.25rem;
+    background: var(--musgo-08);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-md);
+  }
 }
 .jc-disclaimer__title {
   font-weight: var(--weight-semibold);
@@ -363,8 +393,12 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   overflow: hidden;
 }
 .jc-footer__top { display: flex; flex-wrap: wrap; gap: 3rem; justify-content: space-between; }
-.jc-footer__cols { display: flex; flex-wrap: wrap; gap: 2.5rem; }
-.jc-footer__col { display: flex; flex-direction: column; gap: 0.85rem; min-width: 140px; }
+/* Mobile-first: two columns of links on a phone, three from 561px. */
+.jc-footer__cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 1.5rem; width: 100%; }
+.jc-footer__col { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.jc-footer__col-title { margin-bottom: 0.45rem; }
+@media (min-width: 561px) { .jc-footer__cols { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 901px) { .jc-footer__cols { display: flex; flex-wrap: wrap; gap: 2.5rem; width: auto; } .jc-footer__col { min-width: 140px; } }
 .jc-footer__col-title {
   font-weight: var(--weight-semibold);
   font-size: var(--text-2xs);
@@ -372,7 +406,7 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   text-transform: uppercase;
   color: var(--offwhite-78);
 }
-.jc-footer__link { font-size: var(--text-sm); color: var(--off-white-quente); transition: opacity var(--dur-base) var(--ease-standard); }
+.jc-footer__link { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--text-sm); color: var(--off-white-quente); transition: opacity var(--dur-base) var(--ease-standard); }
 .jc-footer__link:hover { opacity: 0.62; color: var(--off-white-quente); }
 .jc-footer__legal { font-size: var(--text-xs); color: var(--offwhite-64); margin-top: 1.5rem; }
 
@@ -410,12 +444,14 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   background: var(--musgo);
   color: var(--offwhite-78);
 }
+/* Sparser and fainter than the manual's default 6%: at 92px the repeat
+   turned every empty slot into wallpaper. */
 .jc-photo__pattern {
   position: absolute;
   inset: -20%;
-  opacity: var(--pattern-opacity);
+  opacity: calc(var(--pattern-opacity) * 0.75);
   background-repeat: repeat;
-  background-size: 92px auto;
+  background-size: 132px auto;
 }
 .jc-photo__caption {
   position: relative;
@@ -653,9 +689,11 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 .jc-card {
   background: var(--surface-raised);
   border: var(--border-card);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  padding: clamp(1.5rem, 3vw, 2.2rem);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.35rem;
+}
+@media (min-width: 761px) {
+  .jc-card { border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: clamp(1.5rem, 3vw, 2.2rem); }
 }
 .jc-card--table { padding: 1.4rem 1.8rem 1.8rem; }
 
@@ -663,7 +701,7 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 .jc-review__kicker { font-family: var(--font-display); font-style: italic; font-size: var(--text-lg); color: var(--terra); }
 .jc-review__body { font-size: var(--text-base); line-height: 1.65; color: var(--text-primary); }
 .jc-review__foot { display: flex; align-items: center; gap: 0.8rem; margin-top: auto; }
-.jc-review__avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex: none; background: var(--musgo-12); }
+.jc-review__foot::before { content: ""; width: 22px; height: 1px; background: var(--line); flex: none; }
 .jc-review__name { font-weight: var(--weight-semibold); font-size: var(--text-sm); color: var(--text-secondary); }
 
 /* ---------------------------------------------------------------- FAQ */
@@ -723,6 +761,7 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   color: var(--text-accent);
 }
 .jc-info-row__value { font-size: var(--text-base); color: var(--text-primary); text-align: right; }
+.jc-info-row__value a { display: inline-block; padding-block: 0.55rem; margin-block: -0.55rem; }
 
 .jc-numbered { display: flex; flex-direction: column; gap: 1.1rem; }
 .jc-numbered__item { display: flex; gap: 0.9rem; align-items: flex-start; border-top: 1px solid var(--line); padding-top: 1.1rem; }
@@ -739,18 +778,23 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   z-index: 90;
   display: inline-grid;
   place-items: center;
-  width: 60px; height: 60px;
+  width: 52px; height: 52px;
   border-radius: 50%;
   background: #25d366;
   color: #fff;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
   transition: transform var(--dur-base) var(--ease-standard),
               background var(--dur-base) var(--ease-standard),
-              box-shadow var(--dur-base) var(--ease-standard);
+              box-shadow var(--dur-base) var(--ease-standard),
+              opacity var(--dur-slow) var(--ease-standard);
 }
 .jc-wa-fab:hover { background: #1ebe5b; color: #fff; transform: translateY(-3px); }
 .jc-wa-fab:active { transform: translateY(-1px); }
-.jc-wa-fab svg { width: 32px; height: 32px; }
+.jc-wa-fab svg { width: 28px; height: 28px; }
+/* Out of the way while the menu is open and over the contact section. */
+.jc-wa-fab--away,
+.jc-drawer-open .jc-wa-fab { opacity: 0; pointer-events: none; transform: translateY(8px); }
+@media (min-width: 901px) { .jc-wa-fab { width: 56px; height: 56px; } .jc-wa-fab svg { width: 30px; height: 30px; } }
 
 @media (prefers-reduced-motion: no-preference) {
   .jc-wa-fab { animation: jc-fab-in var(--dur-slow) var(--ease-out) 0.5s both; }
@@ -808,8 +852,10 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   padding-bottom: 0.25rem;
 }
 .jc-carousel__track::-webkit-scrollbar { display: none; }
-.jc-carousel__item { flex: 0 0 min(72vw, 300px); scroll-snap-align: start; }
-.jc-carousel__nav { display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 1rem; }
+.jc-carousel__item { flex: 0 0 min(78vw, 300px); scroll-snap-align: start; }
+/* The arrows are for mouse users; on touch the strip is the control. */
+.jc-carousel__nav { display: none; gap: 0.6rem; justify-content: flex-end; margin-top: 1rem; }
+@media (hover: hover) and (pointer: fine) { .jc-carousel__nav { display: flex; } }
 .jc-carousel__btn {
   width: 44px; height: 44px;
   border-radius: 50%;

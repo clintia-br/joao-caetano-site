@@ -69,6 +69,10 @@ const GALERIA: CarouselPhoto[] = [
   { brief: "Detalhe do cuidado · 4:5" },
 ];
 
+/* The strip only renders once at least one real photo is in — a row of
+   placeholders in production never looks finished. */
+const GALERIA_READY = GALERIA.some((p) => p.src);
+
 const FAQ_LD = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -163,12 +167,14 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------- galeria / dia a dia */}
-      <Section bg="page" light>
-        <SectionHead eyebrow="No dia a dia" title="Em casa, com eles" />
-        <div className="jc-mt-lg" data-reveal="rise">
-          <PhotoCarousel items={GALERIA} />
-        </div>
-      </Section>
+      {GALERIA_READY && (
+        <Section bg="page" light>
+          <SectionHead eyebrow="No dia a dia" title="Em casa, com eles" />
+          <div className="jc-mt-lg" data-reveal="rise">
+            <PhotoCarousel items={GALERIA} />
+          </div>
+        </Section>
+      )}
 
       {/* -------------------------------------------------- diferenciais */}
       <Section bg="musgo">
@@ -293,10 +299,9 @@ export default function HomePage() {
             <figure className="jc-card jc-review" key={d.name} data-reveal="rise">
               <span className="jc-review__kicker">Depoimento</span>
               <blockquote className="jc-review__body">{d.text}</blockquote>
+              {/* no avatar until there is a real one: an empty circle reads
+                  as a missing photo, a short fio reads as a signature */}
               <figcaption className="jc-review__foot">
-                <span className="jc-review__avatar" aria-hidden="true">
-                  <PhotoSlot brief="" ratio="1 / 1" reveal={false} />
-                </span>
                 <span className="jc-review__name">{d.name}</span>
               </figcaption>
             </figure>
@@ -332,7 +337,7 @@ export default function HomePage() {
               title={a.title}
               read={a.read}
               href="#contato"
-              brief={`Imagem do artigo · ${a.tag} · 3:2`}
+              brief={`Imagem do artigo · ${a.tag}`}
             />
           ))}
         </div>
@@ -397,7 +402,7 @@ export default function HomePage() {
             <InfoRow label="Espécies" value="Cães e gatos" />
           </div>
 
-          <div style={{ maxWidth: 560, width: "100%" }} data-reveal="rise">
+          <div className="jc-contact-disclaimer" style={{ maxWidth: 560, width: "100%" }} data-reveal="rise">
             <Disclaimer />
           </div>
         </div>

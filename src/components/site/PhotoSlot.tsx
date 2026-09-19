@@ -67,7 +67,7 @@ export function PhotoSlot({
             data-parallax={parallax ?? 5}
             style={{ backgroundImage: "url(/logo-symbol-offwhite.svg)" }}
           />
-          <JcSymbol size={30} color="var(--offwhite-78)" decorative />
+          <JcSymbol size={24} color="var(--offwhite-78)" decorative />
           <span className="jc-photo__caption">{brief}</span>
         </span>
       )}
