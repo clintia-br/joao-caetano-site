@@ -386,7 +386,7 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 /* ------------------------------------------------------------- Footer */
 .jc-footer {
   position: relative;
-  background: var(--musgo-profundo);
+  /* background: the dark-field gradient in globals.css */
   color: var(--off-white);
   padding: clamp(2.5rem, 5vw, 4rem) var(--gutter) 2rem;
   border-top: 1px solid var(--line-on-dark);
@@ -621,7 +621,7 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  background: var(--musgo-profundo);
+  /* background: the dark-field gradient in globals.css */
   overflow: hidden;
 }
 .jc-hero__copy {

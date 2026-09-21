@@ -56,10 +56,15 @@ maior, mozjpeg q78, saída em `public/fotos/`); o script imprime a entrada
 `MANIFESTO_FOTOS` em `src/lib/site.ts` (enquanto vazia, a seção mostra o
 símbolo); os artigos aceitam `image` na mesma lista `ARTICLES`.
 
-## Cor: profundidade sem gradiente
+## Cor: profundidade
 
-O manual (§08) pede fundos chapados, sem gradientes de cor. A profundidade
-vem de três coisas que não quebram a regra: **três tons de verde** em
+O manual (§08) pede fundos chapados. Por decisão da Clintia (set/2026) o
+site abre **uma exceção registrada**: os campos escuros levam um gradiente
+vertical de dois tons da mesma família (cerca de 10% do topo à base) e,
+onde um campo escuro encontra um claro, a cor anterior sangra 36px pra
+dentro da próxima seção em vez de cortar seco. Os campos claros continuam
+chapados; nenhuma foto recebe overlay de cor. Além disso, a profundidade
+vem de três coisas dentro da regra: **três tons de verde** em
 rotação pela página (hero 900 `--musgo-profundo` · Quem cuida 800 · O que
 muda 700 · Serviços 700 · Conteúdo 800 · FAQ 700 · Contato 800 · footer 900,
 nunca dois iguais em sequência), **um ponto de luz** off-white a 7% num

@@ -92,14 +92,48 @@ a:hover { color: var(--musgo); }
 .jc-section--close.jc-section--close { padding-bottom: clamp(3rem, 6vw, 4.5rem); }
 .jc-section--flush { padding-block: 0; }
 
-/* Background fields — flat colour only (manual §08: no gradients). */
+/* Background fields. Light fields stay flat. Dark fields carry a vertical
+   two-tone gradient inside the same family (about 10% from top to bottom),
+   an approved exception to manual §08 — see README "Cor". */
 .jc-bg-page { background: var(--surface-page); }
 .jc-bg-warm { background: var(--surface-page-warm); }
 .jc-bg-sage { background: var(--surface-sage); }
 .jc-bg-raised { background: var(--surface-raised); }
-.jc-bg-musgo { background: var(--surface-inverse); }
-.jc-bg-musgo-deep { background: var(--surface-inverse-deep); }
-.jc-bg-musgo-deeper { background: var(--surface-inverse-deeper); }
+.jc-bg-musgo,
+.jc-bg-musgo-deep,
+.jc-bg-musgo-deeper,
+.jc-hero,
+.jc-footer {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--field) 95%, var(--off-white)) 0%,
+    var(--field) 45%,
+    color-mix(in srgb, var(--field) 93%, black) 100%
+  );
+}
+.jc-bg-musgo { --field: var(--surface-inverse); }
+.jc-bg-musgo-deep { --field: var(--surface-inverse-deep); }
+.jc-bg-musgo-deeper, .jc-hero, .jc-footer { --field: var(--surface-inverse-deeper); }
+
+/* Transition bands: where a dark field meets a light one (either way) the
+   previous colour bleeds 36px into the next section instead of a hard cut. */
+.jc-section::after,
+.jc-bg-sage::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 36px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--band-from, transparent), transparent);
+}
+.jc-bg-sage { position: relative; }
+.jc-hero + .jc-bg-sage { --band-from: var(--musgo-profundo); }
+.jc-bg-sage + .jc-section { --band-from: var(--surface-sage); }
+.jc-bg-musgo + .jc-section:not(.jc-on-dark) { --band-from: var(--surface-inverse); }
+.jc-bg-musgo-deep + .jc-section:not(.jc-on-dark) { --band-from: var(--surface-inverse-deep); }
+.jc-bg-raised + .jc-on-dark { --band-from: var(--surface-raised); }
+.jc-bg-page + .jc-on-dark { --band-from: var(--surface-page); }
+.jc-bg-warm + .jc-on-dark { --band-from: var(--surface-page-warm); }
 
 /* Depth without gradients of colour: a very faint point of light in one
    upper corner of every dark field (off-white at 6%), alternating sides
