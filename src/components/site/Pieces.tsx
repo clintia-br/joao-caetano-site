@@ -90,6 +90,7 @@ export function ArticleCard({
           ratio="3 / 2"
           reveal={false}
           parallax={5}
+          sizes="(max-width: 900px) 100vw, 400px"
         />
       </span>
       <span className="jc-article__meta">

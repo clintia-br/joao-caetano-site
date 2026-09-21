@@ -878,9 +878,11 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 /* smaller cards on a phone so the next photo peeks in and invites the swipe */
 .jc-manifesto__fotos .jc-carousel__item { flex-basis: min(62vw, 240px); }
 @media (min-width: 901px) {
-  /* five 4:5 cards fit the 880px stack; with fewer photos they centre */
-  .jc-manifesto__fotos .jc-carousel__item { flex-basis: 160px; }
+  /* the cards share the stack's width (up to six fit); with fewer photos
+     they grow to 200px and centre */
+  .jc-manifesto__fotos .jc-carousel__item { flex: 1 1 0; min-width: 120px; max-width: 200px; }
   .jc-manifesto__fotos .jc-carousel__track { justify-content: center; }
+  .jc-manifesto__fotos .jc-carousel__nav { display: none; }
 }
 
 /* Marquee separator: a small terra dot between phrases (typographic, not an icon). */

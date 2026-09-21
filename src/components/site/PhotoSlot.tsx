@@ -22,6 +22,7 @@ export function PhotoSlot({
   className = "",
   priority = false,
   reveal = true,
+  sizes = "(max-width: 900px) 100vw, 50vw",
 }: {
   src?: string;
   alt?: string;
@@ -36,6 +37,8 @@ export function PhotoSlot({
   className?: string;
   priority?: boolean;
   reveal?: boolean;
+  /** The `sizes` hint for next/image: how wide this slot renders. */
+  sizes?: string;
 }) {
   return (
     <div
@@ -55,7 +58,7 @@ export function PhotoSlot({
           alt={alt || brief}
           width={width}
           height={height}
-          sizes="(max-width: 900px) 100vw, 50vw"
+          sizes={sizes}
           priority={priority}
           data-parallax={parallax}
         />
