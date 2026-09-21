@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 import { SymbolPattern } from "./SymbolPattern";
 
 type Bg = "page" | "warm" | "sage" | "raised" | "musgo" | "musgo-deep" | "marinho";
@@ -20,6 +20,7 @@ export function Section({
   pattern = false,
   className = "",
   narrow = false,
+  style,
 }: {
   children: ReactNode;
   bg?: Bg;
@@ -32,11 +33,13 @@ export function Section({
   pattern?: boolean;
   className?: string;
   narrow?: boolean;
+  style?: CSSProperties;
 }) {
   const dark = DARK.includes(bg);
   return (
     <section
       id={id}
+      style={style}
       className={[
         "jc-section",
         `jc-bg-${bg}`,

@@ -10,7 +10,7 @@ import { FOOTER_COLUMNS, site } from "@/lib/site";
  */
 export function SiteFooter() {
   return (
-    <footer className="jc-footer jc-on-dark">
+    <footer className="jc-footer jc-on-dark jc-arc">
       <div className="jc-container" style={{ position: "relative" }}>
         <div className="jc-footer__top">
           <div data-reveal="rise">

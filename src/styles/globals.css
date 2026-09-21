@@ -6,6 +6,7 @@
 @import "./tokens/spacing.css";
 @import "./tokens/effects.css";
 @import "./components.css";
+@import "./redesign.css";
 
 /* ------------------------------------------------------------------ base */
 *,
