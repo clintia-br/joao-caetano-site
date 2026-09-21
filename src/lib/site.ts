@@ -47,7 +47,7 @@ export const SERVICES = [
     eyebrow: "Pra começar",
     title: "Vacina em Casa",
     description:
-      "Aplicação domiciliar de qualquer vacina. Explico a escolha técnica (V8 ou V10, por exemplo, muda conforme a área onde seu animal vive), atualizo a caderneta e lembro do reforço anual.",
+      "Aplicação domiciliar de qualquer vacina. Explico a escolha técnica (V8 ou V10, por exemplo, muda conforme a área onde o seu pet vive), atualizo a caderneta e lembro do reforço anual.",
     short: "Vacinação domiciliar, escolha técnica explicada.",
     price: "R$ 80–120",
     priceNote: "por aplicação",
@@ -131,7 +131,7 @@ export const FAQS = [
     a: "Não. Não é serviço 24h. Em uma emergência, procure imediatamente um serviço veterinário emergencial.",
   },
   {
-    q: "E se meu animal precisar de exame?",
+    q: "E se o meu pet precisar de exame?",
     a: "Exames entram como adicional, só quando fizerem sentido pro caso. E sempre explicados antes de fazer.",
   },
   {

@@ -20,7 +20,7 @@ const PILLARS = [
   ["Verdade", "Se dá pra resolver sem remédio, é isso que você vai ouvir."],
   [
     "Presença",
-    "A visita termina e o acompanhamento continua. Eu volto pra ver como o seu animal respondeu.",
+    "A visita termina e o acompanhamento continua. Eu volto pra ver como o seu pet respondeu.",
   ],
 ] as const;
 
@@ -34,12 +34,12 @@ const DIFERENCIAIS = [
   [
     "03",
     "Plano individualizado por escrito",
-    "Nada de receita pronta. Cada animal sai com um plano individualizado, e eu te explico detalhe por detalhe de cada decisão.",
+    "Nada de receita pronta. Cada pet sai com um plano individualizado, e eu te explico detalhe por detalhe de cada decisão.",
   ],
   [
     "04",
-    "No ambiente real do animal",
-    "Onde o seu pet vive me diz muita coisa, e eu consigo entender como fazer os ajustes certos.",
+    "No ambiente real do seu pet",
+    "Onde ele vive me diz muita coisa, e eu consigo entender como fazer os ajustes certos.",
   ],
 ] as const;
 
@@ -223,11 +223,11 @@ export default function HomePage() {
           >
             <p className="jc-body" data-reveal="rise">
               Trabalho com o que dá pra explicar e sustentar. Não com o medo nem com promessa fácil.
-              Se o seu animal precisa de remédio, você vai entender exatamente por quê. Se não
+              Se o seu pet precisa de remédio, você vai entender exatamente por quê. Se não
               precisa, também.
             </p>
             <p className="jc-body" data-reveal="rise">
-              A ideia é simples: arrumar a base primeiro, olhar o animal inteiro, e ficar por perto
+              A ideia é simples: arrumar a base primeiro, olhar o seu pet inteiro, e ficar por perto
               depois que a visita termina.
             </p>
           </div>
@@ -269,7 +269,7 @@ export default function HomePage() {
             <Step
               n="1"
               title="Você me chama"
-              body="Manda uma mensagem contando do seu animal. Eu respondo com o preço aberto e a primeira janela livre."
+              body="Manda uma mensagem contando do seu pet. Eu respondo com o preço aberto e a primeira janela livre."
             />
             <Step
               n="2"
@@ -375,7 +375,7 @@ export default function HomePage() {
             number="08"
             eyebrow="O consultório é a sua casa"
             title="Vamos agendar"
-            lead="Me conta um pouco sobre o seu animal pelo WhatsApp. Eu respondo com o preço aberto e a primeira janela livre."
+            lead="Me conta um pouco sobre o seu pet pelo WhatsApp. Eu respondo com o preço aberto e a primeira janela livre."
           />
 
           <div className="jc-row" style={{ justifyContent: "center" }} data-reveal="rise">

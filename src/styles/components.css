@@ -875,5 +875,5 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   .jc-carousel__item { flex-basis: 260px; }
 }
 
-/* Marquee separator: a short fio terra between phrases (no icon). */
-.jc-marquee__sep { display: inline-block; width: 18px; height: 1px; background: var(--terra); flex: none; }
+/* Marquee separator: a small terra dot between phrases (typographic, not an icon). */
+.jc-marquee__sep { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--terra); flex: none; }

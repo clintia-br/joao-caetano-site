@@ -101,7 +101,7 @@ export function HomeHero() {
         <PhotoSlot
           src="/fotos/hero.jpg"
           alt="João Caetano sentado num banco com dois cães no colo"
-          brief="Foto do João com o animal, na casa do tutor · recorte vertical"
+          brief="Foto do João com o pet, na casa do tutor · recorte vertical"
           width={1500}
           height={2000}
           ratio="auto"
