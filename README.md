@@ -56,6 +56,17 @@ maior, mozjpeg q78, saída em `public/fotos/`); o script imprime a entrada
 `MANIFESTO_FOTOS` em `src/lib/site.ts` (enquanto vazia, a seção mostra o
 símbolo); os artigos aceitam `image` na mesma lista `ARTICLES`.
 
+## Cor: profundidade sem gradiente
+
+O manual (§08) pede fundos chapados, sem gradientes de cor. A profundidade
+vem de três coisas que não quebram a regra: **três tons de verde** em
+rotação pela página (hero 900 `--musgo-profundo` · Quem cuida 800 · O que
+muda 700 · Serviços 700 · Conteúdo 800 · FAQ 700 · Contato 800 · footer 900,
+nunca dois iguais em sequência), **um ponto de luz** off-white a 7% num
+canto superior de cada campo escuro (alternando o lado), e **cards como
+camada** nos fundos escuros (um passo mais claros que o chão, sombra
+esverdeada). Os campos claros alternam off-white, papel e off-white quente.
+
 ## Movimento ("a marca não grita")
 
 Todo o vocabulário de animação vem do manual §13: fades e deslocamentos curtos,

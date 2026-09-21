@@ -146,7 +146,7 @@ export default function HomePage() {
       </Section>
 
       {/* ------------------------------------------- a crença do João */}
-      <Section bg="page">
+      <Section bg="raised">
         {/* João's day-to-day photos open the manifesto (full container
             width); until they are selected the símbolo holds the spot. */}
         {MANIFESTO_FOTOS.length > 0 && (
@@ -186,7 +186,7 @@ export default function HomePage() {
       </Section>
 
       {/* -------------------------------------------------------- esteira */}
-      <Section bg="musgo-deep" id="servicos">
+      <Section bg="musgo" id="servicos">
         <SectionHead
           number="03"
           eyebrow="Como eu posso cuidar"
@@ -238,7 +238,7 @@ export default function HomePage() {
       </Section>
 
       {/* ------------------------------------------------------- conteúdo */}
-      <Section bg="musgo" id="conteudo">
+      <Section bg="musgo-deep" id="conteudo">
         <div
           className="jc-row"
           style={{ justifyContent: "space-between", alignItems: "flex-end", gap: "2rem" }}
@@ -270,7 +270,7 @@ export default function HomePage() {
       </Section>
 
       {/* ------------------------------------------------------------ faq */}
-      <Section bg="musgo-deep" id="faq" light>
+      <Section bg="musgo" id="faq" light>
         <div className="jc-grid jc-grid--wide-right">
           <div className="jc-sticky jc-stack jc-stack--md">
             <SectionHead
@@ -291,7 +291,7 @@ export default function HomePage() {
       {/* -------------------------------------------------------- contato */}
       {/* One channel only: the practice runs on WhatsApp, so the close is a
           single strong WhatsApp call — no competing form. */}
-      <Section bg="musgo-deep" id="contato" divider className="jc-section--close">
+      <Section bg="musgo-deep" id="contato" className="jc-section--close">
         <div
           className="jc-stack jc-center"
           style={{ alignItems: "center", gap: "1.8rem" }}

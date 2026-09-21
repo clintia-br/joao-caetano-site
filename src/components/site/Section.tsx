@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 import { SymbolPattern } from "./SymbolPattern";
 
-type Bg = "page" | "warm" | "sage" | "raised" | "musgo" | "musgo-deep" | "marinho";
+type Bg = "page" | "warm" | "sage" | "raised" | "musgo" | "musgo-deep" | "musgo-deeper" | "marinho";
 
-const DARK: Bg[] = ["musgo", "musgo-deep", "marinho"];
+const DARK: Bg[] = ["musgo", "musgo-deep", "musgo-deeper", "marinho"];
 
 /**
  * Section — a flat colour field with the site's rhythm. On a dark field the
