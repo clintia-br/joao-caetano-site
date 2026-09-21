@@ -21,8 +21,8 @@ const DIFERENCIAIS = [
   ],
   [
     "03",
-    "Plano individualizado por escrito",
-    "Nada de receita pronta. Cada pet sai com um plano individualizado, e eu te explico detalhe por detalhe de cada decisão.",
+    "Plano feito sob medida pro seu amigo de 4 patas",
+    "Cada pet ganha um plano ajustado para sua necessidade, e eu te explico detalhe por detalhe de cada decisão.",
   ],
   [
     "04",
