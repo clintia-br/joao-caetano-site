@@ -166,18 +166,19 @@ export default function HomePage() {
 
       {/* ------------------------------------------------------ manifesto */}
       <Section bg="page">
+        {/* João's day-to-day photos open the manifesto (full container
+            width); until they are selected the símbolo holds the spot. */}
+        {MANIFESTO_FOTOS.length > 0 && (
+          <div className="jc-manifesto__fotos" data-reveal="rise">
+            <PhotoCarousel items={MANIFESTO_FOTOS} label="João no dia a dia" />
+          </div>
+        )}
         <div
           className="jc-stack jc-center"
           style={{ maxWidth: 880, margin: "0 auto", alignItems: "center", gap: "1.6rem" }}
           data-reveal-stagger=""
         >
-          {/* João's day-to-day photos open the manifesto; until they are
-              selected the símbolo holds the spot. */}
-          {MANIFESTO_FOTOS.length > 0 ? (
-            <div className="jc-manifesto__fotos" data-reveal="rise">
-              <PhotoCarousel items={MANIFESTO_FOTOS} label="João no dia a dia" />
-            </div>
-          ) : (
+          {MANIFESTO_FOTOS.length === 0 && (
             <span data-reveal="rise">
               <JcSymbol size={46} color="var(--musgo)" decorative />
             </span>

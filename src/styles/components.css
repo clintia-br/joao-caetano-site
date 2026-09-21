@@ -871,19 +871,10 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   .jc-carousel__item { flex-basis: 260px; }
 }
 
-/* Photo strip at the top of the manifesto: full width of the stack, the
-   text stays centered underneath. */
-.jc-manifesto__fotos { width: 100%; }
-.jc-manifesto__fotos .jc-carousel__track { justify-content: flex-start; }
-/* smaller cards on a phone so the next photo peeks in and invites the swipe */
-.jc-manifesto__fotos .jc-carousel__item { flex-basis: min(62vw, 240px); }
-@media (min-width: 901px) {
-  /* the cards share the stack's width (up to six fit); with fewer photos
-     they grow to 200px and centre */
-  .jc-manifesto__fotos .jc-carousel__item { flex: 1 1 0; min-width: 120px; max-width: 200px; }
-  .jc-manifesto__fotos .jc-carousel__track { justify-content: center; }
-  .jc-manifesto__fotos .jc-carousel__nav { display: none; }
-}
+/* Photo carousel that opens the manifesto: the same strip as the old
+   "No dia a dia" section (large 4:5 cards, swipe with snap, arrows for
+   mouse users), spanning the full container above the centered text. */
+.jc-manifesto__fotos { width: 100%; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
 
 /* Marquee separator: a small terra dot between phrases (typographic, not an icon). */
 .jc-marquee__sep { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--terra); flex: none; }

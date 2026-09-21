@@ -43,7 +43,7 @@ export function PhotoCarousel({ items, label = "Fotos do João" }: { items: Caro
               ratio="4 / 5"
               reveal={false}
               parallax={0}
-              sizes="(max-width: 900px) 62vw, 200px"
+              sizes="(max-width: 900px) 78vw, 300px"
             />
           </div>
         ))}

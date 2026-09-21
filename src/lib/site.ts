@@ -116,12 +116,14 @@ export type Foto = { src: string; alt: string; width: number; height: number };
  * Fill with `{ src: "/fotos/…jpg", alt, width, height }` (see scripts/fotos.mjs).
  */
 export const MANIFESTO_FOTOS: Foto[] = [
-  { src: "/fotos/dia-a-dia-1.jpg", alt: "João Caetano com um filhote no colo, recebendo uma lambida no rosto", width: 800, height: 1000 },
-  { src: "/fotos/dia-a-dia-2.jpg", alt: "João segurando um spitz branco no corredor de uma casa", width: 800, height: 1000 },
-  { src: "/fotos/dia-a-dia-3.jpg", alt: "Selfie do João sorrindo ao lado de um spitz branco com a língua de fora", width: 800, height: 1000 },
-  { src: "/fotos/dia-a-dia-4.jpg", alt: "João beijando um spitz branco no colo", width: 800, height: 1000 },
-  { src: "/fotos/dia-a-dia-5.jpg", alt: "João sorrindo com um spitz caramelo no colo", width: 800, height: 1000 },
-  { src: "/fotos/dia-a-dia-6.jpg", alt: "João sentado num banco de jardim com um spitz no colo", width: 800, height: 1000 },
+  { src: "/fotos/casa-gato-laranja.jpg", alt: "João sorrindo com um gato laranja no colo, na porta de uma casa", width: 800, height: 1000 },
+  { src: "/fotos/casa-filhote-lambida.jpg", alt: "João com um filhote no colo, recebendo uma lambida no rosto", width: 800, height: 1000 },
+  { src: "/fotos/casa-shih-tzu-abraco.jpg", alt: "João agachado na sala de um tutor, abraçando um shih tzu", width: 800, height: 1000 },
+  { src: "/fotos/casa-gato-tigrado.jpg", alt: "Selfie do João com um gato tigrado no colo", width: 800, height: 1000 },
+  { src: "/fotos/casa-spitz-caramelo.jpg", alt: "Selfie do João sorrindo ao lado de um spitz caramelo", width: 800, height: 1000 },
+  { src: "/fotos/casa-dois-caes-sala.jpg", alt: "João agachado na sala de um tutor cumprimentando dois cães", width: 800, height: 1000 },
+  { src: "/fotos/casa-gata-tricolor.jpg", alt: "João segurando uma gata de pelo longo e três cores", width: 800, height: 1000 },
+  { src: "/fotos/jardim-spitz-banco.jpg", alt: "João sentado num banco de jardim com um spitz no colo", width: 800, height: 1000 },
 ];
 
 export const ARTICLES: readonly {
@@ -132,9 +134,9 @@ export const ARTICLES: readonly {
   /** Optional cover photo; without it the card shows the branded placeholder. */
   image?: Foto;
 }[] = [
-  { slug: "v8-ou-v10", tag: "Prevenção", title: "V8 ou V10? Depende de onde o seu cão vive", read: "4 min", image: { src: "/fotos/artigo-prevencao.jpg", alt: "João sentado no chão examinando um cão de pelo curto com calma", width: 1200, height: 800 } },
-  { slug: "mudanca-de-comportamento", tag: "Rotina", title: "Aquela mudança sutil de comportamento", read: "3 min", image: { src: "/fotos/artigo-rotina.jpg", alt: "João sorrindo com um pug de roupinha azul no colo", width: 1200, height: 800 } },
-  { slug: "primeiro-ano", tag: "Filhotes", title: "O primeiro ano: o que realmente importa", read: "5 min", image: { src: "/fotos/artigo-filhotes.jpg", alt: "Filhote lambendo o rosto do João", width: 1200, height: 800 } },
+  { slug: "v8-ou-v10", tag: "Prevenção", title: "V8 ou V10? Depende de onde o seu cão vive", read: "4 min", image: { src: "/fotos/artigo-exame-em-casa.jpg", alt: "João sentado no chão examinando um cão de pelo curto com calma", width: 1200, height: 800 } },
+  { slug: "mudanca-de-comportamento", tag: "Rotina", title: "Aquela mudança sutil de comportamento", read: "3 min", image: { src: "/fotos/artigo-rotina-sala.jpg", alt: "João agachado na sala de um tutor, com dois cães em volta", width: 1200, height: 800 } },
+  { slug: "primeiro-ano", tag: "Filhotes", title: "O primeiro ano: o que realmente importa", read: "5 min", image: { src: "/fotos/artigo-filhote.jpg", alt: "Filhote lambendo o rosto do João", width: 1200, height: 800 } },
   { slug: "exame-de-sangue", tag: "Prevenção", title: "Quando o exame de sangue vale a pena", read: "4 min" },
   { slug: "gato-e-o-transporte", tag: "Gatos", title: "Por que o gato odeia o transporte (e o que fazer)", read: "3 min" },
   { slug: "racao-e-peso", tag: "Rotina", title: "Ração, peso e as contas que ninguém faz", read: "4 min" },
