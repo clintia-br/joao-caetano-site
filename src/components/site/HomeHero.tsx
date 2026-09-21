@@ -83,7 +83,7 @@ export function HomeHero() {
         {/* Regular weight throughout: a bold run in the middle of a lead
             breaks the calm the sentence is promising. */}
         <p className="jc-lead" data-hero>
-          Atendimento veterinário para cães e gatos, na casa deles, na {site.area} — com tempo,
+          Atendimento veterinário para cães e gatos, na casa deles, na {site.area}. Com tempo,
           calma e o cuidado de quem sabe que ele é da família.
         </p>
 

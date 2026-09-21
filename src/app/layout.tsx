@@ -27,8 +27,8 @@ const franklin = Libre_Franklin({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `Veterinário a domicílio na ${site.area} | ${site.name} — ${site.role}`,
-    template: `%s | ${site.name} — ${site.role}`,
+    default: `Veterinário a domicílio na ${site.area} | ${site.name}, ${site.role}`,
+    template: `%s | ${site.name}, ${site.role}`,
   },
   description:
     "Atendimento veterinário em casa para cães e gatos na Zona Sul do Rio. Até duas horas reservadas por consulta, plano por escrito e preço aberto.",
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     siteName: `${site.name} · ${site.descritor}`,
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.name} · ${site.tagline}`,
     description:
-      "Cuidado veterinário para cães e gatos na casa deles: até duas horas reservadas, um plano individualizado por escrito e prevenção antes de medicar — pra ele viver bem, ao seu lado, por mais tempo.",
+      "Cuidado veterinário para cães e gatos na casa deles: até duas horas reservadas, um plano individualizado por escrito e prevenção antes de medicar, pra ele viver bem, ao seu lado, por mais tempo.",
   },
   icons: { icon: "/logo-symbol-musgo.svg" },
   alternates: { canonical: "/" },

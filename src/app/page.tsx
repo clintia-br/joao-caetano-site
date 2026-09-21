@@ -46,7 +46,7 @@ const DIFERENCIAIS = [
 const DEPOIMENTOS = [
   {
     name: "Marina e a Nina",
-    text: "Ele explicou cada passo, sem pressa. Pela primeira vez saí de uma consulta sabendo exatamente o que fazer — e por quê.",
+    text: "Ele explicou cada passo, sem pressa. Pela primeira vez saí de uma consulta sabendo exatamente o que fazer, e por quê.",
   },
   {
     name: "Renata e o Tom",
@@ -54,7 +54,7 @@ const DEPOIMENTOS = [
   },
   {
     name: "Paulo e a Fumaça",
-    text: "A Fumaça odeia sair de casa. Ser atendida na sala dela mudou tudo — e ele continuou por perto depois.",
+    text: "A Fumaça odeia sair de casa. Ser atendida na sala dela mudou tudo. E ele continuou por perto depois.",
   },
 ] as const;
 
@@ -116,7 +116,7 @@ export default function HomePage() {
             <SectionHead number="01" eyebrow="Quem cuida" title="Cuidar bem tem um caminho" />
             <p className="jc-body jc-body--lg" data-reveal="rise">
               Sou o João, médico-veterinário. Vou até a sua casa e cuido do seu cão ou gato onde ele
-              se sente seguro — perto de você. Gosto de entender como ele vive, o que ele sente e o
+              se sente seguro, perto de você. Gosto de entender como ele vive, o que ele sente e o
               que ele precisa antes de pensar em remédio. É esse cuidado, com calma e atenção, que
               ajuda ele a viver bem por mais tempo ao seu lado.
             </p>
@@ -291,7 +291,7 @@ export default function HomePage() {
           number="05"
           eyebrow="O que os tutores dizem"
           title="Sobre a experiência, sem promessa"
-          lead="Depoimentos sobre como é ser atendido em casa — pontualidade, clareza e o tempo dedicado. Nunca sobre desfecho clínico."
+          lead="Depoimentos sobre como é ser atendido em casa: pontualidade, clareza e o tempo dedicado. Nunca sobre desfecho clínico."
           wide
         />
         <div className="jc-grid jc-grid--cards jc-mt-lg" data-reveal-stagger="">
@@ -308,7 +308,7 @@ export default function HomePage() {
           ))}
         </div>
         <p className="jc-note jc-center jc-mt-sm" data-reveal="fade">
-          Formato de exemplo — publicar somente com depoimento real e aceite escrito do tutor.
+          Formato de exemplo. Publicar somente com depoimento real e aceite escrito do tutor.
         </p>
       </Section>
 

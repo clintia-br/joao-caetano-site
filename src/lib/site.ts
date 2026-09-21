@@ -49,7 +49,7 @@ export const SERVICES = [
     description:
       "Aplicação domiciliar de qualquer vacina. Explico a escolha técnica (V8 ou V10, por exemplo, muda conforme a área onde o seu pet vive), atualizo a caderneta e lembro do reforço anual.",
     short: "Vacinação domiciliar, escolha técnica explicada.",
-    price: "R$ 80–120",
+    price: "R$ 80 a 120",
     priceNote: "por aplicação",
     cta: "Agendar a vacina",
     featured: false,
@@ -120,11 +120,11 @@ export const ARTICLES = [
 export const FAQS = [
   {
     q: "Atende em quais bairros?",
-    a: "Zona Sul do Rio — Botafogo, Flamengo, Laranjeiras, Humaitá, Copacabana, Ipanema, Leblon, Gávea e Jardim Botânico. Fora do raio, me chama que a gente vê.",
+    a: "Zona Sul do Rio: Botafogo, Flamengo, Laranjeiras, Humaitá, Copacabana, Ipanema, Leblon, Gávea e Jardim Botânico. Fora do raio, me chama que a gente vê.",
   },
   {
     q: "Quanto tempo dura a consulta?",
-    a: "Reservo até duas horas na agenda. Esse tempo existe pra permitir uma avaliação completa e uma conversa sem pressa — e a consulta dura o que precisar dentro dele.",
+    a: "Reservo até duas horas na agenda. Esse tempo existe pra permitir uma avaliação completa e uma conversa sem pressa. A consulta dura o que precisar dentro dele.",
   },
   {
     q: "É um serviço de emergência?",

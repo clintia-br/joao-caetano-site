@@ -101,7 +101,7 @@ export function SiteHeader() {
   return (
     <>
       <header className="jc-header" ref={header}>
-        <Link href="#top" aria-label={`${site.name} — início`}>
+        <Link href="#top" aria-label={`${site.name}, início`}>
           <LogoLockup layout="horizontal" size={36} />
         </Link>
 
