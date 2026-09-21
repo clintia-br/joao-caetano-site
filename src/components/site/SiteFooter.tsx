@@ -44,7 +44,7 @@ export function SiteFooter() {
         </div>
 
         <div style={{ marginTop: "2.5rem" }} data-reveal="rise">
-          <Disclaimer />
+          <Disclaimer symbol={false} />
           <p className="jc-footer__legal">
             © {new Date().getFullYear()} {site.name} · {site.descritor} · {site.area}.
           </p>

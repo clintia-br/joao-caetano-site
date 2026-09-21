@@ -9,13 +9,16 @@ import { site } from "@/lib/site";
 export function Disclaimer({
   crmv = site.crmv,
   showEmergency = true,
+  symbol = true,
 }: {
   crmv?: string;
   showEmergency?: boolean;
+  /** Hide the símbolo when the block sits next to a full lockup (footer). */
+  symbol?: boolean;
 }) {
   return (
     <div className="jc-disclaimer">
-      <JcSymbol size={22} color="var(--terra)" decorative style={{ marginTop: 2 }} />
+      {symbol && <JcSymbol size={22} color="var(--terra)" decorative style={{ marginTop: 2 }} />}
       <div className="jc-stack jc-stack--xs" style={{ gap: "0.35rem" }}>
         <span className="jc-disclaimer__title">
           {site.name} · {site.role} · {crmv}
