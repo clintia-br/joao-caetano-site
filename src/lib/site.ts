@@ -120,9 +120,9 @@ export const MANIFESTO_FOTOS: Foto[] = [
   { src: "/fotos/casa-filhote-lambida.jpg", alt: "João com um filhote no colo, recebendo uma lambida no rosto", width: 800, height: 1000 },
   { src: "/fotos/casa-shih-tzu-abraco.jpg", alt: "João agachado na sala de um tutor, abraçando um shih tzu", width: 800, height: 1000 },
   { src: "/fotos/casa-gato-tigrado.jpg", alt: "Selfie do João com um gato tigrado no colo", width: 800, height: 1000 },
-  { src: "/fotos/casa-spitz-caramelo.jpg", alt: "Selfie do João sorrindo ao lado de um spitz caramelo", width: 800, height: 1000 },
+  { src: "/fotos/apto-bulldog-sofa.jpg", alt: "João no sofá de um apartamento com um filhote de bulldog no colo", width: 800, height: 1000 },
   { src: "/fotos/casa-dois-caes-sala.jpg", alt: "João agachado na sala de um tutor cumprimentando dois cães", width: 800, height: 1000 },
-  { src: "/fotos/casa-gata-tricolor.jpg", alt: "João segurando uma gata de pelo longo e três cores", width: 800, height: 1000 },
+  { src: "/fotos/casa-gata-escama.jpg", alt: "Selfie do João sorrindo com uma gata de pelo escama de tartaruga", width: 800, height: 1000 },
   { src: "/fotos/jardim-spitz-banco.jpg", alt: "João sentado num banco de jardim com um spitz no colo", width: 800, height: 1000 },
 ];
 
@@ -134,9 +134,9 @@ export const ARTICLES: readonly {
   /** Optional cover photo; without it the card shows the branded placeholder. */
   image?: Foto;
 }[] = [
-  { slug: "v8-ou-v10", tag: "Prevenção", title: "V8 ou V10? Depende de onde o seu cão vive", read: "4 min", image: { src: "/fotos/artigo-exame-em-casa.jpg", alt: "João sentado no chão examinando um cão de pelo curto com calma", width: 1200, height: 800 } },
-  { slug: "mudanca-de-comportamento", tag: "Rotina", title: "Aquela mudança sutil de comportamento", read: "3 min", image: { src: "/fotos/artigo-rotina-sala.jpg", alt: "João agachado na sala de um tutor, com dois cães em volta", width: 1200, height: 800 } },
-  { slug: "primeiro-ano", tag: "Filhotes", title: "O primeiro ano: o que realmente importa", read: "5 min", image: { src: "/fotos/artigo-filhote.jpg", alt: "Filhote lambendo o rosto do João", width: 1200, height: 800 } },
+  { slug: "v8-ou-v10", tag: "Prevenção", title: "V8 ou V10? Depende de onde o seu cão vive", read: "4 min", image: { src: "/fotos/artigo-vacina-no-sofa.jpg", alt: "Filhote de bulldog deitado no sofá recebendo vacina em casa", width: 1200, height: 800 } },
+  { slug: "mudanca-de-comportamento", tag: "Rotina", title: "Aquela mudança sutil de comportamento", read: "3 min", image: { src: "/fotos/artigo-exame-com-calma.jpg", alt: "João agachado segurando com calma o rosto de um cão idoso", width: 1200, height: 800 } },
+  { slug: "primeiro-ano", tag: "Filhotes", title: "O primeiro ano: o que realmente importa", read: "5 min", image: { src: "/fotos/artigo-filhote-no-sofa.jpg", alt: "João examinando um filhote de bulldog no sofá, com luz da janela", width: 1200, height: 800 } },
   { slug: "exame-de-sangue", tag: "Prevenção", title: "Quando o exame de sangue vale a pena", read: "4 min" },
   { slug: "gato-e-o-transporte", tag: "Gatos", title: "Por que o gato odeia o transporte (e o que fazer)", read: "3 min" },
   { slug: "racao-e-peso", tag: "Rotina", title: "Ração, peso e as contas que ninguém faz", read: "4 min" },
