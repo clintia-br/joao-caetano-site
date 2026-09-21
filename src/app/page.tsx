@@ -8,7 +8,6 @@ import { FaqList } from "@/components/site/FaqList";
 import { PhotoCarousel } from "@/components/site/PhotoCarousel";
 import { ButtonLink } from "@/components/ds/Button";
 import { ServiceCard } from "@/components/ds/ServiceCard";
-import { Eyebrow } from "@/components/ds/Eyebrow";
 import { JcSymbol } from "@/components/ds/JcSymbol";
 import { SplitHeading } from "@/components/motion/SplitHeading";
 import { ARTICLES, FAQS, MANIFESTO_FOTOS, SERVICES, site } from "@/lib/site";
@@ -146,7 +145,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ------------------------------------------------------ manifesto */}
+      {/* ------------------------------------------- a crença do João */}
       <Section bg="page">
         {/* João's day-to-day photos open the manifesto (full container
             width); until they are selected the símbolo holds the spot. */}
@@ -165,36 +164,24 @@ export default function HomePage() {
               <JcSymbol size={46} color="var(--musgo)" decorative />
             </span>
           )}
-          <div data-reveal="fade">
-            <Eyebrow align="center">Manifesto</Eyebrow>
-          </div>
           <SplitHeading as="h2" className="jc-display jc-h2">
-            {"Cuidar antes costuma ser mais simples, mais barato e mais tranquilo."}
+            {"Cuidar do seu animalzinho antes de qualquer emergência é cuidar da qualidade de vida dele por muito mais tempo."}
           </SplitHeading>
           <span className="jc-quote__cite" data-reveal="fade">
             {site.name} · {site.role}
           </span>
           <span className="jc-fio" data-reveal="line" aria-hidden="true" />
-          <div
-            className="jc-grid"
-            style={{
-              gridTemplateColumns: "repeat(auto-fit, minmax(min(240px, 100%), 1fr))",
-              gap: "1.6rem 3rem",
-              textAlign: "left",
-              width: "100%",
-              maxWidth: 720,
-            }}
+          <p
+            className="jc-body jc-body--lg"
+            style={{ maxWidth: "58ch", textAlign: "left" }}
+            data-reveal="rise"
           >
-            <p className="jc-body" data-reveal="rise">
-              Trabalho com o que dá pra explicar e sustentar. Não com o medo nem com promessa fácil.
-              Se o seu pet precisa de remédio, você vai entender exatamente por quê. Se não
-              precisa, também.
-            </p>
-            <p className="jc-body" data-reveal="rise">
-              A ideia é simples: arrumar a base primeiro, olhar o seu pet inteiro, e ficar por perto
-              depois que a visita termina.
-            </p>
-          </div>
+            Eu acredito no seguinte: a prevenção e o cuidado com o seu pet fazem com que o seu dia
+            a dia e o dele sejam muito mais tranquilos. Tudo parte de uma análise completa feita na
+            sua casa. O ambiente onde vocês vivem diz muito do que podemos melhorar e adaptar. E o
+            meu cuidado não acaba depois da primeira visita: você pode contar comigo como um amigo
+            da família!
+          </p>
         </div>
       </Section>
 
