@@ -304,7 +304,7 @@ export default function HomePage() {
       {/* -------------------------------------------------------- contato */}
       {/* One channel only: the practice runs on WhatsApp, so the close is a
           single strong WhatsApp call — no competing form. */}
-      <Section bg="musgo-deep" id="contato" divider>
+      <Section bg="musgo-deep" id="contato" divider className="jc-section--close">
         <div
           className="jc-stack jc-center"
           style={{ alignItems: "center", gap: "1.8rem" }}

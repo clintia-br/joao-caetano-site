@@ -87,6 +87,9 @@ a:hover { color: var(--musgo); }
 /* Two same-colour sections in a row get a hairline between them, so they
    read as two rooms rather than one long corridor. */
 .jc-section--divider { border-top: 1px solid var(--line-hairline); }
+/* The closing section sits right on the footer, same colour: shorter
+   bottom padding so the two don't add up to an empty field. */
+.jc-section--close.jc-section--close { padding-bottom: clamp(3rem, 6vw, 4.5rem); }
 .jc-section--flush { padding-block: 0; }
 
 /* Background fields — flat colour only (manual §08: no gradients). */
