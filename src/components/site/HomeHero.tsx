@@ -77,7 +77,7 @@ export function HomeHero() {
           trigger="load"
           delay={0.2}
         >
-          {"Cuidando do seu pet hoje para que ele viva o melhor ao seu lado!"}
+          {"Cuidando do seu pet hoje para que ele viva o melhor ao seu lado."}
         </SplitHeading>
 
         {/* Regular weight throughout: a bold run in the middle of a lead
