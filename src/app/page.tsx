@@ -2,14 +2,12 @@ import { HomeHero } from "@/components/site/HomeHero";
 import { Section } from "@/components/site/Section";
 import { SectionHead } from "@/components/site/SectionHead";
 import { PhotoSlot } from "@/components/site/PhotoSlot";
-import { DiffItem, Step, Timeline, ArticleCard, InfoRow } from "@/components/site/Pieces";
+import { DiffItem, Step, Timeline, ArticleCard } from "@/components/site/Pieces";
 import { Marquee } from "@/components/motion/Marquee";
 import { FaqList } from "@/components/site/FaqList";
 import { PhotoCarousel, type CarouselPhoto } from "@/components/site/PhotoCarousel";
 import { ButtonLink } from "@/components/ds/Button";
 import { ServiceCard } from "@/components/ds/ServiceCard";
-import { Disclaimer } from "@/components/ds/Disclaimer";
-import { Badge } from "@/components/ds/Badge";
 import { Eyebrow } from "@/components/ds/Eyebrow";
 import { JcSymbol } from "@/components/ds/JcSymbol";
 import { SplitHeading } from "@/components/motion/SplitHeading";
@@ -382,28 +380,6 @@ export default function HomePage() {
             <ButtonLink href={site.whatsapp.href} size="lg">
               Agendar pelo WhatsApp
             </ButtonLink>
-          </div>
-
-          <div className="jc-row" style={{ justifyContent: "center", gap: "0.6rem" }} data-reveal="rise">
-            <Badge variant="preco">Preço aberto</Badge>
-            <Badge variant="terra">Sem compromisso</Badge>
-          </div>
-
-          <div className="jc-stack jc-stack--sm" style={{ width: "100%", maxWidth: 460 }} data-reveal="rise">
-            <InfoRow
-              label="WhatsApp"
-              value={
-                <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer">
-                  {site.whatsapp.display}
-                </a>
-              }
-            />
-            <InfoRow label="Atendimento" value={`${site.area} · a domicílio`} />
-            <InfoRow label="Espécies" value="Cães e gatos" />
-          </div>
-
-          <div className="jc-contact-disclaimer" style={{ maxWidth: 560, width: "100%" }} data-reveal="rise">
-            <Disclaimer />
           </div>
         </div>
       </Section>

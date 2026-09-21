@@ -214,11 +214,7 @@
   padding: 1.1rem 0 0;
   border-top: 1px solid var(--line-hairline);
 }
-/* Under the info rows (which already end on a hairline) the plain version
-   drops its own line, so the two never stack. */
-.jc-contact-disclaimer .jc-disclaimer { border-top: 0; padding-top: 0; }
 @media (min-width: 761px) {
-  .jc-contact-disclaimer .jc-disclaimer { padding-top: 1.1rem; border-top: 1px solid var(--line-soft); }
   .jc-disclaimer {
     padding: 1.1rem 1.25rem;
     background: var(--musgo-08);
