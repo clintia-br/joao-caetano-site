@@ -135,7 +135,7 @@ export const ARTICLES: readonly {
   image?: Foto;
 }[] = [
   { slug: "v8-ou-v10", tag: "Prevenção", title: "V8 ou V10? Depende de onde o seu cão vive", read: "4 min", image: { src: "/fotos/artigo-vacina-no-sofa.jpg", alt: "Filhote de bulldog deitado no sofá recebendo vacina em casa", width: 1200, height: 800 } },
-  { slug: "mudanca-de-comportamento", tag: "Rotina", title: "Aquela mudança sutil de comportamento", read: "3 min", image: { src: "/fotos/artigo-exame-com-calma.jpg", alt: "João agachado segurando com calma o rosto de um cão idoso", width: 1200, height: 800 } },
+  { slug: "mudanca-de-comportamento", tag: "Rotina", title: "Aquela mudança sutil de comportamento", read: "3 min", image: { src: "/fotos/artigo-cao-idoso-carinho.jpg", alt: "João agachado segurando com calma o rosto de um cão idoso", width: 1200, height: 800 } },
   { slug: "primeiro-ano", tag: "Filhotes", title: "O primeiro ano: o que realmente importa", read: "5 min", image: { src: "/fotos/artigo-filhote-no-sofa.jpg", alt: "João examinando um filhote de bulldog no sofá, com luz da janela", width: 1200, height: 800 } },
   { slug: "exame-de-sangue", tag: "Prevenção", title: "Quando o exame de sangue vale a pena", read: "4 min" },
   { slug: "gato-e-o-transporte", tag: "Gatos", title: "Por que o gato odeia o transporte (e o que fazer)", read: "3 min" },
