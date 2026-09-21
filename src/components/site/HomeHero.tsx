@@ -83,16 +83,13 @@ export function HomeHero() {
         {/* Regular weight throughout: a bold run in the middle of a lead
             breaks the calm the sentence is promising. */}
         <p className="jc-lead" data-hero>
-          Atendimento veterinário para cães e gatos, na casa deles, na {site.area}. Com tempo,
-          calma e o cuidado de quem sabe que ele é da família.
+          Atendimento veterinário para cães e gatos, no conforto dos seus lares, com o carinho e o
+          cuidado que eles merecem.
         </p>
 
         <div className="jc-row jc-hero__actions" data-hero>
           <ButtonLink href="#contato" size="lg" className="jc-hero__cta">
             Agendar pelo WhatsApp
-          </ButtonLink>
-          <ButtonLink href="#diferenciais" variant="ghost" size="lg">
-            O que muda no meu atendimento
           </ButtonLink>
         </div>
       </div>

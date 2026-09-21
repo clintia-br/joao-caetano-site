@@ -13,21 +13,12 @@ import { JcSymbol } from "@/components/ds/JcSymbol";
 import { SplitHeading } from "@/components/motion/SplitHeading";
 import { ARTICLES, FAQS, MANIFESTO_FOTOS, SERVICES, site } from "@/lib/site";
 
-const PILLARS = [
-  ["Calma", "Até duas horas reservadas pra você entender tudo, no seu ritmo. Sem pressa."],
-  ["Verdade", "Se dá pra resolver sem remédio, é isso que você vai ouvir."],
-  [
-    "Presença",
-    "A visita termina e o acompanhamento continua. Eu volto pra ver como o seu pet respondeu.",
-  ],
-] as const;
-
 const DIFERENCIAIS = [
   ["01", "Até duas horas reservadas", "A agenda é sua. A consulta dura o que precisar dentro dessa janela."],
   [
     "02",
     "Preço aberto antes de agendar",
-    "A tabela está no site. Você sabe quanto custa antes de marcar e decide se faz sentido antes mesmo de entrar em contato comigo.",
+    "Você sabe o preço antes mesmo de agendar uma consulta comigo, e pode decidir se faz sentido ou não o atendimento para seu bichinho. Sem surpresas.",
   ],
   [
     "03",
@@ -101,17 +92,8 @@ export default function HomePage() {
               Sou o João, médico-veterinário. Vou até a sua casa e cuido do seu cão ou gato onde ele
               se sente seguro, perto de você. Gosto de entender como ele vive, o que ele sente e o
               que ele precisa antes de pensar em remédio. É esse cuidado, com calma e atenção, que
-              ajuda ele a viver bem por mais tempo ao seu lado.
+              ajuda ele a viver bem e por mais tempo ao seu lado.
             </p>
-
-            <ul className="jc-pillars" data-reveal-stagger="">
-              {PILLARS.map(([t, b]) => (
-                <li className="jc-pillar" key={t} data-reveal="rise">
-                  <strong className="jc-pillar__title">{t}</strong>
-                  <span className="jc-pillar__text">{b}</span>
-                </li>
-              ))}
-            </ul>
 
             <div data-reveal="rise">
               <ButtonLink href="#contato" variant="secondary" size="lg">
