@@ -99,25 +99,6 @@ a:hover { color: var(--musgo); }
 .jc-bg-raised { background: var(--surface-raised); }
 .jc-bg-musgo { background: var(--surface-inverse); }
 .jc-bg-musgo-deep { background: var(--surface-inverse-deep); }
-.jc-bg-musgo-deeper { background: var(--surface-inverse-deeper); }
-
-/* Depth without gradients of colour: a very faint point of light in one
-   upper corner of every dark field (off-white at 6%), alternating sides
-   down the page. The fill stays flat; only the light varies. */
-.jc-section.jc-on-dark::before,
-.jc-hero::before,
-.jc-footer::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse 70% 55% at 12% 0%, rgba(244, 241, 234, 0.07), transparent 70%);
-}
-.jc-section.jc-on-dark:nth-of-type(even)::before {
-  background: radial-gradient(ellipse 70% 55% at 88% 0%, rgba(244, 241, 234, 0.07), transparent 70%);
-}
-.jc-hero > * { position: relative; z-index: 1; }
-.jc-footer > * { position: relative; z-index: 1; }
 .jc-bg-marinho { background: var(--surface-navy); }
 
 /* Inversion: on a dark field every token-driven child turns light on its own. */
@@ -130,8 +111,8 @@ a:hover { color: var(--musgo); }
   --line: var(--line-on-dark);
   --line-soft: var(--line-on-dark);
   --line-hairline: var(--line-on-dark);
-  --surface-raised: rgba(244, 241, 234, 0.09);
-  --papel: rgba(244, 241, 234, 0.09);
+  --surface-raised: rgba(244, 241, 234, 0.07);
+  --papel: rgba(244, 241, 234, 0.07);
   --border-card: 1px solid var(--line-on-dark);
   --musgo-08: rgba(244, 241, 234, 0.06);
   --musgo-12: rgba(244, 241, 234, 0.10);

@@ -136,9 +136,6 @@
 }
 @media (min-width: 761px) {
   .jc-service-card { gap: 1.15rem; padding: 2rem 1.9rem 1.9rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
-  /* on a dark field the card reads as a lifted layer: a touch lighter than
-     the ground, with a deeper, greener shadow */
-  .jc-on-dark .jc-service-card { box-shadow: 0 14px 34px rgba(18, 28, 20, 0.28), 0 2px 6px rgba(18, 28, 20, 0.18); }
 }
 @media (hover: hover) and (min-width: 901px) {
   .jc-service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
@@ -386,7 +383,7 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 /* ------------------------------------------------------------- Footer */
 .jc-footer {
   position: relative;
-  background: var(--musgo-profundo);
+  background: var(--musgo-escuro);
   color: var(--off-white);
   padding: clamp(2.5rem, 5vw, 4rem) var(--gutter) 2rem;
   border-top: 1px solid var(--line-on-dark);
@@ -608,7 +605,7 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  background: var(--musgo-profundo);
+  background: var(--musgo-escuro);
   overflow: hidden;
 }
 .jc-hero__copy {
@@ -694,7 +691,6 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
 }
 @media (min-width: 761px) {
   .jc-card { border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: clamp(1.5rem, 3vw, 2.2rem); }
-  .jc-on-dark .jc-card { box-shadow: 0 14px 34px rgba(18, 28, 20, 0.28), 0 2px 6px rgba(18, 28, 20, 0.18); }
 }
 .jc-card--table { padding: 1.4rem 1.8rem 1.8rem; }
 

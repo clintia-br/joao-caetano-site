@@ -5,7 +5,6 @@
   /* ---- Base palette (exact manual values) ---- */
   --musgo: #3F5741;          /* cor da marca — símbolo, nome, fundos escuros */
   --musgo-escuro: #2C3E2E;   /* fundos escuros mais fechados */
-  --musgo-profundo: #243429; /* o tom mais fechado: abertura e fechamento da página */
   --marinho: #1F2D3D;        /* segundo escuro, contraste frio */
   --terra: #8C6A4F;          /* acento — descritor, fios, detalhes */
   --terra-texto: #7A5A41;    /* terra com contraste p/ texto sobre claro */
@@ -43,7 +42,6 @@
   --surface-raised: var(--papel);
   --surface-inverse: var(--musgo);
   --surface-inverse-deep: var(--musgo-escuro);
-  --surface-inverse-deeper: var(--musgo-profundo);
   --surface-navy: var(--marinho);
   --surface-terra: var(--terra);
 
