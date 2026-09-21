@@ -5,7 +5,7 @@ design system "João Caetano — Design System" (manual da marca v2 + brief
 estratégico), com animações **GSAP** (ScrollTrigger + SplitText).
 
 Tudo vive em uma única rota `/`, dividida em seções ancoradas
-(`#sobre`, `#servicos`, `#como-funciona`, `#conteudo`, `#faq`, `#contato`).
+(`#sobre`, `#diferenciais`, `#servicos`, `#conteudo`, `#faq`, `#contato`).
 A navegação e o rodapé usam links de âncora; o header tem scroll-spy que
 acompanha a seção em leitura. Para voltar a um site multipágina, cada seção
 de `app/page.tsx` pode virar sua própria rota.

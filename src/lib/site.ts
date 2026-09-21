@@ -93,7 +93,7 @@ export const FOOTER_COLUMNS = [
     title: "A marca",
     links: [
       { label: "Sobre o João", href: "#sobre" },
-      { label: "Como funciona", href: "#como-funciona" },
+      { label: "O que muda comigo", href: "#diferenciais" },
       { label: "Conteúdo", href: "#conteudo" },
     ],
   },

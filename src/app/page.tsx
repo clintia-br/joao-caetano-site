@@ -2,7 +2,7 @@ import { HomeHero } from "@/components/site/HomeHero";
 import { Section } from "@/components/site/Section";
 import { SectionHead } from "@/components/site/SectionHead";
 import { PhotoSlot } from "@/components/site/PhotoSlot";
-import { DiffItem, Step, Timeline, ArticleCard } from "@/components/site/Pieces";
+import { DiffItem, ArticleCard } from "@/components/site/Pieces";
 import { Marquee } from "@/components/motion/Marquee";
 import { FaqList } from "@/components/site/FaqList";
 import { PhotoCarousel, type CarouselPhoto } from "@/components/site/PhotoCarousel";
@@ -85,7 +85,7 @@ const FAQ_LD = {
  * Single-page site. Every section carries the id its nav anchor points to
  * (see NAV / FOOTER_COLUMNS in lib/site.ts and the scroll spy in SiteHeader).
  * Order is the sales narrative: quem é → o que muda → manifesto → serviços →
- * como funciona → prova social → conteúdo → dúvidas → agendar.
+ * prova social → conteúdo → dúvidas → agendar.
  */
 export default function HomePage() {
   return (
@@ -175,7 +175,7 @@ export default function HomePage() {
       )}
 
       {/* -------------------------------------------------- diferenciais */}
-      <Section bg="musgo">
+      <Section bg="musgo" id="diferenciais">
         <SectionHead
           number="02"
           eyebrow="O que muda comigo"
@@ -257,36 +257,10 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* -------------------------------------------------- como funciona */}
-      <Section bg="musgo-deep" id="como-funciona" divider>
-        <div className="jc-grid jc-grid--wide-right">
-          <div className="jc-sticky">
-            <SectionHead number="04" eyebrow="Como funciona" title="Da mensagem à casa" />
-          </div>
-          <Timeline>
-            <Step
-              n="1"
-              title="Você me chama"
-              body="Manda uma mensagem contando do seu pet. Eu respondo com o preço aberto e a primeira janela livre."
-            />
-            <Step
-              n="2"
-              title="Eu vou até você"
-              body="Chego no horário, com até duas horas reservadas. Examino o pet no lugar onde ele vive, sem precisar botar ninguém na caixa de transporte."
-            />
-            <Step
-              n="3"
-              title="Saímos com um plano"
-              body="Você recebe por escrito o que foi visto, o que fazer e o porquê."
-            />
-          </Timeline>
-        </div>
-      </Section>
-
       {/* -------------------------------------------------------- tutores */}
       <Section bg="warm" light>
         <SectionHead
-          number="05"
+          number="04"
           eyebrow="O que os tutores dizem"
           title="Sobre a experiência, sem promessa"
           lead="Depoimentos sobre como é ser atendido em casa: pontualidade, clareza e o tempo dedicado. Nunca sobre desfecho clínico."
@@ -317,7 +291,7 @@ export default function HomePage() {
           style={{ justifyContent: "space-between", alignItems: "flex-end", gap: "2rem" }}
         >
           <SectionHead
-            number="06"
+            number="05"
             eyebrow="Antes que vire emergência"
             title="O que eu costumo explicar"
           />
@@ -346,7 +320,7 @@ export default function HomePage() {
         <div className="jc-grid jc-grid--wide-right">
           <div className="jc-sticky jc-stack jc-stack--md">
             <SectionHead
-              number="07"
+              number="06"
               eyebrow="Perguntas frequentes"
               title="O que costumam me perguntar"
             />
@@ -370,7 +344,7 @@ export default function HomePage() {
         >
           <SectionHead
             align="center"
-            number="08"
+            number="07"
             eyebrow="O consultório é a sua casa"
             title="Vamos agendar"
             lead="Me conta um pouco sobre o seu pet pelo WhatsApp. Eu respondo com o preço aberto e a primeira janela livre."

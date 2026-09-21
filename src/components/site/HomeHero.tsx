@@ -91,8 +91,8 @@ export function HomeHero() {
           <ButtonLink href="#contato" size="lg" className="jc-hero__cta">
             Agendar pelo WhatsApp
           </ButtonLink>
-          <ButtonLink href="#como-funciona" variant="ghost" size="lg">
-            Como funciona a consulta
+          <ButtonLink href="#diferenciais" variant="ghost" size="lg">
+            O que muda no meu atendimento
           </ButtonLink>
         </div>
       </div>
