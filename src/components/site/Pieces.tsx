@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import { Badge } from "@/components/ds/Badge";
+import type { Foto } from "@/lib/site";
 import { PhotoSlot } from "./PhotoSlot";
 
 /** One verifiable differential — the fosso. Numbered, never icon-led. */
@@ -68,17 +69,28 @@ export function ArticleCard({
   read = "3 min",
   href,
   brief,
+  image,
 }: {
   tag: string;
   title: string;
   read?: string;
   href: string;
   brief: string;
+  image?: Foto;
 }) {
   return (
     <Link className="jc-article" href={href} data-reveal="rise">
       <span className="jc-article__media">
-        <PhotoSlot brief={brief} ratio="3 / 2" reveal={false} parallax={5} />
+        <PhotoSlot
+          src={image?.src}
+          alt={image?.alt}
+          width={image?.width}
+          height={image?.height}
+          brief={brief}
+          ratio="3 / 2"
+          reveal={false}
+          parallax={5}
+        />
       </span>
       <span className="jc-article__meta">
         <Badge variant="terra" size="sm">

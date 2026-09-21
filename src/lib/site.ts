@@ -107,7 +107,24 @@ export const FOOTER_COLUMNS = [
   },
 ] as const;
 
-export const ARTICLES = [
+/** A real photo: path under /public, alt text and intrinsic pixel size. */
+export type Foto = { src: string; alt: string; width: number; height: number };
+
+/**
+ * Fotos do João no dia a dia, shown as the strip at the top of the Manifesto.
+ * Empty until the photos are selected: the section falls back to the símbolo.
+ * Fill with `{ src: "/fotos/…jpg", alt, width, height }` (see scripts/fotos.mjs).
+ */
+export const MANIFESTO_FOTOS: Foto[] = [];
+
+export const ARTICLES: readonly {
+  slug: string;
+  tag: string;
+  title: string;
+  read: string;
+  /** Optional cover photo; without it the card shows the branded placeholder. */
+  image?: Foto;
+}[] = [
   { slug: "v8-ou-v10", tag: "Prevenção", title: "V8 ou V10? Depende de onde o seu cão vive", read: "4 min" },
   { slug: "mudanca-de-comportamento", tag: "Rotina", title: "Aquela mudança sutil de comportamento", read: "3 min" },
   { slug: "primeiro-ano", tag: "Filhotes", title: "O primeiro ano: o que realmente importa", read: "5 min" },
@@ -115,7 +132,7 @@ export const ARTICLES = [
   { slug: "gato-e-o-transporte", tag: "Gatos", title: "Por que o gato odeia o transporte (e o que fazer)", read: "3 min" },
   { slug: "racao-e-peso", tag: "Rotina", title: "Ração, peso e as contas que ninguém faz", read: "4 min" },
   { slug: "menos-e-mais", tag: "Prevenção", title: "Menos é mais: cuidar sem exagerar", read: "3 min" },
-] as const;
+];
 
 export const FAQS = [
   {

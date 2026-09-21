@@ -871,5 +871,17 @@ textarea.jc-field__control { resize: vertical; min-height: 120px; line-height: v
   .jc-carousel__item { flex-basis: 260px; }
 }
 
+/* Photo strip at the top of the manifesto: full width of the stack, the
+   text stays centered underneath. */
+.jc-manifesto__fotos { width: 100%; }
+.jc-manifesto__fotos .jc-carousel__track { justify-content: flex-start; }
+/* smaller cards on a phone so the next photo peeks in and invites the swipe */
+.jc-manifesto__fotos .jc-carousel__item { flex-basis: min(62vw, 240px); }
+@media (min-width: 901px) {
+  /* five 4:5 cards fit the 880px stack; with fewer photos they centre */
+  .jc-manifesto__fotos .jc-carousel__item { flex-basis: 160px; }
+  .jc-manifesto__fotos .jc-carousel__track { justify-content: center; }
+}
+
 /* Marquee separator: a small terra dot between phrases (typographic, not an icon). */
 .jc-marquee__sep { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--terra); flex: none; }

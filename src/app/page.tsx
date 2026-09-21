@@ -5,13 +5,13 @@ import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { DiffItem, ArticleCard } from "@/components/site/Pieces";
 import { Marquee } from "@/components/motion/Marquee";
 import { FaqList } from "@/components/site/FaqList";
-import { PhotoCarousel, type CarouselPhoto } from "@/components/site/PhotoCarousel";
+import { PhotoCarousel } from "@/components/site/PhotoCarousel";
 import { ButtonLink } from "@/components/ds/Button";
 import { ServiceCard } from "@/components/ds/ServiceCard";
 import { Eyebrow } from "@/components/ds/Eyebrow";
 import { JcSymbol } from "@/components/ds/JcSymbol";
 import { SplitHeading } from "@/components/motion/SplitHeading";
-import { ARTICLES, FAQS, SERVICES, site } from "@/lib/site";
+import { ARTICLES, FAQS, MANIFESTO_FOTOS, SERVICES, site } from "@/lib/site";
 
 const PILLARS = [
   ["Calma", "Até duas horas reservadas pra você entender tudo, no seu ritmo. Sem pressa."],
@@ -55,21 +55,6 @@ const DEPOIMENTOS = [
     text: "A Fumaça odeia sair de casa. Ser atendida na sala dela mudou tudo. E ele continuou por perto depois.",
   },
 ] as const;
-
-/* Day-to-day photo strip. Slots are placeholders until João's photos land —
-   add `src`, `alt`, `width` and `height` to each one to fill it. */
-const GALERIA: CarouselPhoto[] = [
-  { brief: "João com um paciente em casa · 4:5" },
-  { brief: "Consulta na sala do tutor · 4:5" },
-  { brief: "Vacina aplicada em casa · 4:5" },
-  { brief: "João conversando com o tutor · 4:5" },
-  { brief: "Gato sendo examinado no sofá · 4:5" },
-  { brief: "Detalhe do cuidado · 4:5" },
-];
-
-/* The strip only renders once at least one real photo is in — a row of
-   placeholders in production never looks finished. */
-const GALERIA_READY = GALERIA.some((p) => p.src);
 
 const FAQ_LD = {
   "@context": "https://schema.org",
@@ -164,16 +149,6 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ---------------------------------------------- galeria / dia a dia */}
-      {GALERIA_READY && (
-        <Section bg="page" light>
-          <SectionHead eyebrow="No dia a dia" title="Em casa, com eles" />
-          <div className="jc-mt-lg" data-reveal="rise">
-            <PhotoCarousel items={GALERIA} />
-          </div>
-        </Section>
-      )}
-
       {/* -------------------------------------------------- diferenciais */}
       <Section bg="musgo" id="diferenciais">
         <SectionHead
@@ -196,9 +171,17 @@ export default function HomePage() {
           style={{ maxWidth: 880, margin: "0 auto", alignItems: "center", gap: "1.6rem" }}
           data-reveal-stagger=""
         >
-          <span data-reveal="rise">
-            <JcSymbol size={46} color="var(--musgo)" decorative />
-          </span>
+          {/* João's day-to-day photos open the manifesto; until they are
+              selected the símbolo holds the spot. */}
+          {MANIFESTO_FOTOS.length > 0 ? (
+            <div className="jc-manifesto__fotos" data-reveal="rise">
+              <PhotoCarousel items={MANIFESTO_FOTOS} label="João no dia a dia" />
+            </div>
+          ) : (
+            <span data-reveal="rise">
+              <JcSymbol size={46} color="var(--musgo)" decorative />
+            </span>
+          )}
           <div data-reveal="fade">
             <Eyebrow align="center">Manifesto</Eyebrow>
           </div>
@@ -308,6 +291,7 @@ export default function HomePage() {
               tag={a.tag}
               title={a.title}
               read={a.read}
+              image={a.image}
               href="#contato"
               brief={`Imagem do artigo · ${a.tag}`}
             />

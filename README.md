@@ -46,8 +46,15 @@ são aprimoradas com `@media (min-width: …)`. Breakpoints:
 No celular a escala tipográfica é um degrau menor (lead 18px, body 16–16,5px,
 H1 30px), o hero mostra a foto primeiro (52svh) e o texto embaixo, o CTA
 principal ocupa a largura toda, os cards são só hairline + superfície, e todo
-link ou botão tem área de toque de pelo menos 44px. A galeria "No dia a dia"
-só renderiza quando pelo menos uma foto real estiver em `GALERIA`.
+link ou botão tem área de toque de pelo menos 44px.
+
+## Fotos
+
+Comprimir com `node scripts/fotos.mjs <pasta-de-origem>` (1600px no lado
+maior, mozjpeg q78, saída em `public/fotos/`); o script imprime a entrada
+`Foto` pronta pra colar. A faixa de fotos do Manifesto vem de
+`MANIFESTO_FOTOS` em `src/lib/site.ts` (enquanto vazia, a seção mostra o
+símbolo); os artigos aceitam `image` na mesma lista `ARTICLES`.
 
 ## Movimento ("a marca não grita")
 

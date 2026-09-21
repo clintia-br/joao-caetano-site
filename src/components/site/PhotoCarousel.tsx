@@ -6,7 +6,8 @@ import { PhotoSlot } from "./PhotoSlot";
 export type CarouselPhoto = {
   src?: string;
   alt?: string;
-  brief: string;
+  /** Shown while the slot is empty; falls back to the alt text. */
+  brief?: string;
   width?: number;
   height?: number;
 };
@@ -32,11 +33,11 @@ export function PhotoCarousel({ items, label = "Fotos do João" }: { items: Caro
     <div className="jc-carousel">
       <div className="jc-carousel__track" ref={track} role="region" aria-label={label}>
         {items.map((photo, i) => (
-          <div className="jc-carousel__item" key={`${photo.brief}-${i}`}>
+          <div className="jc-carousel__item" key={`${photo.src || photo.brief}-${i}`}>
             <PhotoSlot
               src={photo.src}
               alt={photo.alt}
-              brief={photo.brief}
+              brief={photo.brief || photo.alt || ""}
               width={photo.width}
               height={photo.height}
               ratio="4 / 5"
