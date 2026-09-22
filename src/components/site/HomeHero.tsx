@@ -66,10 +66,10 @@ export function HomeHero() {
     <section className="jc-hero2" ref={root} id="top">
       <div className="jc-hero2__inner">
         <div className="jc-hero2__copy">
-          {/* The brand tagline stays as the kicker; the headline carries the
-              emotional promise (care as family, prevention, more time together). */}
+          {/* Kicker: the one-line pitch. "Um jeito mais fácil de cuidar do seu
+              pet." — states the benefit before the headline expands on it. */}
           <div data-hero>
-            <Eyebrow>{site.tagline.replace(/\.$/, "")}</Eyebrow>
+            <Eyebrow>Um jeito mais fácil de cuidar do seu pet</Eyebrow>
           </div>
 
           <SplitHeading
