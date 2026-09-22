@@ -144,28 +144,56 @@ export const ARTICLES: readonly {
 ];
 
 export const FAQS = [
+  // ---- antes de agendar
+  {
+    q: "Como eu agendo?",
+    a: "Pelo WhatsApp. Você me conta do seu pet em poucas linhas: espécie, idade, o que está acontecendo ou se é rotina. Eu respondo com o preço aberto e a primeira janela livre. Sem formulário, sem cadastro.",
+  },
   {
     q: "Atende em quais bairros?",
-    a: "Zona Sul do Rio: Botafogo, Flamengo, Laranjeiras, Humaitá, Copacabana, Ipanema, Leblon, Gávea e Jardim Botânico. Fora do raio, me chama que a gente vê.",
+    a: "Zona Sul do Rio: Botafogo, Flamengo, Laranjeiras, Humaitá, Copacabana, Ipanema, Leblon, Gávea e Jardim Botânico. Fora desse raio, me chama que a gente vê: às vezes dá, às vezes eu te indico alguém mais perto.",
   },
   {
-    q: "Quanto tempo dura a consulta?",
-    a: "Reservo até duas horas na agenda. Esse tempo existe pra permitir uma avaliação completa e uma conversa sem pressa. A consulta dura o que precisar dentro dele.",
+    q: "Quanto custa?",
+    a: "Está tudo no site, antes de você me chamar: vacina de R$ 80 a 120 por aplicação, consulta completa R$ 250, plano anual sob medida. Exames e medicamentos são adicionais, e você sabe o valor antes de qualquer decisão. Pagamento por Pix, cartão ou dinheiro, combinado antes.",
   },
   {
-    q: "É um serviço de emergência?",
-    a: "Não. Não é serviço 24h. Em uma emergência, procure imediatamente um serviço veterinário emergencial.",
+    q: "Com quanta antecedência preciso marcar?",
+    a: "Me chama pelo WhatsApp que eu te passo a primeira janela livre. Quanto antes você marcar, mais opções de horário. Se for algo que não pode esperar, me diz na mensagem que eu vejo o que dá.",
+  },
+  // ---- a visita
+  {
+    q: "Como é a primeira consulta?",
+    a: "Eu chego, sento com você e ouço a história do seu pet: rotina, comida, comportamento, o que mudou. Depois examino ele no lugar onde ele fica mais tranquilo, sem pressa. No fim a gente conversa sobre o que eu vi e você recebe um plano por escrito, com o porquê de cada decisão.",
   },
   {
-    q: "E se o meu pet precisar de exame?",
-    a: "Exames entram como adicional, só quando fizerem sentido pro caso. E sempre explicados antes de fazer.",
+    q: "Quanto tempo dura?",
+    a: "Reservo até duas horas na agenda. Não é que a consulta precise durar tudo isso, é que ela dura o que precisar. Eu não marco outro atendimento colado no seu.",
   },
   {
-    q: "Como funciona o pagamento?",
-    a: "Pix, cartão ou dinheiro, combinado antes, sem surpresa.",
+    q: "Preciso preparar alguma coisa em casa?",
+    a: "Muito pouco. Um lugar onde o seu pet costuma ficar à vontade, a caderneta de vacinação se tiver, e a embalagem da ração e de remédios que ele use. Se precisar de algo a mais pra uma visita específica, eu te aviso antes.",
   },
   {
-    q: "Atende gato?",
-    a: "Sim, cães e gatos. Pra gato, ser atendido em casa costuma poupar todo o estresse do transporte.",
+    q: "E se precisar de exame?",
+    a: "Quando o exame pode ser feito em casa, como uma coleta de sangue, eu resolvo ali mesmo e o material vai pro laboratório. Exames de imagem, como ultrassom e raio-x, precisam de clínica: eu te indico onde fazer e interpreto o resultado com você. Exame só entra quando muda a decisão, e sempre explicado antes.",
+  },
+  // ---- depois
+  {
+    q: "O que acontece depois da visita?",
+    a: "O acompanhamento continua. Eu volto a falar com você pra saber como o seu pet respondeu e ajusto o plano se precisar. Você não fica sozinho com um papel na mão.",
+  },
+  {
+    q: "Como funciona o plano anual?",
+    a: "É pra quem quer um veterinário de referência o ano inteiro: vacinas, consultas periódicas e um canal aberto comigo pra tirar dúvidas. O valor é sob medida porque depende da idade e da rotina do seu pet. A gente monta juntos, sem surpresa.",
+  },
+  // ---- situações específicas
+  {
+    q: "Meu pet é medroso ou bravo com veterinário. Dá pra atender em casa?",
+    a: "Na maioria das vezes é justamente em casa que dá. Sem transporte, sem sala de espera e sem cheiro de clínica, muito cão e muito gato que \"não deixa mexer\" se examina tranquilo. Eu vou no ritmo dele. Se em algum caso não for seguro, eu te falo com honestidade e a gente pensa em alternativas.",
+  },
+  {
+    q: "O que você não faz em casa?",
+    a: "Cirurgias, internação e emergências. Se o seu pet precisar de algo assim, eu te oriento e indico onde ir. Este não é um serviço 24h: em uma emergência, procure imediatamente um atendimento emergencial.",
   },
 ] as const;
