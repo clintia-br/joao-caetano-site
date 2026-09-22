@@ -14,8 +14,10 @@ export const site = {
     display: "(21) 98114-4804",
     href: "https://wa.me/5521981144804",
   },
-  /** TODO confirmar com o João — nada publica sem o número real do CRMV. */
-  crmv: "CRMV-RJ 0000",
+  /** Registro no conselho: aparece no footer, no aviso CFMV e em "Quem cuida". */
+  crmv: "CRMV-RJ 22314",
+  /** Formação: graduação em Medicina Veterinária. */
+  formacao: { sigla: "UFRRJ", nome: "Universidade Federal Rural do Rio de Janeiro" },
   area: "Zona Sul do Rio",
   bairros: [
     "Botafogo",

@@ -62,6 +62,18 @@ const JSON_LD = {
   telephone: site.whatsapp.display,
   areaServed: site.bairros.map((b) => ({ "@type": "Place", name: `${b}, Rio de Janeiro` })),
   address: { "@type": "PostalAddress", addressLocality: "Rio de Janeiro", addressRegion: "RJ", addressCountry: "BR" },
+  founder: {
+    "@type": "Person",
+    name: site.name,
+    jobTitle: site.role,
+    alumniOf: { "@type": "CollegeOrUniversity", name: site.formacao.nome, alternateName: site.formacao.sigla },
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Registro profissional",
+      name: site.crmv,
+      recognizedBy: { "@type": "Organization", name: "Conselho Regional de Medicina Veterinária do Rio de Janeiro" },
+    },
+  },
   availableService: [
     { "@type": "Service", name: "Vacina em Casa" },
     { "@type": "Service", name: "Consulta Inteira" },

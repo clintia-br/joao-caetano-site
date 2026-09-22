@@ -94,6 +94,19 @@ export default function HomePage() {
             que ele precisa antes de pensar em remédio. É esse cuidado, com calma e atenção, que
             ajuda ele a viver bem e por mais tempo ao seu lado.
           </p>
+          {/* Credentials: training and council registration, quiet and factual. */}
+          <dl className="jc-credenciais" data-reveal="rise">
+            <div>
+              <dt>Formação</dt>
+              <dd>
+                {site.formacao.nome} ({site.formacao.sigla})
+              </dd>
+            </div>
+            <div>
+              <dt>Registro</dt>
+              <dd>{site.crmv}</dd>
+            </div>
+          </dl>
           <div data-reveal="rise">
             <ButtonLink href="#contato" variant="secondary" size="lg">
               Falar comigo

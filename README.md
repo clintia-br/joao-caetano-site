@@ -77,7 +77,7 @@ idênticos.
 
 Centralizadas em `src/lib/site.ts`:
 
-- **CRMV-RJ**: placeholder `CRMV-RJ 0000` — *nada publica sem o número real*.
+- **CRMV-RJ 22314** e formação **UFRRJ**: confirmados (set/2026), em `site.crmv` e `site.formacao`.
 - **WhatsApp comercial**: usando o número que constava no UI kit; confirmar.
 - **Fotografia**: a marca só usa fotografia real (manual §11). Enquanto não
   existe, cada `PhotoSlot` renderiza um campo musgo com o padrão de símbolos e
