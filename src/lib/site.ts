@@ -119,10 +119,10 @@ export const MANIFESTO_FOTOS: Foto[] = [
   { src: "/fotos/casa-gato-laranja.jpg", alt: "João sorrindo com um gato laranja no colo, na porta de uma casa", width: 800, height: 1000 },
   { src: "/fotos/casa-filhote-lambida.jpg", alt: "João com um filhote no colo, recebendo uma lambida no rosto", width: 800, height: 1000 },
   { src: "/fotos/casa-shih-tzu-abraco.jpg", alt: "João agachado na sala de um tutor, abraçando um shih tzu", width: 800, height: 1000 },
-  { src: "/fotos/casa-gato-tigrado.jpg", alt: "Selfie do João com um gato tigrado no colo", width: 800, height: 1000 },
+  { src: "/fotos/casa-yorkie-janela.jpg", alt: "João sorrindo com um yorkshire no colo, na luz da janela", width: 800, height: 1000 },
   { src: "/fotos/apto-bulldog-sofa.jpg", alt: "João no sofá de um apartamento com um filhote de bulldog no colo", width: 800, height: 1000 },
   { src: "/fotos/casa-dois-caes-sala.jpg", alt: "João agachado na sala de um tutor cumprimentando dois cães", width: 800, height: 1000 },
-  { src: "/fotos/casa-gata-escama.jpg", alt: "Selfie do João sorrindo com uma gata de pelo escama de tartaruga", width: 800, height: 1000 },
+  { src: "/fotos/casa-exame-no-chao.jpg", alt: "João sentado no chão examinando um cão de pelo curto com calma", width: 800, height: 1000 },
   { src: "/fotos/jardim-spitz-banco.jpg", alt: "João sentado num banco de jardim com um spitz no colo", width: 800, height: 1000 },
 ];
 
