@@ -45,7 +45,7 @@
 .jc-panel-block {
   position: relative;
   border-radius: var(--radius-panel);
-  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3.5rem);
+  padding: clamp(1.75rem, 5vw, 4rem) clamp(0.75rem, 4vw, 3.5rem);
   overflow: hidden;
 }
 
@@ -54,7 +54,7 @@
   position: relative;
   background: var(--surface-page);
   overflow: hidden;
-  padding: clamp(6rem, 14vw, 8.5rem) var(--gutter) clamp(3rem, 7vw, 5rem);
+  padding: clamp(5.5rem, 14vw, 8.5rem) var(--gutter) clamp(2.5rem, 7vw, 5rem);
 }
 .jc-hero2__inner {
   position: relative;
@@ -62,17 +62,19 @@
   margin-inline: auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(2rem, 6vw, 3rem);
+  gap: clamp(1.5rem, 5vw, 3rem);
   align-items: center;
 }
-.jc-hero2__copy { display: flex; flex-direction: column; gap: 1.4rem; order: 1; }
+.jc-hero2__copy { display: flex; flex-direction: column; gap: 1.1rem; order: 1; }
 .jc-hero2__copy .jc-lead { max-width: 40ch; }
 .jc-hero2__actions { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; }
 .jc-hero2__actions .jc-btn { flex: 1 1 100%; }
 .jc-hero2__figure {
   position: relative;
   order: 0;
-  width: min(100%, 420px);
+  /* on a phone the arch stays short enough for the headline and the button
+     to share the first screen with it */
+  width: min(100%, 290px);
   margin-inline: auto;
   aspect-ratio: 4 / 5;
 }
@@ -96,15 +98,15 @@
   background: var(--musgo-escuro);
   overflow: hidden;
 }
-.jc-band__photo { position: relative; aspect-ratio: 4 / 5; }
+.jc-band__photo { position: relative; aspect-ratio: 1 / 1; }
 .jc-band__photo .jc-photo { position: absolute; inset: 0; height: 100%; border-radius: 0; box-shadow: none; }
 .jc-band__copy {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.4rem;
-  padding: clamp(3rem, 8vw, 5.5rem) var(--gutter);
+  gap: 1.2rem;
+  padding: clamp(2.5rem, 8vw, 5.5rem) var(--gutter);
 }
 @media (min-width: 901px) {
   .jc-band { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); min-height: 520px; max-height: 620px; }
@@ -115,10 +117,12 @@
 /* --------------------------------------------- numbered cards (Lincoln) */
 .jc-num-card {
   position: relative;
-  display: flex;
-  gap: 1.1rem;
-  align-items: flex-start;
-  padding: clamp(1.4rem, 3vw, 1.9rem);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.9rem;
+  row-gap: 0.3rem;
+  align-items: center;
+  padding: clamp(1.2rem, 3vw, 1.9rem);
   background: var(--surface-raised);
   border: var(--border-card);
   border-radius: var(--radius-lg);
@@ -137,7 +141,13 @@
   line-height: 1;
 }
 .jc-num-card__title { font-weight: var(--weight-semibold); font-size: var(--text-lg); color: var(--text-primary); line-height: 1.25; }
-.jc-num-card__body { font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); margin-top: 0.4rem; }
+.jc-num-card > div { display: contents; }
+.jc-num-card__body { grid-column: 1 / -1; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); margin-top: 0.2rem; }
+@media (min-width: 761px) {
+  .jc-num-card { display: flex; gap: 1.1rem; align-items: flex-start; }
+  .jc-num-card > div { display: block; }
+  .jc-num-card__body { margin-top: 0.4rem; }
+}
 .jc-grid--two { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.1rem; }
 @media (min-width: 761px) { .jc-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; } }
 
@@ -188,7 +198,16 @@
 .jc-footer.jc-arc::before { --arc-from: var(--surface-page); }
 
 /* Room for the curved seam above the content. */
-.jc-section.jc-arc { padding-top: calc(var(--section-y) + clamp(24px, 4vw, 48px)); }
+.jc-section.jc-arc { padding-top: calc(var(--section-y) + clamp(8px, 4vw, 48px)); }
+/* Phone-only trims: the FAQ photo only earns its place beside the list, and
+   article covers sit a little shorter in a single column. */
+@media (max-width: 900px) {
+  .jc-hide-mobile { display: none; }
+  .jc-article__media { aspect-ratio: 16 / 10; }
+  .jc-grid--cards { gap: 1rem; }
+  .jc-grid--articles { gap: 1.75rem; }
+  .jc-contact-panel { padding: 2.5rem 1.25rem; gap: 1.4rem; }
+}
 .jc-footer.jc-arc { padding-top: calc(clamp(2.5rem, 5vw, 4rem) + clamp(40px, 6vw, 72px)); border-top: 0; }
 #contato.jc-section { padding-bottom: clamp(2rem, 5vw, 3.5rem); }
 /* Same colour above and below: the belief block and the services panel

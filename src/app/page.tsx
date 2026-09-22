@@ -267,7 +267,7 @@ export default function HomePage() {
               </ButtonLink>
             </div>
           </div>
-          <div className="jc-sticky">
+          <div className="jc-sticky jc-hide-mobile">
             <div className="jc-split-figure jc-split-figure--orb-br" data-reveal="frame">
               <span className="jc-orb jc-orb--terra" aria-hidden="true" />
               <div className="jc-arch jc-arch--rect">
