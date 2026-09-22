@@ -284,9 +284,9 @@ export default function HomePage() {
               <span className="jc-orb jc-orb--terra" aria-hidden="true" />
               <div className="jc-arch jc-arch--rect">
                 <PhotoSlot
-                  src="/fotos/casa-gata-escama.jpg"
-                  alt="Selfie do João sorrindo com uma gata de pelo escama de tartaruga"
-                  brief="João com uma gata"
+                  src="/fotos/casa-dois-chihuahuas.jpg"
+                  alt="João sorrindo com dois chihuahuas de pelo longo no colo"
+                  brief="João com dois cães"
                   width={800}
                   height={1000}
                   ratio="auto"
