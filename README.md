@@ -66,6 +66,13 @@ parallax é de poucos por cento. Abaixo de 901px o deslocamento cai para 12px,
 o stagger encurta e o parallax é desligado (briga com o scroll nativo e gasta
 bateria); o hero em coluna única entra por fade em vez de wipe lateral.
 
+## Branches e publicação
+
+O Vercel publica o branch padrão do repositório. Propostas de layout nunca
+entram nele: vão para um branch `proposta/<nome>` e só são mescladas com
+aprovação. Enquanto o branch padrão não for `main`, os dois são mantidos
+idênticos.
+
 ## Pendências declaradas (não inventar — confirmar com o João)
 
 Centralizadas em `src/lib/site.ts`:
