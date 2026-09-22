@@ -40,8 +40,6 @@ export function Marquee({ items }: { items: readonly string[] }) {
     <div className="jc-marquee__group" aria-hidden="true">
       {[...items, ...items].map((item, i) => (
         <span className="jc-marquee__item" key={`${item}-${i}`}>
-          {/* a terra dot as the separator — typographic, not an icon */}
-          <span className="jc-marquee__sep" aria-hidden="true" />
           {item}
         </span>
       ))}

@@ -106,7 +106,7 @@
   padding: clamp(3rem, 8vw, 5.5rem) var(--gutter);
 }
 @media (min-width: 901px) {
-  .jc-band { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); min-height: 640px; }
+  .jc-band { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); min-height: 520px; max-height: 620px; }
   .jc-band__photo { aspect-ratio: auto; }
   .jc-band__copy { padding: clamp(4rem, 8vw, 6rem) clamp(3rem, 7vw, 6.5rem); max-width: 720px; }
 }
@@ -190,3 +190,8 @@
 .jc-section.jc-arc { padding-top: calc(var(--section-y) + clamp(24px, 4vw, 48px)); }
 .jc-footer.jc-arc { padding-top: calc(clamp(2.5rem, 5vw, 4rem) + clamp(40px, 6vw, 72px)); border-top: 0; }
 #contato.jc-section { padding-bottom: clamp(2rem, 5vw, 3.5rem); }
+/* Same colour above and below: the belief block and the services panel
+   share one beat of air instead of two. */
+.jc-section--crenca.jc-section { padding-top: clamp(2.5rem, 6vw, 4.5rem); padding-bottom: clamp(2.5rem, 6vw, 4rem); }
+.jc-section--servicos.jc-section { padding-top: clamp(1.5rem, 4vw, 3rem); }
+#diferenciais.jc-section { padding-bottom: clamp(3rem, 6vw, 4.5rem); }

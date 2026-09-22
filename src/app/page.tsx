@@ -137,7 +137,7 @@ export default function HomePage() {
       </Section>
 
       {/* ------------------------------------------- a crença do João */}
-      <Section bg="page">
+      <Section bg="page" className="jc-section--crenca">
         {/* João's day-to-day photos open the manifesto (full container
             width); until they are selected the símbolo holds the spot. */}
         {MANIFESTO_FOTOS.length > 0 && (
@@ -177,7 +177,7 @@ export default function HomePage() {
       </Section>
 
       {/* ------------------------------------- esteira · tinted panel */}
-      <Section bg="page" id="servicos">
+      <Section bg="page" id="servicos" className="jc-section--servicos">
         <div className="jc-panel-block jc-bg-sage">
           <SectionHead
             align="center"
