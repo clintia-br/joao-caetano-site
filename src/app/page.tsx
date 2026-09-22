@@ -253,7 +253,7 @@ export default function HomePage() {
 
       {/* ------------------------------------ faq · accordion + arch */}
       <Section bg="page" id="faq" className="jc-arc" style={{ "--arc-from": "var(--musgo)" } as CSSProperties}>
-        <div className="jc-grid jc-grid--wide-left">
+        <div className="jc-grid jc-grid--wide-left" style={{ alignItems: "start" }}>
           <div className="jc-stack jc-stack--md">
             <SectionHead
               number="06"
