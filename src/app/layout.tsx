@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     siteName: `${site.name} · ${site.descritor}`,
-    title: `${site.name} · ${site.tagline}`,
+    title: `${site.name} · ${site.role}`,
     description:
       "Cuidado veterinário para cães e gatos na casa deles: até duas horas reservadas, um plano individualizado por escrito e prevenção antes de medicar, pra ele viver bem, ao seu lado, por mais tempo.",
   },

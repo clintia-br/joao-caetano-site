@@ -68,6 +68,13 @@
   align-items: center;
 }
 .jc-hero2__copy { display: flex; flex-direction: column; gap: 1.1rem; order: 1; }
+/* The kicker is a full sentence: on a phone it keeps to one line with a
+   shorter rule and less tracking. */
+@media (max-width: 900px) {
+  .jc-hero2__copy .jc-eyebrow-row { gap: 0.6rem; }
+  .jc-hero2__copy .jc-eyebrow-row__rule { width: 22px; }
+  .jc-hero2__copy .jc-eyebrow-row__label { font-size: 0.625rem; letter-spacing: 0.1em; white-space: nowrap; }
+}
 .jc-hero2__copy .jc-lead { max-width: 40ch; }
 .jc-hero2__actions { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; }
 .jc-hero2__actions .jc-btn { flex: 1 1 100%; }
