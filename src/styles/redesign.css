@@ -1,0 +1,192 @@
+/* ==========================================================================
+   Redesign "referências" — a lighter, rounder pattern drawn from three vet
+   sites (Vetopia, Lincoln Hills, Southwoods) and kept inside the brand:
+   off-white first, arches instead of blobs (the mark is a house), fio terra
+   and numerals as the only ornaments, Caslon regular for titles.
+   ========================================================================== */
+
+/* ------------------------------------------------------------ shapes */
+/* The arch: the one organic form of the site — a door, a house. */
+.jc-arch {
+  border-radius: 999px 999px var(--radius-panel) var(--radius-panel);
+  overflow: hidden;
+}
+.jc-arch .jc-photo { height: 100%; border-radius: 0; box-shadow: none; }
+.jc-arch--soft { border-radius: var(--radius-panel) var(--radius-panel) 999px 999px; }
+.jc-arch--rect { border-radius: var(--radius-lg); }
+
+/* Colour fields that sit behind photos: a circle of sage or terra tint. */
+.jc-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.jc-orb--sage { background: var(--surface-sage); }
+.jc-orb--terra { background: var(--terra-12); }
+.jc-orb--musgo { background: var(--musgo-12); }
+
+/* Curved seam (Southwoods): the previous section's colour dips into this
+   one as a shallow arc. Set --arc-from on the section. */
+.jc-arc { position: relative; }
+.jc-arc::before {
+  content: "";
+  position: absolute;
+  top: -1px; left: -8%; right: -8%;
+  height: clamp(40px, 6vw, 72px);
+  background: var(--arc-from, transparent);
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Big rounded panel (Vetopia's tinted block). */
+.jc-panel-block {
+  position: relative;
+  border-radius: var(--radius-panel);
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3.5rem);
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------- hero */
+.jc-hero2 {
+  position: relative;
+  background: var(--surface-page);
+  overflow: hidden;
+  padding: clamp(6rem, 14vw, 8.5rem) var(--gutter) clamp(3rem, 7vw, 5rem);
+}
+.jc-hero2__inner {
+  position: relative;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 3rem);
+  align-items: center;
+}
+.jc-hero2__copy { display: flex; flex-direction: column; gap: 1.4rem; order: 1; }
+.jc-hero2__copy .jc-lead { max-width: 40ch; }
+.jc-hero2__actions { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; }
+.jc-hero2__actions .jc-btn { flex: 1 1 100%; }
+.jc-hero2__figure {
+  position: relative;
+  order: 0;
+  width: min(100%, 420px);
+  margin-inline: auto;
+  aspect-ratio: 4 / 5;
+}
+.jc-hero2__figure .jc-arch { position: absolute; inset: 0; z-index: 1; box-shadow: var(--shadow-lg); }
+.jc-hero2__figure .jc-orb--sage { width: 78%; aspect-ratio: 1; left: -18%; bottom: -8%; }
+.jc-hero2__figure .jc-orb--terra { width: 34%; aspect-ratio: 1; right: -10%; top: 6%; }
+.jc-hero2__mark { position: absolute; right: -2%; bottom: 10%; z-index: 2; }
+@media (min-width: 901px) {
+  .jc-hero2 { min-height: clamp(600px, 88vh, 820px); display: grid; align-items: center; }
+  .jc-hero2__inner { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(2rem, 6vw, 5rem); }
+  .jc-hero2__copy { order: 0; gap: 1.8rem; max-width: 560px; }
+  .jc-hero2__actions .jc-btn { flex: 0 0 auto; }
+  .jc-hero2__figure { order: 1; width: min(100%, 460px); margin-inline: auto 0; }
+}
+
+/* ----------------------------------------------- photo band (Lincoln) */
+.jc-band {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  background: var(--musgo-escuro);
+  overflow: hidden;
+}
+.jc-band__photo { position: relative; aspect-ratio: 4 / 5; }
+.jc-band__photo .jc-photo { position: absolute; inset: 0; height: 100%; border-radius: 0; box-shadow: none; }
+.jc-band__copy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.4rem;
+  padding: clamp(3rem, 8vw, 5.5rem) var(--gutter);
+}
+@media (min-width: 901px) {
+  .jc-band { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); min-height: 640px; }
+  .jc-band__photo { aspect-ratio: auto; }
+  .jc-band__copy { padding: clamp(4rem, 8vw, 6rem) clamp(3rem, 7vw, 6.5rem); max-width: 720px; }
+}
+
+/* --------------------------------------------- numbered cards (Lincoln) */
+.jc-num-card {
+  position: relative;
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  padding: clamp(1.4rem, 3vw, 1.9rem);
+  background: var(--surface-raised);
+  border: var(--border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.jc-num-card__num {
+  flex: none;
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--terra-12);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--text-accent);
+  line-height: 1;
+}
+.jc-num-card__title { font-weight: var(--weight-semibold); font-size: var(--text-lg); color: var(--text-primary); line-height: 1.25; }
+.jc-num-card__body { font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); margin-top: 0.4rem; }
+.jc-grid--two { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.1rem; }
+@media (min-width: 761px) { .jc-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; } }
+
+/* ----------------------------------------------------- split + arch */
+.jc-split-figure { position: relative; width: min(100%, 440px); margin-inline: auto; aspect-ratio: 4 / 5; }
+.jc-split-figure .jc-arch { position: absolute; inset: 0; z-index: 1; box-shadow: var(--shadow-md); }
+.jc-split-figure .jc-orb { width: 70%; aspect-ratio: 1; }
+.jc-split-figure--orb-tl .jc-orb { left: -14%; top: -8%; }
+.jc-split-figure--orb-br .jc-orb { right: -14%; bottom: -8%; }
+
+/* ------------------------------------------------------ testimonials */
+.jc-quotes { display: flex; flex-direction: column; }
+.jc-quotes__item { padding: 1.4rem 0; border-top: 1px solid var(--line-on-dark); }
+.jc-quotes__item:first-child { border-top: 0; padding-top: 0; }
+.jc-quotes__text { font-family: var(--font-display); font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.3; color: var(--off-white); }
+.jc-quotes__name { display: block; margin-top: 0.7rem; font-size: var(--text-xs); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--offwhite-78); }
+.jc-quotes-panel { background: var(--musgo-escuro); border-radius: var(--radius-panel); padding: clamp(1.75rem, 4vw, 3rem); }
+.jc-quotes-photo { position: relative; border-radius: var(--radius-panel); overflow: hidden; aspect-ratio: 4 / 5; }
+.jc-quotes-photo .jc-photo { position: absolute; inset: 0; height: 100%; border-radius: 0; box-shadow: none; }
+@media (min-width: 901px) { .jc-quotes-photo { aspect-ratio: auto; min-height: 100%; } }
+
+/* ------------------------------------------------ dark article cards */
+.jc-article-card {
+  background: var(--musgo-escuro);
+  border-radius: var(--radius-lg);
+  padding: 0.75rem 0.75rem 1.5rem;
+  box-shadow: var(--shadow-md);
+  height: 100%;
+}
+.jc-article-card .jc-article { gap: 0.9rem; }
+.jc-article-card .jc-article__media { border-radius: calc(var(--radius-lg) - 4px); }
+.jc-article-card .jc-article__meta,
+.jc-article-card .jc-article__title { padding-inline: 0.5rem; }
+
+/* ------------------------------------------------------ contact panel */
+.jc-contact-panel {
+  background: var(--musgo-escuro);
+  border-radius: var(--radius-panel);
+  padding: clamp(3rem, 7vw, 5rem) clamp(1.25rem, 5vw, 3rem);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+/* Footer meets the page with a curved seam (Southwoods). */
+.jc-footer.jc-arc::before { --arc-from: var(--surface-page); }
+
+/* Room for the curved seam above the content. */
+.jc-section.jc-arc { padding-top: calc(var(--section-y) + clamp(24px, 4vw, 48px)); }
+.jc-footer.jc-arc { padding-top: calc(clamp(2.5rem, 5vw, 4rem) + clamp(40px, 6vw, 72px)); border-top: 0; }
+#contato.jc-section { padding-bottom: clamp(2rem, 5vw, 3.5rem); }

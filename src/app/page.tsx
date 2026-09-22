@@ -1,14 +1,15 @@
+import type { CSSProperties } from "react";
 import { HomeHero } from "@/components/site/HomeHero";
 import { Section } from "@/components/site/Section";
 import { SectionHead } from "@/components/site/SectionHead";
 import { PhotoSlot } from "@/components/site/PhotoSlot";
-import { DiffItem, ArticleCard } from "@/components/site/Pieces";
+import { ArticleCard } from "@/components/site/Pieces";
+import { JcSymbol } from "@/components/ds/JcSymbol";
 import { Marquee } from "@/components/motion/Marquee";
 import { FaqList } from "@/components/site/FaqList";
 import { PhotoCarousel } from "@/components/site/PhotoCarousel";
 import { ButtonLink } from "@/components/ds/Button";
 import { ServiceCard } from "@/components/ds/ServiceCard";
-import { JcSymbol } from "@/components/ds/JcSymbol";
 import { SplitHeading } from "@/components/motion/SplitHeading";
 import { ARTICLES, FAQS, MANIFESTO_FOTOS, SERVICES, site } from "@/lib/site";
 
@@ -82,65 +83,55 @@ export default function HomePage() {
         />
       </div>
 
-      {/* ---------------------------------------------------- quem cuida */}
-      <Section bg="musgo-deep" id="sobre">
-        <div className="jc-grid jc-grid--split">
-          <div className="jc-stack jc-stack--md">
-            <SectionHead number="01" eyebrow="Quem cuida" title="Cuidar bem tem um caminho" />
-            <p className="jc-body jc-body--lg" data-reveal="rise">
-              Sou o João, médico-veterinário. Vou até a sua casa e cuido do seu cão ou gato onde ele
-              se sente seguro, perto de você. Gosto de entender como ele vive, o que ele sente e o
-              que ele precisa antes de pensar em remédio. É esse cuidado, com calma e atenção, que
-              ajuda ele a viver bem e por mais tempo ao seu lado.
-            </p>
-
-            <div data-reveal="rise">
-              <ButtonLink href="#contato" variant="secondary" size="lg">
-                Falar comigo
-              </ButtonLink>
-            </div>
-          </div>
-
-          <div>
-            <div className="jc-photo-pair">
-              <div className="jc-photo-pair__back">
-                <PhotoSlot
-                  src="/fotos/cuidar-1.jpg"
-                  alt="Filhote recebendo vacina em casa"
-                  brief="Detalhe do cuidado"
-                  width={1000}
-                  height={1333}
-                  ratio="3 / 4"
-                  parallax={6}
-                />
-              </div>
-              <div className="jc-photo-pair__front">
-                <PhotoSlot
-                  src="/fotos/cuidar-2.jpg"
-                  alt="João Caetano segurando um gato durante o atendimento em casa"
-                  brief="João atendendo em casa"
-                  width={1100}
-                  height={1467}
-                  ratio="4 / 5"
-                  parallax={10}
-                />
-              </div>
-            </div>
+      {/* ------------------------------------- quem cuida · photo band */}
+      <section className="jc-band jc-on-dark" id="sobre">
+        <div className="jc-band__photo" data-reveal="frame">
+          <PhotoSlot
+            src="/fotos/casa-spitz-branco.jpg"
+            alt="João Caetano sorrindo com um spitz branco no colo"
+            brief="João atendendo em casa"
+            width={900}
+            height={1125}
+            ratio="auto"
+            reveal={false}
+            parallax={6}
+            sizes="(max-width: 900px) 100vw, 48vw"
+          />
+        </div>
+        <div className="jc-band__copy">
+          <SectionHead number="01" eyebrow="Quem cuida" title="Cuidar bem tem um caminho" />
+          <p className="jc-body jc-body--lg" data-reveal="rise">
+            Sou o João, médico-veterinário. Vou até a sua casa e cuido do seu cão ou gato onde ele
+            se sente seguro, perto de você. Gosto de entender como ele vive, o que ele sente e o
+            que ele precisa antes de pensar em remédio. É esse cuidado, com calma e atenção, que
+            ajuda ele a viver bem e por mais tempo ao seu lado.
+          </p>
+          <div data-reveal="rise">
+            <ButtonLink href="#contato" variant="secondary" size="lg">
+              Falar comigo
+            </ButtonLink>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* -------------------------------------------------- diferenciais */}
-      <Section bg="musgo" id="diferenciais">
+      {/* ------------------------------------ diferenciais · numbered cards */}
+      <Section bg="page" id="diferenciais" className="jc-arc" style={{ "--arc-from": "var(--musgo-escuro)" } as CSSProperties}>
+        <span className="jc-orb jc-orb--terra" aria-hidden="true" style={{ width: 420, height: 420, right: -160, top: 40 }} />
         <SectionHead
           number="02"
           eyebrow="O que muda comigo"
           title="E qual a diferença do meu atendimento?"
           wide
         />
-        <div className="jc-grid jc-grid--three jc-mt-lg" data-reveal-stagger="">
+        <div className="jc-grid--two jc-mt-lg" data-reveal-stagger="">
           {DIFERENCIAIS.map(([n, t, b]) => (
-            <DiffItem key={n} n={n} title={t} body={b} />
+            <div className="jc-num-card" key={n} data-reveal="rise">
+              <span className="jc-num-card__num">{n}</span>
+              <div>
+                <h3 className="jc-num-card__title">{t}</h3>
+                <p className="jc-num-card__body">{b}</p>
+              </div>
+            </div>
           ))}
         </div>
       </Section>
@@ -185,28 +176,31 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* -------------------------------------------------------- esteira */}
-      <Section bg="musgo-deep" id="servicos">
-        <SectionHead
-          number="03"
-          eyebrow="Como eu posso cuidar"
-          title="Um caminho, três passos"
-          lead="Começa pela vacina, passa pela consulta que olha o seu pet por completo, e vira acompanhamento pro ano todo."
-        />
-        <div className="jc-grid jc-grid--cards jc-mt-lg" data-reveal-stagger="" data-reveal-stagger-step="0.12">
-          {SERVICES.map((s) => (
-            <ServiceCard
-              key={s.title}
-              eyebrow={s.eyebrow}
-              title={s.title}
-              description={s.description}
-              price={s.price}
-              priceNote={s.priceNote}
-              cta={s.cta}
-              href={s.slug}
-              featured={s.featured}
-            />
-          ))}
+      {/* ------------------------------------- esteira · tinted panel */}
+      <Section bg="page" id="servicos">
+        <div className="jc-panel-block jc-bg-sage">
+          <SectionHead
+            align="center"
+            number="03"
+            eyebrow="Como eu posso cuidar"
+            title="Um caminho, três passos"
+            lead="Começa pela vacina, passa pela consulta que olha o seu pet por completo, e vira acompanhamento pro ano todo."
+          />
+          <div className="jc-grid jc-grid--cards jc-mt-lg" data-reveal-stagger="" data-reveal-stagger-step="0.12">
+            {SERVICES.map((s) => (
+              <ServiceCard
+                key={s.title}
+                eyebrow={s.eyebrow}
+                title={s.title}
+                description={s.description}
+                price={s.price}
+                priceNote={s.priceNote}
+                cta={s.cta}
+                href={s.slug}
+                featured={s.featured}
+              />
+            ))}
+          </div>
         </div>
       </Section>
 
@@ -269,33 +263,48 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ------------------------------------------------------------ faq */}
-      <Section bg="musgo-deep" id="faq" light>
-        <div className="jc-grid jc-grid--wide-right">
-          <div className="jc-sticky jc-stack jc-stack--md">
+      {/* ------------------------------------ faq · accordion + arch */}
+      <Section bg="page" id="faq" className="jc-arc" style={{ "--arc-from": "var(--musgo)" } as CSSProperties}>
+        <div className="jc-grid jc-grid--wide-left">
+          <div className="jc-stack jc-stack--md">
             <SectionHead
               number="06"
               eyebrow="Perguntas frequentes"
               title="O que costumam me perguntar"
             />
+            <FaqList items={FAQS} />
             <div data-reveal="rise">
               <ButtonLink href="#contato" size="lg">
                 Ainda com dúvida? Me chame
               </ButtonLink>
             </div>
           </div>
-          <FaqList items={FAQS} />
+          <div className="jc-sticky">
+            <div className="jc-split-figure jc-split-figure--orb-br" data-reveal="frame">
+              <span className="jc-orb jc-orb--terra" aria-hidden="true" />
+              <div className="jc-arch jc-arch--rect">
+                <PhotoSlot
+                  src="/fotos/casa-gata-escama.jpg"
+                  alt="Selfie do João sorrindo com uma gata de pelo escama de tartaruga"
+                  brief="João com uma gata"
+                  width={800}
+                  height={1000}
+                  ratio="auto"
+                  reveal={false}
+                  parallax={5}
+                  sizes="(max-width: 900px) 100vw, 440px"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 
-      {/* -------------------------------------------------------- contato */}
+      {/* ------------------------------------------- contato · panel */}
       {/* One channel only: the practice runs on WhatsApp, so the close is a
           single strong WhatsApp call — no competing form. */}
-      <Section bg="musgo-deep" id="contato" divider className="jc-section--close">
-        <div
-          className="jc-stack jc-center"
-          style={{ alignItems: "center", gap: "1.8rem" }}
-        >
+      <Section bg="page" id="contato" light>
+        <div className="jc-contact-panel jc-on-dark" data-reveal="frame">
           <SectionHead
             align="center"
             number="07"
@@ -303,7 +312,6 @@ export default function HomePage() {
             title="Vamos agendar"
             lead="Me conta um pouco sobre o seu pet pelo WhatsApp. Eu respondo com o preço aberto e a primeira janela livre."
           />
-
           <div className="jc-row" style={{ justifyContent: "center" }} data-reveal="rise">
             <ButtonLink href={site.whatsapp.href} size="lg">
               Agendar pelo WhatsApp

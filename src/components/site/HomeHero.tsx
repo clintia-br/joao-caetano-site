@@ -63,51 +63,56 @@ export function HomeHero() {
   );
 
   return (
-    <section className="jc-hero jc-on-dark" ref={root} id="top">
-      <div className="jc-hero__copy">
-        {/* The brand tagline stays as the kicker; the headline carries the
-            emotional promise (care as family, prevention, more time together). */}
-        <div data-hero>
-          <Eyebrow>{site.tagline.replace(/\.$/, "")}</Eyebrow>
+    <section className="jc-hero2" ref={root} id="top">
+      <div className="jc-hero2__inner">
+        <div className="jc-hero2__copy">
+          {/* The brand tagline stays as the kicker; the headline carries the
+              emotional promise (care as family, prevention, more time together). */}
+          <div data-hero>
+            <Eyebrow>{site.tagline.replace(/\.$/, "")}</Eyebrow>
+          </div>
+
+          <SplitHeading
+            as="h1"
+            className="jc-display jc-h1--hero"
+            trigger="load"
+            delay={0.2}
+          >
+            {"Cuidando do seu pet hoje para que ele viva o melhor ao seu lado."}
+          </SplitHeading>
+
+          <p className="jc-lead" data-hero>
+            Atendimento veterinário para cães e gatos, no conforto dos seus lares, com o carinho e o
+            cuidado que eles merecem.
+          </p>
+
+          <div className="jc-hero2__actions" data-hero>
+            <ButtonLink href="#contato" size="lg">
+              Agendar pelo WhatsApp
+            </ButtonLink>
+          </div>
         </div>
 
-        <SplitHeading
-          as="h1"
-          className="jc-display jc-h1--hero"
-          trigger="load"
-          delay={0.2}
-        >
-          {"Cuidando do seu pet hoje para que ele viva o melhor ao seu lado."}
-        </SplitHeading>
-
-        {/* Regular weight throughout: a bold run in the middle of a lead
-            breaks the calm the sentence is promising. */}
-        <p className="jc-lead" data-hero>
-          Atendimento veterinário para cães e gatos, no conforto dos seus lares, com o carinho e o
-          cuidado que eles merecem.
-        </p>
-
-        <div className="jc-row jc-hero__actions" data-hero>
-          <ButtonLink href="#contato" size="lg" className="jc-hero__cta">
-            Agendar pelo WhatsApp
-          </ButtonLink>
+        {/* The photo sits in an arch (a door, a house) over a sage circle,
+            with a small terra circle behind the top corner. */}
+        <div className="jc-hero2__figure">
+          <span className="jc-orb jc-orb--sage" aria-hidden="true" data-hero />
+          <span className="jc-orb jc-orb--terra" aria-hidden="true" data-hero />
+          <div className="jc-arch" data-hero-media>
+            <PhotoSlot
+              src="/fotos/hero.jpg"
+              alt="João Caetano sentado num banco com dois cães no colo"
+              brief="Foto do João com o pet, na casa do tutor · recorte vertical"
+              width={1500}
+              height={2000}
+              ratio="auto"
+              reveal={false}
+              parallax={7}
+              priority
+            />
+          </div>
         </div>
       </div>
-
-      <div className="jc-hero__media" data-hero-media>
-        <PhotoSlot
-          src="/fotos/hero.jpg"
-          alt="João Caetano sentado num banco com dois cães no colo"
-          brief="Foto do João com o pet, na casa do tutor · recorte vertical"
-          width={1500}
-          height={2000}
-          ratio="auto"
-          reveal={false}
-          parallax={7}
-          priority
-        />
-      </div>
-
     </section>
   );
 }
