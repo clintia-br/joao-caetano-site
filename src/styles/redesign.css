@@ -62,7 +62,9 @@
   margin-inline: auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(1.5rem, 5vw, 3rem);
+  /* on a phone the sage circle hangs below the arch: the kicker starts
+     clear of it */
+  gap: 3rem;
   align-items: center;
 }
 .jc-hero2__copy { display: flex; flex-direction: column; gap: 1.1rem; order: 1; }
@@ -100,6 +102,11 @@
   overflow: hidden;
 }
 .jc-band__photo { position: relative; aspect-ratio: 1 / 1; order: 1; }
+@media (max-width: 900px) {
+  .jc-band { border-radius: 0 0 50% 50% / 0 0 40px 40px; }
+  #diferenciais.jc-arc::before { display: none; }
+  #diferenciais.jc-section.jc-arc { padding-top: var(--section-y); }
+}
 .jc-band__copy { order: 0; }
 .jc-band__photo .jc-photo { position: absolute; inset: 0; height: 100%; border-radius: 0; box-shadow: none; }
 .jc-band__copy {
