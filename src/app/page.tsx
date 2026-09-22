@@ -5,7 +5,6 @@ import { SectionHead } from "@/components/site/SectionHead";
 import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { ArticleCard } from "@/components/site/Pieces";
 import { JcSymbol } from "@/components/ds/JcSymbol";
-import { Marquee } from "@/components/motion/Marquee";
 import { FaqList } from "@/components/site/FaqList";
 import { PhotoCarousel } from "@/components/site/PhotoCarousel";
 import { ButtonLink } from "@/components/ds/Button";
@@ -71,17 +70,6 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }}
       />
       <HomeHero />
-
-      <div className="jc-bg-sage">
-        <Marquee
-          items={[
-            "Cuidado que você entende.",
-            "O consultório é a sua casa.",
-            "Cães e gatos, em casa, na Zona Sul.",
-            "Nenhuma decisão sem porquê.",
-          ]}
-        />
-      </div>
 
       {/* ------------------------------------- quem cuida · photo band */}
       <section className="jc-band jc-on-dark" id="sobre">

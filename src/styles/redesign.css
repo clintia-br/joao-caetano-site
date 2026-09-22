@@ -29,6 +29,7 @@
 /* Curved seam (Southwoods): the previous section's colour dips into this
    one as a shallow arc. Set --arc-from on the section. */
 .jc-arc { position: relative; }
+/* The band follows the hero directly: no seam needed, the hero is light. */
 .jc-arc::before {
   content: "";
   position: absolute;
